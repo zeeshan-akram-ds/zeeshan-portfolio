@@ -1378,3 +1378,46 @@ textarea:focus {
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
 }
+
+
+/* =============================== */
+/* ===== Resume Preview Update ==== */
+/* =============================== */
+
+.resume-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl); /* space between stats, preview, and button */
+}
+
+.resume-preview {
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-medium);
+  text-align: center;
+}
+
+.resume-preview img.resume-img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-light);
+  margin: 0 auto;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.resume-preview img.resume-img:hover {
+  transform: scale(1.01);
+  box-shadow: var(--shadow-medium);
+}
+
+.resume-download {
+  text-align: center;
+  margin-top: var(--spacing-md);
+}
+
