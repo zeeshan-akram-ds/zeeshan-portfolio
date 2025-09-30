@@ -1081,10 +1081,19 @@ button {
   .hero-subtitle {
     font-size: var(--font-size-xl);
   }
+
+  .hero-social {
+    margin-bottom: 90px;
+    justify-content: center;
+  }
   
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+  }
+
+  .scroll-indicator {
+    bottom: 40px;
   }
   
   .section-title {
@@ -1125,6 +1134,10 @@ button {
   .hero-title {
     font-size: var(--font-size-3xl);
   }
+
+  .hero-social {
+    margin-bottom: 110px; 
+  }
   
   .hero-img-container {
     width: 250px;
@@ -1133,6 +1146,10 @@ button {
   
   .section-title {
     font-size: var(--font-size-2xl);
+  }
+
+  .scroll-indicator {
+    bottom: 20px;
   }
   
   .hero-buttons .btn {
