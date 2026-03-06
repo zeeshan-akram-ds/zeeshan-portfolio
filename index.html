@@ -1,895 +1,781 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zeeshan Akram - Data Science & Machine Learning Enthusiast. Transforming Data into Meaningful Insights with Clean, Smart Solutions.">
-    <meta name="keywords" content="data science, machine learning, python, portfolio, zeeshan akram">
-    <meta name="author" content="Zeeshan Akram">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Zeeshan Akram - Data Science Portfolio">
-    <meta property="og:description" content="Data Science & Machine Learning Enthusiast from Pakistan">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://zeeshan-akram-portfolio.com">
-    <meta property="og:image" content="./assets/images/og-image.jpg">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Zeeshan Akram - Data Science Portfolio">
-    <meta name="twitter:description" content="Data Science & Machine Learning Enthusiast from Pakistan">
-    <meta name="twitter:image" content="./assets/images/og-image.jpg">
-    
-    <title>Zeeshan Akram - Data Science Portfolio</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Zeeshan Akram — Data Analyst & BI Specialist. Turning messy datasets into revenue-driving decisions.">
+<meta name="keywords" content="data analyst, business intelligence, SQL, python, pandas, portfolio, zeeshan akram pakistan">
+<meta name="author" content="Zeeshan Akram">
+<meta property="og:title" content="Zeeshan Akram — Data Analyst Portfolio">
+<meta property="og:description" content="Data Analyst & BI Specialist from Pakistan">
+<meta property="og:type" content="website">
+<meta property="og:image" content="./assets/images/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<title>Zeeshan Akram — Data Analyst</title>
+<link rel="icon" href="./assets/images/favicon.ico">
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-68RPSGRBEM"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-68RPSGRBEM');
-    </script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-68RPSGRBEM"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());gtag('config','G-68RPSGRBEM');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* ================================================
+   VARIABLES
+================================================ */
+:root {
+  --bg:       #08101f;
+  --bg2:      #0d1a2e;
+  --bg3:      #0f1f38;
+  --card:     #101e35;
+  --border:   rgba(255,255,255,0.07);
+  --baccent:  rgba(6,182,212,0.28);
+  --t1:       #e8f4ff;
+  --t2:       #8ba8c8;
+  --t3:       #4e6a87;
+  --cyan:     #06b6d4;
+  --cyanglow: rgba(6,182,212,0.18);
+  --cyandim:  rgba(6,182,212,0.07);
+  --amber:    #f59e0b;
+  --green:    #10b981;
+  --nav:      rgba(8,16,31,0.88);
+  --sh:       0 8px 32px rgba(0,0,0,0.5);
+  --shcyan:   0 0 40px rgba(6,182,212,0.14);
+  --r:        12px;
+  --rs:       8px;
+  --ease:     all 0.28s cubic-bezier(0.4,0,0.2,1);
+}
+[data-theme="light"] {
+  --bg:    #f0f4f8;
+  --bg2:   #e8eef6;
+  --bg3:   #dde6f0;
+  --card:  #ffffff;
+  --border:  rgba(0,0,0,0.09);
+  --baccent: rgba(6,182,212,0.3);
+  --t1:    #0d1f35;
+  --t2:    #3d5a78;
+  --t3:    #7a96b0;
+  --nav:   rgba(240,244,248,0.92);
+  --sh:    0 4px 20px rgba(0,0,0,0.1);
+  --shcyan:0 0 28px rgba(6,182,212,0.1);
+  --cyandim: rgba(6,182,212,0.06);
+}
+
+/* ================================================
+   RESET
+================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t1);line-height:1.7;overflow-x:hidden;transition:background .35s,color .35s;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+ul{list-style:none;}
+::selection{background:var(--cyan);color:#000;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-thumb{background:var(--cyan);border-radius:99px;}
+
+/* ================================================
+   SCROLL PROGRESS
+================================================ */
+#spb{position:fixed;top:0;left:0;height:2.5px;background:linear-gradient(90deg,var(--cyan),var(--amber));z-index:9999;width:0%;pointer-events:none;}
+
+/* ================================================
+   TYPOGRAPHY
+================================================ */
+h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.15;letter-spacing:-0.02em;}
+
+/* ================================================
+   UTILITIES
+================================================ */
+.container{max-width:1160px;margin:0 auto;padding:0 24px;}
+
+.sec-hd{text-align:center;margin-bottom:60px;}
+.sec-hd h2{font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:800;display:inline-block;position:relative;margin-bottom:14px;}
+.sec-hd h2::after{content:'';display:block;width:44px;height:3px;background:var(--cyan);border-radius:99px;margin:10px auto 0;transition:width .35s;}
+.sec-hd:hover h2::after{width:72px;}
+.sec-hd p{color:var(--t2);font-size:.95rem;max-width:520px;margin:0 auto;}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:var(--rs);font-weight:600;font-size:.875rem;font-family:'Inter',sans-serif;cursor:pointer;border:none;transition:var(--ease);}
+.btn-primary{background:var(--cyan);color:#000;}
+.btn-primary:hover{background:#0891b2;transform:translateY(-2px);box-shadow:0 8px 24px rgba(6,182,212,.35);}
+.btn-outline{background:transparent;color:var(--cyan);border:1.5px solid var(--baccent);}
+.btn-outline:hover{background:var(--cyandim);transform:translateY(-2px);}
+
+/* ================================================
+   NAVBAR
+================================================ */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;transition:var(--ease);}
+.navbar.solid{background:var(--nav);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:var(--sh);}
+.nc{max-width:1160px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:66px;}
+.nlogo a{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:800;color:var(--cyan);letter-spacing:-.03em;}
+.nmenu{display:flex;gap:4px;}
+.nl{font-size:.84rem;font-weight:500;color:var(--t2);padding:7px 13px;border-radius:6px;transition:var(--ease);}
+.nl:hover,.nl.active{color:var(--cyan);background:var(--cyandim);}
+.nact{display:flex;align-items:center;gap:10px;}
+.ttheme{width:37px;height:37px;border-radius:50%;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--t2);transition:var(--ease);}
+.ttheme:hover{color:var(--cyan);border-color:var(--baccent);}
+.ntoggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;}
+.bar{width:22px;height:2px;background:var(--t1);border-radius:99px;transition:var(--ease);}
+
+/* ================================================
+   HERO
+================================================ */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 0 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse 80% 90% at center,black 10%,transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 90% at center,black 10%,transparent 75%);
+  opacity:.4;pointer-events:none;}
+.hero::after{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 55% at 18% 55%,rgba(6,182,212,.07) 0%,transparent 55%),
+             radial-gradient(ellipse 50% 70% at 85% 25%,rgba(245,158,11,.04) 0%,transparent 55%);
+  pointer-events:none;}
+
+.hc{position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+
+/* Left */
+.htag{display:inline-flex;align-items:center;gap:8px;background:var(--cyandim);border:1px solid var(--baccent);border-radius:99px;padding:5px 16px;font-size:.75rem;font-weight:700;color:var(--cyan);letter-spacing:.06em;text-transform:uppercase;margin-bottom:22px;animation:fadeUp .6s ease both;}
+.hdot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.75);}}
+
+.htitle{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:800;margin-bottom:6px;animation:fadeUp .7s .08s ease both;}
+.htitle .hn{background:linear-gradient(135deg,var(--cyan),#7dd3fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+.hsub{font-size:clamp(1.1rem,2vw,1.5rem);font-family:'Syne',sans-serif;font-weight:600;color:var(--t2);margin-bottom:18px;min-height:2.2em;animation:fadeUp .7s .16s ease both;}
+#tx{color:var(--amber);}
+.tcur{display:inline-block;width:2px;height:.9em;background:var(--amber);margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;}
+@keyframes blink{50%{opacity:0;}}
+
+.hdesc{font-size:1rem;color:var(--t2);max-width:460px;line-height:1.85;margin-bottom:32px;animation:fadeUp .7s .24s ease both;}
+
+.hkpi{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;animation:fadeUp .7s .3s ease both;}
+.hchip{display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--border);border-radius:var(--rs);padding:7px 13px;font-size:.8rem;font-weight:500;color:var(--t2);transition:var(--ease);}
+.hchip:hover{border-color:var(--baccent);color:var(--t1);transform:translateY(-2px);}
+.hchip i{color:var(--cyan);font-size:.72rem;}
+.hchip b{color:var(--cyan);}
+
+.hbtns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px;animation:fadeUp .7s .36s ease both;}
+
+.hsocial{display:flex;gap:9px;animation:fadeUp .7s .44s ease both;}
+.hsocial a{width:39px;height:39px;border-radius:var(--rs);background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--t2);font-size:.9rem;transition:var(--ease);}
+.hsocial a:hover{color:var(--cyan);border-color:var(--baccent);background:var(--cyandim);transform:translateY(-3px);}
+
+/* Right — large dominant photo */
+.himg{display:flex;justify-content:center;align-items:center;animation:fadeRight .8s .1s ease both;}
+.himg-wrap{position:relative;width:100%;max-width:420px;}
+
+/* Corner accents */
+.hcorner{position:absolute;width:26px;height:26px;border-color:var(--cyan);border-style:solid;z-index:2;}
+.hcorner.tl{top:-7px;left:-7px;border-width:3px 0 0 3px;border-radius:4px 0 0 0;}
+.hcorner.br{bottom:-7px;right:-7px;border-width:0 3px 3px 0;border-radius:0 0 4px 0;}
+
+.himg-inner{
+  width:100%;
+  aspect-ratio:4/5;
+  border-radius:28px 28px 120px 120px / 28px 28px 100px 100px;
+  overflow:hidden;
+  border:2px solid var(--baccent);
+  box-shadow:0 0 0 6px var(--cyandim),var(--shcyan),0 24px 60px rgba(0,0,0,.5);
+  transition:var(--ease);
+}
+.himg-inner:hover{
+  box-shadow:0 0 0 8px rgba(6,182,212,.1),0 0 60px rgba(6,182,212,.22),0 24px 60px rgba(0,0,0,.5);
+  transform:translateY(-4px);
+}
+.himg-inner img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+
+/* Stat chips below photo — fully outside, no overlap */
+.himg-stats{display:flex;gap:12px;justify-content:center;margin-top:18px;}
+.hstat{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--baccent);border-radius:var(--rs);padding:10px 16px;flex:1;}
+.hstat-ico{width:32px;height:32px;border-radius:7px;background:var(--cyandim);display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:.85rem;flex-shrink:0;}
+.hstat-lbl{font-size:.67rem;color:var(--t3);font-weight:500;line-height:1;}
+.hstat-val{font-size:.9rem;font-weight:700;color:var(--t1);font-family:'Syne',sans-serif;line-height:1.3;}
+
+.hscroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--t3);font-size:.72rem;animation:fadeIn 1s 1.2s ease both;}
+.hscroll-arrow{width:26px;height:26px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;animation:scBounce 2s ease-in-out infinite;}
+@keyframes scBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
+
+/* ================================================
+   ABOUT
+================================================ */
+.about{padding:100px 0;background:var(--bg2);position:relative;}
+.about::before,.about::after{content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--baccent),transparent);}
+.about::before{top:0;}.about::after{bottom:0;}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+.alabel{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--cyan);display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+.alabel::before{content:'';width:18px;height:2px;background:var(--cyan);border-radius:99px;}
+.aheading{font-size:clamp(1.3rem,2.2vw,1.75rem);font-weight:700;margin-bottom:18px;}
+.atext p{color:var(--t2);font-size:.94rem;line-height:1.88;margin-bottom:16px;}
+
+.astats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px;}
+.astat{background:var(--card);border:1px solid var(--border);border-radius:var(--rs);padding:18px 14px;text-align:center;transition:var(--ease);position:relative;overflow:hidden;}
+.astat::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--cyan);transform:scaleX(0);transition:transform .35s;}
+.astat:hover{border-color:var(--baccent);transform:translateY(-3px);}
+.astat:hover::after{transform:scaleX(1);}
+.astat h4{font-size:1.85rem;font-weight:800;color:var(--cyan);font-family:'Syne',sans-serif;}
+.astat p{font-size:.75rem;color:var(--t3);font-weight:500;margin-top:4px;}
+
+.askills h3{font-size:1rem;font-weight:700;margin-bottom:22px;}
+.skcat{margin-bottom:18px;}
+.skcat-hd{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--t3);display:flex;align-items:center;gap:6px;margin-bottom:10px;}
+.skcat-hd::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--cyan);}
+.sktags{display:flex;flex-wrap:wrap;gap:7px;}
+.skt{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:5px 11px;font-size:.78rem;font-weight:500;color:var(--t2);transition:var(--ease);cursor:default;}
+.skt:hover{background:var(--cyandim);border-color:var(--baccent);color:var(--cyan);transform:translateY(-2px);}
+
+/* ================================================
+   CASE STUDIES
+================================================ */
+.projects{padding:100px 0;}
+.csgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:26px;}
+.cscard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:var(--ease);display:flex;flex-direction:column;}
+.cscard:hover{border-color:var(--baccent);transform:translateY(-6px);box-shadow:var(--shcyan),var(--sh);}
+.csimg{position:relative;aspect-ratio:16/9;overflow:hidden;}
+.csimg img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.cscard:hover .csimg img{transform:scale(1.06);}
+.csov{position:absolute;inset:0;background:rgba(8,16,31,.78);display:flex;align-items:center;justify-content:center;gap:12px;opacity:0;transition:opacity .3s;}
+.cscard:hover .csov{opacity:1;}
+.csovl{width:42px;height:42px;border-radius:50%;background:var(--cyan);color:#000;display:flex;align-items:center;justify-content:center;font-size:.95rem;transition:var(--ease);}
+.csovl:hover{background:#fff;transform:scale(1.1);}
+.csbadge{position:absolute;top:13px;left:13px;background:var(--cyan);color:#000;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 10px;border-radius:99px;}
+.csbody{padding:22px;flex:1;display:flex;flex-direction:column;}
+.csnum{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);margin-bottom:9px;}
+.cstitle{font-size:1.05rem;font-weight:700;margin-bottom:11px;color:var(--t1);line-height:1.3;}
+.csdesc{font-size:.855rem;color:var(--t2);line-height:1.78;margin-bottom:16px;flex:1;}
+.cstechs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.cst{background:var(--cyandim);border:1px solid var(--baccent);color:var(--cyan);border-radius:4px;padding:3px 9px;font-size:.73rem;font-weight:600;}
+.csimp{display:flex;align-items:flex-start;gap:10px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.18);border-radius:var(--rs);padding:11px 13px;margin-top:auto;}
+.csimp i{color:var(--amber);font-size:.85rem;margin-top:2px;flex-shrink:0;}
+.csimplabel{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--amber);margin-bottom:3px;}
+.csimptext{font-size:.8rem;color:var(--t2);line-height:1.5;}
+
+.cscard.cs-wip{border-style:dashed;border-color:rgba(245,158,11,.22);}
+.wip-ph{aspect-ratio:16/9;background:var(--bg2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--t3);font-size:.82rem;font-weight:500;position:relative;overflow:hidden;}
+.wip-ph::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(245,158,11,.025) 8px,rgba(245,158,11,.025) 16px);}
+.wip-ph i{font-size:2.2rem;color:var(--amber);opacity:.45;}
+.wipbar{width:72px;height:3px;background:rgba(245,158,11,.12);border-radius:99px;overflow:hidden;position:relative;}
+.wipbar::after{content:'';position:absolute;left:-36px;top:0;width:36px;height:100%;background:var(--amber);border-radius:99px;animation:wipslide 1.4s ease-in-out infinite;}
+@keyframes wipslide{0%{left:-36px;}100%{left:72px;}}
+
+/* ================================================
+   CERTIFICATIONS
+================================================ */
+.certifications{padding:100px 0;background:var(--bg2);position:relative;}
+.certifications::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--baccent),transparent);}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.ci{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px;transition:var(--ease);position:relative;overflow:hidden;}
+.ci::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--cyan);transform:scaleY(0);transform-origin:bottom;transition:transform .3s;}
+.ci:hover{border-color:var(--baccent);transform:translateY(-4px);box-shadow:var(--shcyan);}
+.ci:hover::before{transform:scaleY(1);}
+.ci-hd{display:flex;align-items:center;gap:13px;margin-bottom:10px;}
+.ci-logo{width:34px;height:34px;object-fit:contain;border-radius:5px;}
+.ci-hd h4{font-size:.92rem;font-weight:700;color:var(--t1);line-height:1.3;}
+.ci>p{font-size:.78rem;color:var(--t3);display:flex;align-items:center;gap:5px;font-weight:500;}
+.ci>p i{color:var(--cyan);font-size:.7rem;}
+
+/* ================================================
+   RESUME
+================================================ */
+.resume{padding:100px 0;}
+.resume-inner{max-width:820px;margin:0 auto;}
+.rstats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:36px;}
+.rst{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px 16px;text-align:center;transition:var(--ease);position:relative;overflow:hidden;}
+.rst::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--amber));transform:scaleX(0);transition:transform .35s;}
+.rst:hover{border-color:var(--baccent);transform:translateY(-4px);}
+.rst:hover::before{transform:scaleX(1);}
+.rst i{font-size:1.4rem;color:var(--cyan);margin-bottom:10px;display:block;}
+.rst h3{font-size:1.25rem;font-weight:800;color:var(--t1);font-family:'Syne',sans-serif;margin-bottom:5px;}
+.rst p{font-size:.77rem;color:var(--t3);font-weight:500;}
+.rpreview{border-radius:var(--r);overflow:hidden;border:1px solid var(--border);margin-bottom:28px;transition:var(--ease);}
+.rpreview:hover{border-color:var(--baccent);box-shadow:var(--shcyan);}
+.rpreview img{width:100%;display:block;}
+.rdl{text-align:center;}
+.rdl p{font-size:.78rem;color:var(--t3);margin-top:10px;}
+
+/* ================================================
+   BLOGS
+================================================ */
+.blogs{padding:100px 0;background:var(--bg2);position:relative;}
+.blogs::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--baccent),transparent);}
+.blogs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:26px;max-width:720px;margin:0 auto;}
+.blogcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:var(--ease);display:flex;flex-direction:column;}
+.blogcard:hover{border-color:var(--baccent);transform:translateY(-6px);box-shadow:var(--shcyan),var(--sh);}
+.blogimg{aspect-ratio:16/9;overflow:hidden;}
+.blogimg img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.blogcard:hover .blogimg img{transform:scale(1.05);}
+.blogbody{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.blogtag{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--cyan);display:flex;align-items:center;gap:5px;}
+.blogtitle{font-size:.97rem;font-weight:700;color:var(--t1);line-height:1.4;}
+.blogdesc{font-size:.855rem;color:var(--t2);line-height:1.77;flex:1;}
+.blogbody .btn{align-self:flex-start;margin-top:6px;}
+
+/* ================================================
+   CONTACT
+================================================ */
+.contact{padding:100px 0;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+.cinfo h3{font-size:1.5rem;font-weight:700;margin-bottom:12px;}
+.cinfo>p{color:var(--t2);font-size:.93rem;line-height:1.82;margin-bottom:26px;}
+.citems{display:flex;flex-direction:column;gap:13px;}
+.citem{display:flex;align-items:center;gap:14px;padding:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--rs);transition:var(--ease);}
+.citem:hover{border-color:var(--baccent);transform:translateX(4px);}
+.cico{width:40px;height:40px;border-radius:9px;background:var(--cyandim);border:1px solid var(--baccent);display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:.95rem;flex-shrink:0;}
+.citem h4{font-size:.78rem;color:var(--t3);font-weight:500;margin-bottom:2px;}
+.citem a,.citem span{font-size:.88rem;color:var(--t1);font-weight:500;}
+.citem a:hover{color:var(--cyan);}
+.cform{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:32px;}
+.fg{margin-bottom:18px;}
+.fg label{display:block;font-size:.78rem;font-weight:600;color:var(--t2);margin-bottom:7px;text-transform:uppercase;letter-spacing:.05em;}
+.fg input,.fg textarea{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rs);padding:11px 15px;font-size:.88rem;color:var(--t1);font-family:'Inter',sans-serif;transition:var(--ease);resize:vertical;outline:none;}
+.fg input:focus,.fg textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px var(--cyandim);}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--t3);}
+
+/* ================================================
+   FOOTER
+================================================ */
+footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
+.fc{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+.fc p{font-size:.82rem;color:var(--t3);}
+.fc p strong{color:var(--cyan);}
+.fsoc{display:flex;gap:9px;}
+.fsoc a{width:34px;height:34px;border-radius:var(--rs);background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--t3);font-size:.82rem;transition:var(--ease);}
+.fsoc a:hover{color:var(--cyan);border-color:var(--baccent);}
+
+/* ================================================
+   BACK TO TOP
+================================================ */
+#btt{position:fixed;bottom:26px;right:26px;width:42px;height:42px;border-radius:10px;background:var(--cyan);color:#000;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.95rem;box-shadow:0 4px 16px rgba(6,182,212,.35);opacity:0;pointer-events:none;transition:var(--ease);z-index:999;}
+#btt.show{opacity:1;pointer-events:all;}
+#btt:hover{background:#0891b2;transform:translateY(-3px);}
+
+/* ================================================
+   SCROLL REVEAL
+================================================ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease;}
+.rvl{opacity:0;transform:translateX(-26px);transition:opacity .65s ease,transform .65s ease;}
+.rvr{opacity:0;transform:translateX(26px);transition:opacity .65s ease,transform .65s ease;}
+.rv.in,.rvl.in,.rvr.in{opacity:1;transform:none;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(28px);}to{opacity:1;transform:none;}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* ================================================
+   RESPONSIVE
+================================================ */
+@media(max-width:900px){
+  .hc{grid-template-columns:1fr;gap:40px;text-align:center;}
+  .himg{display:none;}
+  .hbtns,.hsocial,.hkpi{justify-content:center;}
+  .hdesc{margin:0 auto 32px;}
+  .about-grid{grid-template-columns:1fr;gap:36px;}
+  .contact-grid{grid-template-columns:1fr;gap:36px;}
+  .rstats{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  .nmenu{position:fixed;top:66px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);flex-direction:column;padding:18px 20px;gap:3px;transform:translateY(-110%);opacity:0;pointer-events:none;transition:transform .3s ease,opacity .3s ease;}
+  .nmenu.open{transform:translateY(0);opacity:1;pointer-events:all;}
+  .ntoggle{display:flex;}
+  .csgrid{grid-template-columns:1fr;}
+  .cert-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .cert-grid{grid-template-columns:1fr;}
+  .rstats{grid-template-columns:1fr;}
+  .cform{padding:22px 18px;}
+  .astats{grid-template-columns:repeat(3,1fr);}
+}
+</style>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home">ZA</a>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#certifications" class="nav-link">Certifications</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#resume" class="nav-link">Resume</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#blogs" class="nav-link">Blogs</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <div class="theme-toggle" id="theme-toggle">
-                <i class="fas fa-moon"></i>
-            </div>
-        </div>
-    </nav>
+<div id="spb"></div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content" data-aos="fade-up">
-                <h1 class="hero-title">
-                    Hi, I'm <span class="highlight">Zeeshan Akram</span>
-                </h1>
-                <h2 class="hero-subtitle">
-                    <span id="typed-text"></span>
-                </h2>
-                <p class="hero-description">
-                    Transforming Data into Meaningful Insights with Clean, Smart Solutions
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="./docs/resume.pdf" class="btn btn-secondary" download>Download Resume</a>
-                </div>
-                <div class="hero-social">
-                    <a href="https://www.linkedin.com/in/zeeshan-akram-572bbb34a" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/zeeshan-akram-ds" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:zeeshanakram1704@email.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image" data-aos="fade-left">
-                <div class="hero-img-container">
-                    <img src="./assets/images/hero-image.png" alt="Zeeshan Akram">
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow">
-                <i class="fas fa-chevron-down"></i>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Driven by curiosity, powered by data</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-right">
-                    <h3>Data Science & Machine Learning Enthusiast</h3>
-                    <p>
-                        I’m a dedicated Software Engineering student at Virtual University of Pakistan (currently in my 3rd semester), driven by a strong passion for Data Science. My focus is on simplifying complex real-world problems through rigorous data modeling and transforming raw numbers into strategic business advantage.
-                    </p>
-                    <p>
-                        With hands-on experience across Python, Machine Learning, SQL, NLP, and interactive dashboards, I’ve built multiple end-to-end projects and completed a 6-week virtual internship at DevelopersHub Corporation. Along with 10+ certifications from IBM and DeepLearning.AI, these experiences have strengthened my ability to extract insights, build predictive models, and deliver data-driven solutions that create impact.
-                    </p>
-
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <h4>15+</h4>
-                            <p>Projects Completed</p>
-                        </div>
-                        <div class="stat-item">
-                            <h4>10+</h4>
-                            <p>Certifications</p>
-                        </div>
-                        <div class="stat-item">
-                            <h4>1</h4>
-                            <p>Industry Internship</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-skills" data-aos="fade-left">
-                    <h3>Skills & Technologies</h3>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h4>Programming Languages</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">SQL</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Machine Learning</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Scikit-learn</span>
-                                <span class="skill-tag">NLP</span>
-                                <span class="skill-tag">Regression & Classification</span>
-                                <span class="skill-tag">Clustering</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Data Analysis</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Pandas</span>
-                                <span class="skill-tag">NumPy</span>
-                                <span class="skill-tag">Matplotlib</span>
-                                <span class="skill-tag">Seaborn</span>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Tools & Platforms</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Jupyter</span>
-                                <span class="skill-tag">Git</span>
-                                <span class="skill-tag">Excel</span>
-                                <span class="skill-tag">Streamlit</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">My Projects</h2>
-                <p class="section-subtitle">Showcasing my data science and machine learning projects</p>
-            </div>
-            
-            <!-- Project Filters -->
-            <div class="project-filters" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
-                <button class="filter-btn" data-filter="nlp">NLP</button>
-                <button class="filter-btn" data-filter="bi-dashboards">Dashboards & BI</button>
-                <button class="filter-btn" data-filter="data-analysis">Data Analysis</button>
-                <button class="filter-btn" data-filter="time-series">Time Series</button>
-            </div>
-
-            <!-- Projects Grid -->
-            <div class="projects-grid" id="projects-grid">
-                <!-- Project 0 -->
-                <div class="project-card" data-category="data-science" data-aos="fade-up">
-                    <div class="project-image">
-                        <img src="./assets/images/olist_churn_diagnosis.jpg" alt="E-commerce Churn Strategic Analysis Visual">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/zeeshan-akram-ds/Olist-ECommerce-Analysis" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">E-commerce Churn: Logistics & RFM Strategic Analysis</h3>
-                        <p class="project-description">
-                            A full-cycle data science case study on 113K Olist orders. Used <strong>Python</strong> for memory-optimized data engineering and <strong>RFM segmentation</strong> to diagnose logistics as the core driver of operational failure.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Pandas</span>
-                            <span class="tech-tag">Seaborn</span>
-                        </div>
-                        <div class="project-achievement">
-                            <i class="fas fa-trophy"></i>
-                            <span>Key Finding: 97% One-Time Buyer Churn Rate</span>
-                        </div>
-                    </div>
-                </div>            
-                
-                <!-- Project 1 -->
-
-                <div class="project-card" data-category="machine-learning" data-aos="fade-up">
-                    <div class="project-image">
-                        <img src="./assets/images/telecom_churn_survival.png" alt="Telecom Churn Survival">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://telecom-churn-survival-kdj4ca5aikobrbdeorqssv.streamlit.app/" class="project-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="https://github.com/zeeshan-akram-ds/telecom-churn-survival" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Telecom Churn Survival Analysis</h3>
-                        <p class="project-description">
-                            Survival model predicting customer churn timelines with actionable insights on contracts, payments, and retention strategies.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Scikit-survival</span>
-                            <span class="tech-tag">Streamlit</span>
-                        </div>
-                        <div class="project-achievement">
-                            <i class="fas fa-trophy"></i>
-                            <span>C-index Score: 0.91</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="bi-dashboards" data-aos="fade-up">
-                    <div class="project-image">
-                        <img src="./assets/images/customer_segmentation_dashboard.png" alt="Customer Segmentation Dashboard">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://www.youtube.com/watch?v=nMG-BwiPoaY" class="project-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="https://github.com/zeeshan-akram-ds/retail-customer-segmentation-dashboard" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Retail Customer Segmentation Dashboard</h3>
-                        <p>
-                            Built an interactive BI dashboard with RFM + KMeans clustering for customer segmentation, anomaly detection, and retention insights.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Pandas</span>
-                            <span class="tech-tag">Dash</span>
-                            <span class="tech-tag">Plotly</span>
-                        </div>
-                        <div class="project-achievement">
-                            <i class="fas fa-trophy"></i>
-                            <span>Interactive BI dashboard with anomaly detection</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card" data-category="nlp" data-aos="fade-up">
-                    <div class="project-image">
-                        <img src="./assets/images/fake_news.png" alt="Fake News Detection">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://fake-news-detection-nlp-ml-tav77ccha9prwj7uefdhab.streamlit.app/" class="project-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="https://github.com/zeeshan-akram-ds/fake-news-detection-nlp-ml" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Fake News Detection & Source Analysis</h3>
-                        <p class="project-description">
-                            Developed a Naive Bayes classifier (96.9% accuracy, ROC AUC 0.994) with advanced text preprocessing and source-level feature engineering, deployed via Streamlit.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Scikit-learn</span>
-                            <span class="tech-tag">NLTK</span>
-                            <span class="tech-tag">TF-IDF</span>
-                        </div>
-                        <div class="project-achievement">
-                            <i class="fas fa-trophy"></i>
-                            <span>ROC AUC Score: 0.994</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card" data-category="machine-learning" data-aos="fade-up">
-                    <div class="project-image">
-                        <img src="./assets/images/house_price_prediction.png" alt="House Price Prediction">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://housepriceprediction-analysis-m8mnvuallscnwwyuzde8qw.streamlit.app/" class="project-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="https://github.com/zeeshan-akram-ds/House_price_Prediction-Analysis" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Ames Housing Price Prediction</h3>
-                        <p class="project-description">
-                            Built an XGBoost regression model (R² = 0.93) with domain-informed features and SHAP/LIME explanations, deployed via Streamlit.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">SHAP</span>
-                            <span class="tech-tag">Scikit-learn</span>
-                            <span class="tech-tag">Streamlit</span>
-                        </div>
-                        <div class="project-achievement">
-                            <i class="fas fa-trophy"></i>
-                            <span>Achieved R² = 0.93 on Ames dataset</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card" data-category="bi-dashboards" data-aos="fade-up">
-                    <div class="project-image">
-                        <img src="./assets/images/superstore_dashboard.png" alt="Super Store Sales Dashboard">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://internship-tasks-devapp-qbezt4qddwcbj4y5qwewjs.streamlit.app/" class="project-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="https://github.com/zeeshan-akram-ds/internship-tasks-devhub/tree/main/Batch2/Task5" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Superstore Sales Dashboard (BI)</h3>
-                        <p class="project-description">
-                            Interactive BI dashboard built on Streamlit with Plotly, featuring Automated Alerts, Customer Drill-down, and One-Click PDF Reporting for executives.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Streamlit</span>
-                            <span class="tech-tag">Plotly</span>
-                            <span class="tech-tag">Data Engineering</span>
-                        </div>
-                        <div class="project-achievement">
-                            <i class="fas fa-trophy"></i>
-                            <span>Executive-Ready PDF Reporting & Auto-Alert System</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="project-card" data-category="data-analysis" data-aos="fade-up">
-                    <div class="project-image">
-                        <img src="./assets/images/sql_analysis.png" alt="SQL Analysis">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/zeeshan-akram-ds/sql_data_analysis_project" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">SQL Data Analysis</h3>
-                        <p class="project-description">
-                            Executed 40+ SQL queries on the Classic Models database to uncover sales, customer, and product insights using advanced joins, subqueries, and window functions.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">SQL</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">SQLAlchemy</span>
-                        </div>
-                        <div class="project-achievement">
-                            <i class="fas fa-trophy"></i>
-                            <span>40+ analytical SQL queries executed</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="project-card" data-category="nlp" data-aos="fade-up">
-                    <div class="project-image">
-                        <img src="./assets/images/thumbnail.png" alt="SMS Spam Classifier">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://sms-email-spam-detection-yewskmnzauz62xhsjkmjj5.streamlit.app/" class="project-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="https://github.com/zeeshan-akram-ds/SMS-Email-spam-detection" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Spam Detection System (Bernoulli Classifier)</h3>
-                        <p class="project-description">
-                            Built an NLP-powered spam detection system with 98% precision and 98% accuracy, deployed via Streamlit for real-time SMS/Email classification.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Scikit-learn</span>
-                            <span class="tech-tag">NLTK</span>
-                            <span class="tech-tag">Optuna</span>
-                        </div>
-                        <div class="project-achievement">
-                            <i class="fas fa-trophy"></i>
-                            <span>98% Precision, 98% Accuracy</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 7 -->
-                <div class="project-card" data-category="machine-learning" data-aos="fade-up">
-                    <div class="project-image">
-                        <img src="./assets/images/customer_churn.png" alt="Customer Churn Prediction">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://churn-prediction-model-boafapprtqcjnhgxsft5kem.streamlit.app/" class="project-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="https://github.com/zeeshan-akram-ds/Churn-Prediction-Model" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Customer Churn Prediction & Dashboard</h3>
-                        <p class="project-description">
-                            Built a churn prediction system with optimized Logistic Regression (ROC-AUC 0.86) and deployed dual Streamlit apps for live predictions and interactive dashboards.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Scikit-learn</span>
-                            <span class="tech-tag">Pandas</span>
-                            <span class="tech-tag">Streamlit</span>
-                            <span class="tech-tag">SHAP</span>
-                        </div>
-                        <div class="project-achievement">
-                            <i class="fas fa-trophy"></i>
-                            <span>ROC-AUC: 0.86 | Recall: 0.84</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 8 -->
-                <div class="project-card" data-category="nlp" data-aos="fade-up">
-                    <div class="project-image">
-                        <img src="./assets/images/urdu_sentiment.png" alt="Urdu Sentiment Analysis">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://sentiment-analysis-urdu-qknxhruwdscwtc3j5eu6tl.streamlit.app/" class="project-link" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="https://github.com/zeeshan-akram-ds/sentiment-analysis-urdu" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Urdu + Roman Urdu Sentiment Analysis</h3>
-                        <p class="project-description">
-                            Fine-tuned a multilingual BERT model to classify sentiment in Urdu and Roman Urdu text, deployed as a Streamlit application.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Transformers</span>
-                            <span class="tech-tag">Streamlit</span>
-                            <span class="tech-tag">Hugging Face</span>
-                        </div>
-                        <div class="project-achievement">
-                            <i class="fas fa-trophy"></i>
-                            <span>F1 Score: 0.78 on Urdu/Roman Urdu</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="projects-grid" id="projects-grid">
-                </div>
-
-            <div class="show-more-container" data-aos="fade-up">
-                <button id="toggle-more-projects" class="primary-btn">
-                    <i class="fas fa-chevron-down"></i> View 14 More Projects
-                </button>
-            </div>
-
-            <div id="more-projects-details" class="more-projects-details collapsed" data-aos="fade-up">
-                <h3 class="section-subtitle">Additional Classic & Utility Projects</h3>
-                
-                <div class="detailed-list-grid">
-                    <div class="detail-item">
-                        <h4>Credit Risk Prediction</h4>
-                        <p>XGBoost Classifier tuned with Optuna, focusing on class imbalance via scale_pos_weight, deployed live on Streamlit.</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>Insurance Charges Prediction</h4>
-                        <p>Linear Regression model with RobustScaler and SHAP analysis, achieving high R² and confirming smoking status as the primary cost driver, deployed on Streamlit.</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>Loan Acceptance Prediction</h4>
-                        <p>XGBoost model optimized with SMOTEENN and Optuna for class imbalance, demonstrating 88% accuracy and key insights on contact success, deployed live on Streamlit.</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>Energy Consumption Time Series</h4>
-                        <p>Time series forecasting comparing ARIMA, XGBoost, and Prophet models, leveraging engineered time-based features to predict household energy consumption.</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>Superstore Sales Dashboard</h4>
-                        <p>Interactive BI dashboard built with Streamlit and Plotly, featuring executive KPIs, automated business alerts, customer drill-down, and one-click PDF report generation.</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>Customer Segmentation App (K-Means Clustering)</h4>
-                        <p>Developed an interactive Streamlit app for customer segmentation with K-Means, featuring preprocessing, cluster evaluation, and exportable insights.</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>Heart Disease Classifier</h4>
-                        <p>Tuned Logistic Regression model (0.91 ROC-AUC) utilizing Optuna and SHAP for clinical interpretability, outperforming complex ensembles on a balanced dataset.</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>Rainfall Prediction (IBM Course)</h4>
-                        <p>Binary classifier (Random Forest vs. Logistic Regression) built with scikit-learn pipeline, using GridSearchCV for tuning and avoiding target leakage for 84.5% accuracy.</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>Ridge Regression (CO₂ of cars)</h4>
-                        <p>Predicting CO₂ emissions using Ridge Regression on vehicle specifications. (Focus: Linear Models, Regularization)</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>Life Expectancy Prediction</h4>
-                        <p>Advanced regression using Stacking Regressor (Extra Trees, XGBoost, etc.) to achieve R² of 0.977, leveraging custom frequency encoding and log transformation.</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>Bank Term Deposit Subscription Prediction</h4>
-                        <p>Logistic Regression model with 82% accuracy, focusing on client and campaign features, deployed live via Streamlit for interactive prediction and metric display.</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>Titanic Stats Analysis</h4>
-                        <p>Classic introductory EDA and feature engineering project. (Focus: Foundational Python/Pandas, Visualization)</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>Customer Churn Dashboard</h4>
-                        <p>Interactive Streamlit dashboard for Customer Churn Analysis, exploring demographic, service, and financial metrics using Plotly and Matplotlib visualizations.</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>Superstore Sales Analysis</h4>
-                        <p>In-depth Pandas-only sales analysis on Superstore data to derive profitability, customer segmentation, and product risk insights across four years of sales trends.</p>
-                    </div>
-                </div>
-                
-                <div class="show-more-container">
-                    <button id="hide-more-projects" class="primary-btn hide-btn">
-                        <i class="fas fa-chevron-up"></i> Collapse Details
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Certifications</h2>
-            <p class="section-subtitle">Recognized courses and programs from leading institutions</p>
-            </div>
-
-            <div class="cert-grid" data-aos="fade-up">
-
-            <!-- IBM Certifications -->
-            <div class="cert-item">
-                <div class="cert-header">
-                <img src="./assets/logos/ibm_logo.png" alt="IBM Logo" class="cert-logo">
-                <h4>Data Analysis with Python</h4>
-                </div>
-                <p>IBM (Coursera)</p>
-            </div>
-
-            <div class="cert-item">
-                <div class="cert-header">
-                <img src="./assets/logos/ibm_logo.png" alt="IBM Logo" class="cert-logo">
-                <h4>Data Visualization with Python</h4>
-                </div>
-                <p>IBM (Coursera)</p>
-            </div>
-
-            <div class="cert-item">
-                <div class="cert-header">
-                <img src="./assets/logos/ibm_logo.png" alt="IBM Logo" class="cert-logo">
-                <h4>Databases & SQL for Data Science</h4>
-                </div>
-                <p>IBM (Coursera)</p>
-            </div>
-
-            <div class="cert-item">
-                <div class="cert-header">
-                <img src="./assets/logos/ibm_logo.png" alt="IBM Logo" class="cert-logo">
-                <h4>Machine Learning with Python</h4>
-                </div>
-                <p>IBM (Coursera)</p>
-            </div>
-
-            <!-- Google -->
-            <div class="cert-item">
-                <div class="cert-header">
-                <img src="./assets/logos/google_logo.png" alt="Google Logo" class="cert-logo">
-                <h4>Crash Course on Python</h4>
-                </div>
-                <p>Google (Coursera)</p>
-            </div>
-
-            <!-- DeepLearning.AI -->
-            <div class="cert-item">
-                <div class="cert-header">
-                <img src="./assets/logos/deep_learning_ai.png" alt="DeepLearning.AI Logo" class="cert-logo">
-                <h4>NLP with Vector Spaces & Classification</h4>
-                </div>
-                <p>DeepLearning.AI</p>
-            </div>
-
-            <div class="cert-item">
-                <div class="cert-header">
-                <img src="./assets/logos/deep_learning_ai.png" alt="DeepLearning.AI Logo" class="cert-logo">
-                <h4>Supervised Machine Learning</h4>
-                </div>
-                <p>DeepLearning.AI</p>
-            </div>
-
-            <!-- Johns Hopkins -->
-            <div class="cert-item">
-                <div class="cert-header">
-                <img src="./assets/logos/jhu.png" alt="JHU Logo" class="cert-logo">
-                <h4>The Data Scientist's Toolbox</h4>
-                </div>
-                <p>Johns Hopkins University (Coursera)</p>
-            </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Resume</h2>
-                <p class="section-subtitle">Download my complete resume</p>
-            </div>
-            <div class="resume-content" data-aos="fade-up">
-                <div class="resume-preview">
-                    <div class="resume-stats">
-                        <div class="stat-item">
-                            <i class="fas fa-project-diagram"></i>
-                            <h3>15+</h3>
-                            <p>End-to-End Projects</p>
-                        </div>
-                        <div class="stat-item">
-                            <i class="fas fa-certificate"></i>
-                            <h3>10+</h3>
-                            <p>Industry Certifications</p>
-                        </div>
-                        <div class="stat-item">
-                            <i class="fas fa-code"></i>
-                            <h3>5+</h3>
-                            <p>Core Tools</p>
-                        </div>
-                        <div class="stat-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <h3>B.S</h3>
-                            <p>Software Engineering (In Progress)</p>
-                        </div>
-                    </div>
-                    <div class="resume-preview" data-aos="fade-up">
-                        <img src="assets/images/resume_preview.jpg" 
-                            alt="Resume Preview" 
-                            class="resume-img">
-                    </div>
-                    <div class="resume-download">
-                        <a href="./docs/resume.pdf" class="btn btn-primary" download="Zeeshan_Akram_Resume.pdf">
-                            <i class="fas fa-download"></i>
-                            Download Resume
-                        </a>
-                        <p>Last updated: September 2025</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== BLOGS SECTION ===== -->
-    <section class="blogs" id="blogs">
-    <div class="container">
-        <div class="section-header">
-        <h2 class="section-title">Blogs</h2>
-        <p class="section-subtitle">Sharing thoughts, tutorials, and insights from my data science journey.</p>
-        </div>
-        <div class="blogs-grid">
-        <!-- Blog Card 1 -->
-        <div class="blog-card">
-            <div class="blog-image">
-            <img src="./assets/images/blog_1.png" alt="Blog 1">
-            </div>
-            <div class="blog-content">
-            <h3 class="blog-title">First Year Data Science: Lessons, Struggles, and Beginner Tips</h3>
-            <p class="blog-description">Discover how I navigated the first year of learning data science: overcoming beginner struggles, following a clear roadmap (<strong>Python → Stats → ML</strong>), and leveraging free resources that delivered tangible results.</p>
-            <a href="https://medium.com/@zeeshanakram_ds/my-first-year-learning-data-science-lessons-struggles-tips-for-beginners-44f77c52273d" target="_blank" class="btn btn-secondary">Read More</a>
-            </div>
-        </div>
-        <!-- Blog Card 2 -->
-        <div class="blog-card">
-            <div class="blog-image">
-            <img src="./assets/images/blog_2.jpg" alt="Blog 2">
-            </div>
-            <div class="blog-content">
-            <h3 class="blog-title">E-commerce Customer Churn Diagnosis: A Data-Driven Analysis of 113K Orders</h3>
-            <p class="blog-description">A complete Python case study on the Olist dataset, detailing how I engineered data, optimized memory, and used <strong>RFM analysis</strong> to diagnose the true operational cause of a <strong>97% customer churn rate</strong>—and the strategic solutions proposed.</p>
-            <a href="https://medium.com/@zeeshanakram_ds/sememhow-i-analyzed-113k-orders-and-discovered-the-true-cause-of-customer-churn-569e0f6a4136" target="_blank" class="btn btn-secondary">Read More</a>
-            </div>
-        </div>
-        </div>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nc">
+    <div class="nlogo"><a href="#home">ZA</a></div>
+    <ul class="nmenu" id="nmenu">
+      <li><a href="#home"  class="nl">Home</a></li>
+      <li><a href="#about" class="nl">About</a></li>
+      <li><a href="#projects" class="nl">Projects</a></li>
+      <li><a href="#certifications" class="nl">Certifications</a></li>
+      <li><a href="#resume" class="nl">Resume</a></li>
+      <li><a href="#blogs" class="nl">Blogs</a></li>
+      <li><a href="#contact" class="nl">Contact</a></li>
+    </ul>
+    <div class="nact">
+      <div class="ttheme" id="ttheme" aria-label="Toggle theme"><i class="fas fa-sun"></i></div>
+      <div class="ntoggle" id="ntoggle"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
     </div>
-    </section>
+  </div>
+</nav>
 
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hc">
+    <div class="hcontent">
+      <div class="htag"><span class="hdot"></span>Available for Opportunities</div>
+      <h1 class="htitle">Hi, I'm <span class="hn">Zeeshan Akram</span></h1>
+      <div class="hsub"><span id="tx"></span><span class="tcur"></span></div>
+      <p class="hdesc">Turning messy datasets into revenue-driving decisions — through SQL precision, Python rigor, and business-first thinking.</p>
+      <div class="hkpi">
+        <div class="hchip"><i class="fas fa-chart-bar"></i> 113K+ Orders Analyzed</div>
+        <div class="hchip"><i class="fas fa-exclamation-triangle"></i> <b>97%</b> Churn Diagnosed</div>
+        <div class="hchip"><i class="fas fa-table"></i> 5 Relational Tables Merged</div>
+      </div>
+      <div class="hbtns">
+        <a href="#projects" class="btn btn-primary"><i class="fas fa-briefcase"></i> View Case Studies</a>
+        <a href="./docs/resume.pdf" class="btn btn-outline" download><i class="fas fa-download"></i> Download Resume</a>
+      </div>
+      <div class="hsocial">
+        <a href="https://www.linkedin.com/in/zeeshan-akram-572bbb34a" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/zeeshan-akram-ds" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://medium.com/@zeeshanakram_ds" target="_blank"><i class="fab fa-medium"></i></a>
+        <a href="https://twitter.com/ZeeshanAkram_DS" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Let's discuss your next project</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info" data-aos="fade-right">
-                    <h3>Let's Connect</h3>
-                    <p>
-                        I'm always interested in new opportunities and exciting projects. 
-                        Whether you have a question or just want to say hi, feel free to reach out!
-                    </p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:zeeshan@email.com">Send me an Email</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-linkedin"></i>
-                            <div>
-                                <h4>LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/zeeshan-akram-572bbb34a" target="_blank">Connect on LinkedIn</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <div>
-                                <h4>GitHub</h4>
-                                <a href="https://github.com/zeeshan-akram-ds" target="_blank">View my GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form" data-aos="fade-left">
-                    <form id="contact-form" action="https://formspree.io/f/xovkjbop" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
+    <!-- Large dominant photo — same layout as original but upgraded -->
+    <div class="himg">
+      <div class="himg-wrap">
+        <div class="hcorner tl"></div>
+        <div class="hcorner br"></div>
+        <div class="himg-inner">
+          <img src="./assets/images/hero-image.jpg" alt="Zeeshan Akram">
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2024 Zeeshan Akram. All rights reserved.</p>
-                </div>
-                <div class="footer-social">
-                    <a href="https://linkedin.com/in/zeeshan-akram-ds" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/zeeshan-akram-ds" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:zeeshan@email.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
+        <div class="himg-stats">
+          <div class="hstat">
+            <div class="hstat-ico"><i class="fas fa-database"></i></div>
+            <div><div class="hstat-lbl">SQL Queries</div><div class="hstat-val">40+ Written</div></div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-ico"><i class="fas fa-chart-pie"></i></div>
+            <div><div class="hstat-lbl">Dashboards</div><div class="hstat-val">3+ Live</div></div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
+  <div class="hscroll">
+    <div class="hscroll-arrow"><i class="fas fa-chevron-down"></i></div>
+    <span>Scroll</span>
+  </div>
+</section>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="sec-hd rv"><h2>About Me</h2><p>Clarity from complexity — one dataset at a time</p></div>
+    <div class="about-grid">
+      <div class="atext rvl">
+        <div class="alabel">Who I Am</div>
+        <h3 class="aheading">Data Analyst &amp; Business Intelligence Specialist</h3>
+        <p>I am a Data Analyst with a strong foundation in Software Engineering (currently in my 4th semester at Virtual University of Pakistan). My passion lies in solving real-world business problems by transforming complex, unstructured datasets into clear, actionable narratives.</p>
+        <p>Rather than just writing code, I focus on business impact. During my internship at DevelopersHub Corporation, I engineered automated data pipelines and interactive BI dashboards that replaced static Excel reporting. With advanced proficiency in SQL, Python (Pandas), and Data Visualization, I specialize in uncovering trends regarding revenue, customer churn, and operational efficiency — helping stakeholders make data-driven decisions confidently.</p>
+        <div class="astats">
+          <div class="astat"><h4 class="cnt" data-t="3">0+</h4><p>Case Studies</p></div>
+          <div class="astat"><h4 class="cnt" data-t="5">0+</h4><p>Certifications</p></div>
+          <div class="astat"><h4>1</h4><p>Internship</p></div>
+        </div>
+      </div>
+      <div class="askills rvr">
+        <h3>Skills &amp; Technologies</h3>
+        <div class="skcat">
+          <div class="skcat-hd">Databases &amp; Querying</div>
+          <div class="sktags"><span class="skt">Advanced SQL</span><span class="skt">PostgreSQL</span><span class="skt">MySQL</span><span class="skt">Window Functions</span><span class="skt">CTEs</span></div>
+        </div>
+        <div class="skcat">
+          <div class="skcat-hd">Business Intelligence</div>
+          <div class="sktags"><span class="skt">Power BI</span><span class="skt">Streamlit</span><span class="skt">Tableau (Concepts)</span><span class="skt">Excel (Pivot, XLOOKUP)</span></div>
+        </div>
+        <div class="skcat">
+          <div class="skcat-hd">Data Manipulation</div>
+          <div class="sktags"><span class="skt">Python</span><span class="skt">Pandas</span><span class="skt">NumPy</span><span class="skt">ETL Processes</span></div>
+        </div>
+        <div class="skcat">
+          <div class="skcat-hd">Business Acumen</div>
+          <div class="sktags"><span class="skt">KPI Tracking</span><span class="skt">Financial Analysis</span><span class="skt">Customer Segmentation</span><span class="skt">A/B Testing Basics</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="./assets/js/script.js"></script>
+<!-- CASE STUDIES -->
+<section id="projects" class="projects">
+  <div class="container">
+    <div class="sec-hd rv"><h2>Featured Case Studies</h2><p>End-to-end analytical work demonstrating real business impact</p></div>
+    <div class="csgrid">
+      <div class="cscard rv">
+        <div class="csimg">
+          <img src="./assets/images/superstore_dashboard.png" alt="Executive Sales Intelligence Dashboard">
+          <div class="csov">
+            <a href="https://internship-tasks-devapp-qbezt4qddwcbj4y5qwewjs.streamlit.app/" class="csovl" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+            <a href="https://github.com/zeeshan-akram-ds/internship-tasks-devhub/tree/main/Batch2/Task5" class="csovl" target="_blank"><i class="fab fa-github"></i></a>
+          </div>
+          <span class="csbadge">BI Dashboard</span>
+        </div>
+        <div class="csbody">
+          <div class="csnum">Case Study 01</div>
+          <h3 class="cstitle">Executive Sales Intelligence Dashboard</h3>
+          <p class="csdesc">Engineered a production-grade BI tool to replace static Excel reports. Features live KPI tracking, cross-filtering by region/category, and automated one-click PDF executive summaries.</p>
+          <div class="cstechs"><span class="cst">Python</span><span class="cst">Streamlit</span><span class="cst">Plotly</span><span class="cst">Data Engineering</span></div>
+          <div class="csimp"><i class="fas fa-chart-line"></i><div><div class="csimplabel">Business Impact</div><div class="csimptext">Automated KPI reporting workflows, eliminating manual Excel reporting entirely.</div></div></div>
+        </div>
+      </div>
+
+      <div class="cscard rv">
+        <div class="csimg">
+          <img src="./assets/images/olist_churn_diagnosis.jpg" alt="E-Commerce RFM Analysis">
+          <div class="csov">
+            <a href="https://github.com/zeeshan-akram-ds/Olist-ECommerce-Analysis" class="csovl" target="_blank"><i class="fab fa-github"></i></a>
+          </div>
+          <span class="csbadge">EDA &amp; RFM</span>
+        </div>
+        <div class="csbody">
+          <div class="csnum">Case Study 02</div>
+          <h3 class="cstitle">E-Commerce Operations &amp; RFM Analysis</h3>
+          <p class="csdesc">Conducted deep exploratory data analysis on 113K+ Brazilian e-commerce orders. Merged 5 relational tables to map delivery delays to customer satisfaction and performed RFM customer segmentation.</p>
+          <div class="cstechs"><span class="cst">Python</span><span class="cst">Pandas</span><span class="cst">Seaborn</span><span class="cst">RFM Analysis</span></div>
+          <div class="csimp"><i class="fas fa-chart-line"></i><div><div class="csimplabel">Business Impact</div><div class="csimptext">Identified logistics as the core driver of 97% customer churn rate.</div></div></div>
+        </div>
+      </div>
+
+      <div class="cscard cs-wip rv">
+        <div class="wip-ph"><i class="fas fa-database"></i><span>In Development</span><div class="wipbar"></div></div>
+        <div class="csbody">
+          <div class="csnum">Case Study 03</div>
+          <h3 class="cstitle">SQL Business Intelligence Analysis</h3>
+          <p class="csdesc">A comprehensive SQL-driven BI analysis leveraging advanced window functions, CTEs, and multi-table joins to surface executive-level revenue and operational insights.</p>
+          <div class="cstechs"><span class="cst">SQL</span><span class="cst">MySQL</span><span class="cst">Window Functions</span><span class="cst">CTEs</span></div>
+          <div class="csimp"><i class="fas fa-clock"></i><div><div class="csimplabel" style="color:var(--amber)">Status</div><div class="csimptext">Currently in development — coming soon.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="certifications">
+  <div class="container">
+    <div class="sec-hd rv"><h2>Certifications</h2><p>Recognized credentials from leading global institutions</p></div>
+    <div class="cert-grid">
+      <div class="ci rv"><div class="ci-hd"><img src="./assets/logos/ibm_logo.png" alt="IBM" class="ci-logo"><h4>Data Analysis with Python</h4></div><p><i class="fas fa-award"></i> IBM · Coursera</p></div>
+      <div class="ci rv"><div class="ci-hd"><img src="./assets/logos/ibm_logo.png" alt="IBM" class="ci-logo"><h4>Data Visualization with Python</h4></div><p><i class="fas fa-award"></i> IBM · Coursera</p></div>
+      <div class="ci rv"><div class="ci-hd"><img src="./assets/logos/ibm_logo.png" alt="IBM" class="ci-logo"><h4>Databases &amp; SQL for Data Science</h4></div><p><i class="fas fa-award"></i> IBM · Coursera</p></div>
+      <div class="ci rv"><div class="ci-hd"><img src="./assets/logos/google_logo.png" alt="Google" class="ci-logo"><h4>Crash Course on Python</h4></div><p><i class="fas fa-award"></i> Google · Coursera</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume" class="resume">
+  <div class="container">
+    <div class="sec-hd rv"><h2>Resume</h2><p>A snapshot of my skills, education, and experience</p></div>
+    <div class="resume-inner">
+      <div class="rstats rv">
+        <div class="rst"><i class="fas fa-database"></i><h3>Advanced</h3><p>SQL &amp; Querying</p></div>
+        <div class="rst"><i class="fas fa-chart-bar"></i><h3>Expert</h3><p>Data Visualization</p></div>
+        <div class="rst"><i class="fab fa-python"></i><h3>Python</h3><p>Pandas &amp; EDA</p></div>
+        <div class="rst"><i class="fas fa-graduation-cap"></i><h3>B.S</h3><p>Software Engineering</p></div>
+      </div>
+      <div class="rpreview rv"><img src="assets/images/resume_preview.jpg" alt="Resume Preview"></div>
+      <div class="rdl rv">
+        <a href="./docs/resume.pdf" class="btn btn-primary" download="Zeeshan_Akram_Resume.pdf"><i class="fas fa-download"></i> Download Resume</a>
+        <p>Last updated: March 2026</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOGS -->
+<section id="blogs" class="blogs">
+  <div class="container">
+    <div class="sec-hd rv"><h2>Blogs</h2><p>Sharing analytical case studies and data-driven insights from real projects.</p></div>
+    <div class="blogs-grid">
+      <div class="blogcard rv">
+        <div class="blogimg"><img src="./assets/images/blog_2.jpg" alt="E-commerce Churn Analysis"></div>
+        <div class="blogbody">
+          <span class="blogtag"><i class="fas fa-tag"></i> Case Study</span>
+          <h3 class="blogtitle">E-commerce Customer Churn Diagnosis: A Data-Driven Analysis of 113K Orders</h3>
+          <p class="blogdesc">A complete Python analytics case study on the Olist dataset — covering data engineering, memory optimization, and <strong>RFM segmentation</strong> to diagnose the true cause of a <strong>97% churn rate</strong> and propose targeted business interventions.</p>
+          <a href="https://medium.com/@zeeshanakram_ds/sememhow-i-analyzed-113k-orders-and-discovered-the-true-cause-of-customer-churn-569e0f6a4136" target="_blank" class="btn btn-outline"><i class="fab fa-medium"></i> Read on Medium</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="sec-hd rv"><h2>Get In Touch</h2><p>Open to data analyst roles, freelance projects, and collaborations</p></div>
+    <div class="contact-grid">
+      <div class="cinfo rvl">
+        <h3>Let's Work Together</h3>
+        <p>Whether you need to turn raw data into strategic insights, build an automated BI dashboard, or tackle a challenging analytics problem — I'd love to hear from you.</p>
+        <div class="citems">
+          <div class="citem"><div class="cico"><i class="fas fa-envelope"></i></div><div><h4>Email</h4><a href="mailto:zeeshanakram.ds@gmail.com">Send me an Email</a></div></div>
+          <div class="citem"><div class="cico"><i class="fab fa-linkedin"></i></div><div><h4>LinkedIn</h4><a href="https://www.linkedin.com/in/zeeshan-akram-572bbb34a" target="_blank">Connect on LinkedIn</a></div></div>
+          <div class="citem"><div class="cico"><i class="fab fa-github"></i></div><div><h4>GitHub</h4><a href="https://github.com/zeeshan-akram-ds" target="_blank">View my GitHub</a></div></div>
+          <div class="citem"><div class="cico"><i class="fab fa-twitter"></i></div><div><h4>Twitter / X</h4><a href="https://twitter.com/ZeeshanAkram_DS" target="_blank">@ZeeshanAkram_DS</a></div></div>
+        </div>
+      </div>
+      <div class="cform rvr">
+        <form id="cform" action="https://formspree.io/f/xovkjbop" method="POST">
+          <div class="fg"><label>Your Name</label><input type="text" name="name" placeholder="John Smith" required></div>
+          <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="john@company.com" required></div>
+          <div class="fg"><label>Subject</label><input type="text" name="subject" placeholder="Data Analyst Opportunity" required></div>
+          <div class="fg"><label>Message</label><textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="fc">
+      <p>&copy; 2026 <strong>Zeeshan Akram</strong>. All rights reserved.</p>
+      <div class="fsoc">
+        <a href="https://www.linkedin.com/in/zeeshan-akram-572bbb34a" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/zeeshan-akram-ds" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://medium.com/@zeeshanakram_ds" target="_blank"><i class="fab fa-medium"></i></a>
+        <a href="mailto:zeeshanakram.ds@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="btt" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<script>
+/* TYPED TEXT */
+const titles=['Data Analyst','BI Dashboard Developer','SQL & Python Specialist','Business Intelligence Analyst'];
+let ti=0,ci=0,del=false;
+function type(){
+  const cur=titles[ti];
+  if(!del){
+    document.getElementById('tx').textContent=cur.slice(0,++ci);
+    if(ci===cur.length){del=true;setTimeout(type,2000);return;}
+    setTimeout(type,72);
+  } else {
+    document.getElementById('tx').textContent=cur.slice(0,--ci);
+    if(ci===0){del=false;ti=(ti+1)%titles.length;setTimeout(type,350);return;}
+    setTimeout(type,40);
+  }
+}
+type();
+
+/* SCROLL PROGRESS */
+window.addEventListener('scroll',function(){
+  var s=window.scrollY,t=document.documentElement.scrollHeight-innerHeight;
+  document.getElementById('spb').style.width=(s/t*100)+'%';
+  document.getElementById('btt').classList.toggle('show',s>400);
+  // active nav
+  var cur='';
+  document.querySelectorAll('section[id]').forEach(function(sec){
+    if(s>=sec.offsetTop-140) cur=sec.id;
+  });
+  document.querySelectorAll('.nl').forEach(function(l){
+    l.classList.toggle('active',l.getAttribute('href')==='#'+cur);
+  });
+  // navbar solid
+  document.getElementById('navbar').classList.toggle('solid',s>30);
+},{passive:true});
+
+/* MOBILE MENU */
+document.getElementById('ntoggle').addEventListener('click',function(){
+  document.getElementById('nmenu').classList.toggle('open');
+});
+document.querySelectorAll('.nl').forEach(function(l){
+  l.addEventListener('click',function(){ document.getElementById('nmenu').classList.remove('open'); });
+});
+
+/* THEME TOGGLE */
+var html=document.documentElement;
+var tBtn=document.getElementById('ttheme');
+var saved=localStorage.getItem('za-theme')||'dark';
+html.setAttribute('data-theme',saved);
+tBtn.innerHTML=saved==='dark'?'<i class="fas fa-sun"></i>':'<i class="fas fa-moon"></i>';
+tBtn.addEventListener('click',function(){
+  var cur=html.getAttribute('data-theme');
+  var next=cur==='dark'?'light':'dark';
+  html.setAttribute('data-theme',next);
+  localStorage.setItem('za-theme',next);
+  tBtn.innerHTML=next==='dark'?'<i class="fas fa-sun"></i>':'<i class="fas fa-moon"></i>';
+});
+
+/* SCROLL REVEAL */
+var rvEls=document.querySelectorAll('.rv,.rvl,.rvr');
+var rvObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');rvObs.unobserve(e.target);}
+  });
+},{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
+rvEls.forEach(function(el,i){
+  el.style.transitionDelay=(i%5)*0.06+'s';
+  rvObs.observe(el);
+});
+
+/* COUNTERS */
+var cntObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      var t=parseInt(e.target.dataset.t),n=0;
+      var s=Math.ceil(t/(1200/16));
+      var tim=setInterval(function(){
+        n+=s;
+        if(n>=t){e.target.textContent=t+'+';clearInterval(tim);}
+        else e.target.textContent=n+'+';
+      },16);
+      cntObs.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('.cnt').forEach(function(c){cntObs.observe(c);});
+
+/* BACK TO TOP */
+document.getElementById('btt').addEventListener('click',function(){
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+/* CONTACT FORM */
+var cf=document.getElementById('cform');
+if(cf){
+  cf.addEventListener('submit',async function(e){
+    e.preventDefault();
+    var btn=this.querySelector('button[type="submit"]');
+    var orig=btn.innerHTML;
+    btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';
+    btn.disabled=true;
+    try{
+      var r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
+      if(r.ok){
+        btn.innerHTML='<i class="fas fa-check"></i> Sent!';
+        btn.style.background='#10b981';
+        this.reset();
+        setTimeout(function(){btn.innerHTML=orig;btn.disabled=false;btn.style.background='';},3000);
+      } else throw 0;
+    } catch(err){
+      btn.innerHTML='<i class="fas fa-times"></i> Failed — try again';
+      btn.style.background='#ef4444';
+      setTimeout(function(){btn.innerHTML=orig;btn.disabled=false;btn.style.background='';},3000);
+    }
+  });
+}
+</script>
 </body>
 </html>
-
