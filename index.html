@@ -394,6 +394,72 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
   .cform{padding:22px 18px;}
   .astats{grid-template-columns:repeat(3,1fr);}
 }
+
+/* ================================================
+   BUSINESS SOLUTIONS
+================================================ */
+.solutions-section { padding: 100px 0; }
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+.solution-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 30px;
+  transition: var(--ease);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.solution-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--cyan);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s ease;
+}
+.solution-card:hover {
+  border-color: var(--baccent);
+  transform: translateY(-5px);
+  box-shadow: var(--shcyan), var(--sh);
+}
+.solution-card:hover::before { transform: scaleX(1); }
+
+.solution-icon {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  background: var(--cyandim);
+  border: 1px solid var(--baccent);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cyan);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: var(--ease);
+}
+.solution-card:hover .solution-icon {
+  background: var(--cyan);
+  color: #000;
+}
+.solution-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--t1);
+}
+.solution-desc {
+  font-size: .875rem;
+  color: var(--t2);
+  line-height: 1.8;
+  flex: 1;
+}
 </style>
 </head>
 
@@ -445,7 +511,6 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
       </div>
     </div>
 
-    <!-- Large dominant photo — same layout as original but upgraded -->
     <div class="himg">
       <div class="himg-wrap">
         <div class="hcorner tl"></div>
@@ -483,7 +548,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
         <p>I am a Data Analyst with a strong foundation in Software Engineering (currently in my 4th semester at Virtual University of Pakistan). My passion lies in solving real-world business problems by transforming complex, unstructured datasets into clear, actionable narratives.</p>
         <p>Rather than just writing code, I focus on business impact. During my internship at DevelopersHub Corporation, I engineered automated data pipelines and interactive BI dashboards that replaced static Excel reporting. With advanced proficiency in SQL, Python (Pandas), and Data Visualization, I specialize in uncovering trends regarding revenue, customer churn, and operational efficiency — helping stakeholders make data-driven decisions confidently.</p>
         <div class="astats">
-          <div class="astat"><h4 class="cnt" data-t="3">0+</h4><p>Case Studies</p></div>
+          <div class="astat"><h4 class="cnt" data-t="5">0+</h4><p>Case Studies</p></div>
           <div class="astat"><h4 class="cnt" data-t="5">0+</h4><p>Certifications</p></div>
           <div class="astat"><h4>1</h4><p>Internship</p></div>
         </div>
@@ -572,7 +637,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
         <div class="csimg">
           <img src="./assets/images/dashboard_interface.png" alt="UK Retail CLV & RFM Dashboard">
           <div class="csov">
-            <a href="https://youtu.be/jlOkndlBRUw" class="csovl" target="_blank" title="Watch Project Demo Video"><i class="fas fa-play"></i></a>
+            <a href="https://youtu.be/jlOkndlBRUw" class="csovl" target="_blank"><i class="fas fa-play"></i></a>
             <a href="https://github.com/zeeshan-akram-ds/excel-clv-churn-analysis" class="csovl" target="_blank"><i class="fab fa-github"></i></a>
           </div>
           <span class="csbadge">CLV Modeling</span>
@@ -582,10 +647,8 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
           <h3 class="cstitle">UK Retail CLV &amp; RFM Intelligence System</h3>
           <p class="csdesc">Analyzed £17M+ across 1M+ UK retail transactions using Power Query ETL and a custom Power Pivot relational model to surface at-risk lifetime value.</p>
           <div class="cstechs">
-            <span class="cst">Advanced Excel</span>
-            <span class="cst">Power Pivot</span>
-            <span class="cst">DAX</span>
-            <span class="cst">Power Query</span>
+            <span class="cst">Advanced Excel</span><span class="cst">Power Pivot</span>
+            <span class="cst">DAX</span><span class="cst">Power Query</span>
           </div>
           <div class="csimp">
             <i class="fas fa-sack-dollar"></i>
@@ -595,7 +658,67 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
             </div>
           </div>
         </div>
+      </div> 
+
+      <div class="cscard rv">
+        <div class="csimg">
+          <img src="./assets/images/page_1_dashboard.png" alt="SaaS Churn Executive Dashboard">
+          <div class="csov">
+            <a href="#" class="csovl" target="_blank"><i class="fas fa-play"></i></a>
+            <a href="https://github.com/zeeshan-akram-ds/saas-churn-analysis" class="csovl" target="_blank"><i class="fab fa-github"></i></a>
+          </div>
+          <span class="csbadge">Churn Analytics</span>
+        </div>
+        <div class="csbody">
+          <div class="csnum">Case Study 05</div>
+          <h3 class="cstitle">SaaS Customer Churn &amp; Revenue Risk Analysis</h3>
+          <p class="csdesc">Engineered an end-to-end Python and Power BI pipeline, utilizing dimensional modeling to pinpoint operational segments driving subscription cancellations.</p>
+          <div class="cstechs">
+            <span class="cst">Python</span><span class="cst">MySQL</span>
+            <span class="cst">Power BI</span><span class="cst">Star Schema</span>
+          </div>
+          <div class="csimp">
+            <i class="fas fa-chart-line"></i>
+            <div>
+              <div class="csimplabel">Business Impact</div>
+              <div class="csimptext">Quantified a $139K active MRR leak and proved month-to-month contracts drive 86.9% of total revenue loss, establishing targets for retention campaigns.</div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS SOLUTIONS -->
+<section id="business-solutions" class="solutions-section">
+  <div class="container">
+    <div class="sec-hd rv">
+      <h2>How I Help Founders &amp; Operators</h2>
+      <p>I turn messy operational data into clear financial directives. No vanity metrics — just specific insights that protect recurring revenue and improve margins.</p>
+    </div>
+    <div class="solutions-grid">
+
+      <div class="solution-card rv">
+        <div class="solution-icon"><i class="fas fa-user-minus"></i></div>
+        <h4 class="solution-title">Retention &amp; Churn Diagnostics</h4>
+        <p class="solution-desc">Identifying exact revenue at risk and mapping the specific lifecycle stages where users drop off, allowing you to trigger targeted retention interventions before the renewal cliff.</p>
+      </div>
+
+      <div class="solution-card rv">
+        <div class="solution-icon"><i class="fas fa-users-cog"></i></div>
+        <h4 class="solution-title">Customer Segmentation &amp; CLV</h4>
+        <p class="solution-desc">Segmenting user bases to isolate the top 20% of customers driving your revenue, enabling marketing teams to optimize acquisition spend on high-LTV lookalikes.</p>
+      </div>
+
+      <div class="solution-card rv">
+        <div class="solution-icon"><i class="fas fa-coins"></i></div>
+        <h4 class="solution-title">Margin &amp; Sales Tracking</h4>
+        <p class="solution-desc">Exposing hidden margin destruction caused by discounting strategies and inventory mismanagement, ensuring top-line sales growth actually translates to bottom-line profit.</p>
+      </div>
+
     </div>
   </div>
 </section>
