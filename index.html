@@ -460,6 +460,248 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
   line-height: 1.8;
   flex: 1;
 }
+
+/* ================================================
+   ANALYTICAL PROCESS
+================================================ */
+.process-section {
+  padding: 100px 0;
+  background: var(--bg2);
+  position: relative;
+  overflow: hidden;
+}
+.process-section::before,
+.process-section::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--baccent), transparent);
+}
+.process-section::before { top: 0; }
+.process-section::after  { bottom: 0; }
+
+/* Faint grid watermark */
+.process-section .ps-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 80%);
+  opacity: .3;
+  pointer-events: none;
+}
+
+/* Steps wrapper */
+.ps-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  position: relative;
+  margin-top: 64px;
+}
+
+/* Connecting track behind all cards */
+.ps-steps::before {
+  content: '';
+  position: absolute;
+  top: 54px; /* vertically centered on icon */
+  left: calc(10% + 24px);
+  right: calc(10% + 24px);
+  height: 1px;
+  background: linear-gradient(90deg,
+    var(--baccent) 0%,
+    var(--cyan) 50%,
+    var(--baccent) 100%);
+  z-index: 0;
+}
+
+/* Animated scan line on track */
+.ps-steps::after {
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: calc(10% + 24px);
+  width: 40px;
+  height: 9px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  filter: blur(4px);
+  z-index: 1;
+  animation: scanline 4s ease-in-out infinite;
+}
+@keyframes scanline {
+  0%   { left: calc(10% + 24px); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { left: calc(90% - 24px); opacity: 0; }
+}
+
+/* Individual step */
+.ps-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 12px;
+  position: relative;
+  z-index: 2;
+  cursor: default;
+}
+
+/* Step number (background watermark) */
+.ps-step-num {
+  position: absolute;
+  top: -18px;
+  font-family: 'Syne', sans-serif;
+  font-size: 5.5rem;
+  font-weight: 800;
+  color: var(--cyan);
+  opacity: .04;
+  line-height: 1;
+  pointer-events: none;
+  transition: opacity .35s;
+  letter-spacing: -.04em;
+  user-select: none;
+}
+.ps-step:hover .ps-step-num { opacity: .09; }
+
+/* Icon bubble */
+.ps-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: var(--cyan);
+  position: relative;
+  z-index: 2;
+  transition: var(--ease);
+  box-shadow: 0 0 0 0 var(--cyanglow);
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+/* Small step badge on icon */
+.ps-icon::before {
+  content: attr(data-step);
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--cyan);
+  color: #000;
+  font-size: .6rem;
+  font-weight: 800;
+  font-family: 'Syne', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.ps-step:hover .ps-icon {
+  background: var(--cyandim);
+  border-color: var(--cyan);
+  transform: translateY(-4px);
+  box-shadow: 0 0 28px var(--cyanglow), 0 8px 24px rgba(0,0,0,.3);
+  color: var(--cyan);
+}
+
+/* Text */
+.ps-label {
+  font-family: 'Syne', sans-serif;
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--t1);
+  margin-bottom: 8px;
+  line-height: 1.25;
+  transition: color .28s;
+}
+.ps-step:hover .ps-label { color: var(--cyan); }
+
+.ps-desc {
+  font-size: .75rem;
+  color: var(--t3);
+  line-height: 1.7;
+  max-width: 140px;
+  transition: color .28s;
+}
+.ps-step:hover .ps-desc { color: var(--t2); }
+
+/* Outcome pill at bottom */
+.ps-outcome {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--cyandim);
+  border: 1px solid transparent;
+  border-radius: 99px;
+  padding: 3px 10px;
+  font-size: .67rem;
+  font-weight: 600;
+  color: var(--t3);
+  transition: var(--ease);
+  white-space: nowrap;
+}
+.ps-step:hover .ps-outcome {
+  border-color: var(--baccent);
+  color: var(--cyan);
+}
+.ps-outcome i { font-size: .6rem; }
+
+/* Bottom insight strip */
+.ps-insight {
+  margin-top: 56px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--cyan);
+  border-radius: var(--rs);
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ps-insight i {
+  color: var(--cyan);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.ps-insight p {
+  font-size: .825rem;
+  color: var(--t2);
+  line-height: 1.65;
+}
+.ps-insight p strong {
+  color: var(--t1);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media(max-width: 900px) {
+  .ps-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 0;
+  }
+  .ps-steps::before,
+  .ps-steps::after { display: none; }
+}
+@media(max-width: 560px) {
+  .ps-steps {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 0;
+  }
+}
 </style>
 </head>
 
@@ -478,6 +720,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
       <li><a href="#resume" class="nl">Resume</a></li>
       <li><a href="#blogs" class="nl">Blogs</a></li>
       <li><a href="#contact" class="nl">Contact</a></li>
+      <li><a href="#business-solutions" class="nl">Services</a></li>
     </ul>
     <div class="nact">
       <div class="ttheme" id="ttheme" aria-label="Toggle theme"><i class="fas fa-sun"></i></div>
@@ -720,6 +963,67 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ANALYTICAL PROCESS -->
+<section class="process-section">
+  <div class="ps-grid-bg"></div>
+  <div class="container">
+    <div class="sec-hd rv">
+      <h2>My Analytical Process</h2>
+      <p>Every engagement follows the same rigorous framework — from raw question to boardroom-ready recommendation.</p>
+    </div>
+
+    <div class="ps-steps">
+
+      <div class="ps-step rv">
+        <span class="ps-step-num">1</span>
+        <div class="ps-icon" data-step="1"><i class="fas fa-bullseye"></i></div>
+        <div class="ps-label">Define the<br>Business Problem</div>
+        <p class="ps-desc">Translate a vague business pain into a precise, measurable analytical question.</p>
+        <span class="ps-outcome"><i class="fas fa-file-alt"></i> Problem Statement</span>
+      </div>
+
+      <div class="ps-step rv">
+        <span class="ps-step-num">2</span>
+        <div class="ps-icon" data-step="2"><i class="fas fa-database"></i></div>
+        <div class="ps-label">Collect &amp;<br>Clean Data</div>
+        <p class="ps-desc">ETL pipelines, deduplication, outlier handling — building a trustworthy single source of truth.</p>
+        <span class="ps-outcome"><i class="fas fa-check-circle"></i> Clean Dataset</span>
+      </div>
+
+      <div class="ps-step rv">
+        <span class="ps-step-num">3</span>
+        <div class="ps-icon" data-step="3"><i class="fas fa-search-dollar"></i></div>
+        <div class="ps-label">Analyze &amp;<br>Model</div>
+        <p class="ps-desc">SQL joins, Python aggregations, RFM scoring, cohort breakdowns — digging until a signal emerges.</p>
+        <span class="ps-outcome"><i class="fas fa-chart-bar"></i> Key Findings</span>
+      </div>
+
+      <div class="ps-step rv">
+        <span class="ps-step-num">4</span>
+        <div class="ps-icon" data-step="4"><i class="fas fa-chart-line"></i></div>
+        <div class="ps-label">Visualize &amp;<br>Communicate</div>
+        <p class="ps-desc">Power BI dashboards and Seaborn charts designed for a non-technical executive audience.</p>
+        <span class="ps-outcome"><i class="fas fa-desktop"></i> Live Dashboard</span>
+      </div>
+
+      <div class="ps-step rv">
+        <span class="ps-step-num">5</span>
+        <div class="ps-icon" data-step="5"><i class="fas fa-lightbulb"></i></div>
+        <div class="ps-label">Recommend<br>&amp; Quantify</div>
+        <p class="ps-desc">Every output ends with a £/$ figure — a specific revenue impact, not a vague "consider improving."</p>
+        <span class="ps-outcome"><i class="fas fa-pound-sign"></i> Revenue Impact</span>
+      </div>
+
+    </div>
+
+    <div class="ps-insight rv">
+      <i class="fas fa-quote-left"></i>
+      <p><strong>The last step is non-negotiable.</strong> Any analysis that doesn't end with a quantified business recommendation is just a data exercise — not a decision tool. Every case study in my portfolio closes with a specific £ or $ figure for this reason.</p>
+    </div>
+
   </div>
 </section>
 
