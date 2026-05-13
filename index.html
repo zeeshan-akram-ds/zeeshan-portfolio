@@ -1758,7 +1758,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
         </div>
       </div>
       <div class="cform rvr">
-        <form id="cform" action="https://formspree.io/f/xovkjbop" method="POST">
+        <form id="contact-form" action="https://formspree.io/f/xovkjbop" method="POST">
           <div class="fg"><label>Your Name</label><input type="text" name="name" placeholder="Jane Smith" required></div>
           <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="jane@yourcompany.com" required></div>
           <div class="fg"><label>Nature of Engagement</label><input type="text" name="subject" placeholder="e.g. Margin audit, churn diagnosis, CLV analysis" required></div>
@@ -1879,7 +1879,7 @@ document.getElementById('btt').addEventListener('click',function(){
 });
 
 /* CONTACT FORM */
-var cf=document.getElementById('cform');
+var cf=document.getElementById('contact-form');
 if(cf){
   cf.addEventListener('submit',async function(e){
     e.preventDefault();
