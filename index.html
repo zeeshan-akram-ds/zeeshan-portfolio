@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Zeeshan Akram — Data Analyst & BI Specialist. Turning messy datasets into revenue-driving decisions.">
-<meta name="keywords" content="data analyst, business intelligence, SQL, python, pandas, portfolio, zeeshan akram pakistan">
+<meta name="description" content="Zeeshan Akram — Independent Revenue & Profitability Analyst. Auditing margin leakage, churn, and retention for Retail, eCommerce, and SaaS founders.">
+<meta name="keywords" content="profitability analyst, margin audit, churn analysis, revenue leakage, retention analytics, commercial analytics consultant, SQL, Python, Power BI, ecommerce analytics, SaaS analytics, zeeshan akram">
 <meta name="author" content="Zeeshan Akram">
-<meta property="og:title" content="Zeeshan Akram — Data Analyst Portfolio">
-<meta property="og:description" content="Data Analyst & BI Specialist from Pakistan">
+<meta property="og:title" content="Zeeshan Akram — Independent Revenue & Profitability Analyst">
+<meta property="og:description" content="Auditing margin leakage, churn, and profitability for Retail, eCommerce & SaaS founders through rigorous data analysis.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="./assets/images/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<title>Zeeshan Akram — Data Analyst</title>
+<title>Zeeshan Akram — Revenue & Profitability Analyst</title>
 <link rel="icon" href="./assets/images/favicon.ico">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-68RPSGRBEM"></script>
@@ -216,13 +216,64 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.15;letter-spacing:-0.02e
 .aheading{font-size:clamp(1.3rem,2.2vw,1.75rem);font-weight:700;margin-bottom:18px;}
 .atext p{color:var(--t2);font-size:.94rem;line-height:1.88;margin-bottom:16px;}
 
-.astats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px;}
-.astat{background:var(--card);border:1px solid var(--border);border-radius:var(--rs);padding:18px 14px;text-align:center;transition:var(--ease);position:relative;overflow:hidden;}
-.astat::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--cyan);transform:scaleX(0);transition:transform .35s;}
-.astat:hover{border-color:var(--baccent);transform:translateY(-3px);}
-.astat:hover::after{transform:scaleX(1);}
-.astat h4{font-size:1.85rem;font-weight:800;color:var(--cyan);font-family:'Syne',sans-serif;}
-.astat p{font-size:.75rem;color:var(--t3);font-weight:500;margin-top:4px;}
+/* Use minmax(0, 1fr) so the grid tracks are allowed to shrink below the content's minimum width */
+.astats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.astat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--rs);
+  padding: 16px 6px;
+  text-align: center;
+  transition: var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.astat::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--cyan);
+  transform: scaleX(0);
+  transition: transform .35s;
+}
+
+.astat:hover {
+  border-color: var(--baccent);
+  transform: translateY(-3px);
+}
+
+.astat:hover::after {
+  transform: scaleX(1);
+}
+
+/* Allow text wrapping but handle word breaks gracefully to prevent horizontal grid blowout */
+.astat h4 {
+  font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+  font-weight: 800;
+  color: var(--cyan);
+  font-family: 'Syne', sans-serif;
+  letter-spacing: -0.04em;
+  white-space: normal;
+  word-break: keep-all;
+}
+
+.astat p {
+  font-size: .75rem;
+  color: var(--t3);
+  font-weight: 500;
+  margin-top: 4px;
+  line-height: 1.2;
+}
 
 .askills h3{font-size:1rem;font-weight:700;margin-bottom:22px;}
 .skcat{margin-bottom:18px;}
@@ -396,8 +447,344 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
 }
 
 /* ================================================
-   BUSINESS SOLUTIONS
+   FEATURED CASE STUDY — EDITORIAL BANNER
 ================================================ */
+.cscard.cs-featured {
+  grid-column: 1 / -1;
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: stretch;
+  border-color: var(--baccent);
+  box-shadow: var(--shcyan), 0 0 0 1px rgba(6,182,212,0.12);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+/* Base theme mapping for Flagship background */
+[data-theme="dark"] .cscard.cs-featured {
+  background: #08101f;
+}
+[data-theme="light"] .cscard.cs-featured {
+  background: #ffffff;
+}
+
+/* Cyan top rule */
+.cscard.cs-featured::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--amber), var(--cyan));
+  z-index: 5;
+}
+
+/* Full-bleed image wrapper */
+.cs-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.cs-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  display: block;
+}
+
+/* Gradient fade adapters for seamless cinematic text readability */
+.cs-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(8,16,31,0)    0%,
+    rgba(8,16,31,0.15) 28%,
+    rgba(8,16,31,0.82) 48%,
+    rgba(8,16,31,0.97) 60%,
+    #08101f            75%
+  );
+  pointer-events: none;
+}
+.cs-fade::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,16,31,0.6) 0%, transparent 35%);
+}
+
+[data-theme="light"] .cs-fade {
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0)    0%,
+    rgba(255,255,255,0.4)  28%,
+    rgba(255,255,255,0.9)  48%,
+    #ffffff                60%
+  );
+}
+[data-theme="light"] .cs-fade::after {
+  background: linear-gradient(to top, #ffffff 0%, transparent 35%);
+}
+
+/* Badge floating on the image side */
+.cs-banner-badge {
+  position: absolute;
+  top: 18px; left: 18px;
+  z-index: 4;
+  background: var(--cyan);
+  color: #000;
+  font-size: .68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: 5px 12px;
+  border-radius: 99px;
+}
+
+/* GitHub link floating bottom-left on image */
+.cs-banner-gh {
+  position: absolute;
+  bottom: 22px; left: 22px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(8,16,31,0.72);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--rs);
+  padding: 8px 14px;
+  font-size: .78rem;
+  font-weight: 600;
+  color: #e8f4ff;
+  transition: var(--ease);
+}
+.cs-banner-gh:hover {
+  background: rgba(6,182,212,0.2);
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translateY(-2px);
+}
+.cs-banner-gh i { font-size: .85rem; }
+
+/* Content panel — right side over gradient */
+.cs-panel {
+  position: relative;
+  z-index: 3;
+  margin-left: auto;
+  width: 54%;
+  padding: 44px 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Flag pill */
+.csflag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(245,158,11,0.1));
+  border: 1px solid rgba(6,182,212,0.35);
+  border-radius: 99px;
+  padding: 4px 14px;
+  font-size: .68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--cyan);
+  margin-bottom: 14px;
+  align-self: flex-start;
+}
+.csflag i { font-size: .62rem; color: var(--amber); }
+
+.cs-panel .csnum {
+  font-size: .68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--cyan);
+  margin-bottom: 8px;
+}
+
+/* Dynamic text variables automatically map perfect contrast across Light and Dark mode switches */
+.cs-panel .cstitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--t1);
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+.cs-panel .csdesc {
+  font-size: .875rem;
+  color: var(--t2);
+  line-height: 1.82;
+  margin-bottom: 18px;
+}
+
+/* Direct asset action strip for high-value client deliverables */
+.cs-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.btn-asset {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--cyan);
+  border-radius: var(--rs);
+  padding: 10px 18px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--t1);
+  transition: var(--ease);
+}
+.btn-asset i {
+  color: var(--cyan);
+  font-size: 0.9rem;
+}
+.btn-asset:hover {
+  background: var(--cyandim);
+  border-color: var(--amber);
+  color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+/* Findings list */
+.cs-findings {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  background: rgba(6,182,212,0.05);
+  border: 1px solid rgba(6,182,212,0.14);
+  border-radius: var(--rs);
+}
+.cs-finding {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: .8rem;
+  color: var(--t2);
+  line-height: 1.5;
+}
+.cs-finding i {
+  color: var(--cyan);
+  font-size: .68rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.csimptext {
+  color: var(--t1);
+  font-weight: 500;
+}
+
+/* Responsive */
+@media(max-width:1024px) {
+  .cs-panel { width: 62%; padding: 36px 30px 28px; }
+  .cs-fade {
+    background: linear-gradient(
+      to right,
+      rgba(8,16,31,0)    0%,
+      rgba(8,16,31,0.5)  30%,
+      rgba(8,16,31,0.95) 50%,
+      #08101f            65%
+    );
+  }
+  [data-theme="light"] .cs-fade {
+    background: linear-gradient(
+      to right,
+      rgba(255,255,255,0)    0%,
+      rgba(255,255,255,0.5)  30%,
+      rgba(255,255,255,0.95) 50%,
+      #ffffff                65%
+    );
+  }
+}
+@media(max-width:768px) {
+  .cscard.cs-featured {
+    flex-direction: column;
+    min-height: unset;
+  }
+  .cs-bg { position: relative; height: 220px; inset: unset; }
+  .cs-bg img { object-position: center 20%; }
+  .cs-fade { display: none; }
+  .cs-banner-badge { top: 14px; left: 14px; }
+  .cs-banner-gh { bottom: 14px; left: 14px; }
+  .cs-panel {
+    width: 100%;
+    margin-left: 0;
+    padding: 26px 22px;
+    background: var(--card);
+  }
+}
+
+/* ================================================
+   WHAT FOUNDERS MISS — INSIGHT STRIP
+================================================ */
+.founders-miss {
+  padding: 80px 0;
+  background: var(--bg);
+}
+.miss-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+.miss-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 24px 22px;
+  transition: var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.miss-card::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--cyan);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .35s ease;
+}
+.miss-card:hover {
+  border-color: var(--baccent);
+  transform: translateY(-4px);
+  box-shadow: var(--shcyan);
+}
+.miss-card:hover::after { transform: scaleY(1); }
+.miss-icon {
+  width: 38px; height: 38px;
+  border-radius: 9px;
+  background: var(--cyandim);
+  border: 1px solid var(--baccent);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cyan); font-size: .9rem;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+.miss-card h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: .92rem;
+  font-weight: 700;
+  color: var(--t1);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.miss-card p {
+  font-size: .8rem;
+  color: var(--t2);
+  line-height: 1.72;
+}
 .solutions-section { padding: 100px 0; }
 .solutions-grid {
   display: grid;
@@ -702,6 +1089,53 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
     gap: 36px 0;
   }
 }
+
+/* ================================================
+   DIAGNOSTIC SERVICES
+================================================ */
+.diagnostic-services{padding:100px 0;background:var(--bg2);position:relative;}
+.diagnostic-services::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--baccent),transparent);}
+.ds-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;}
+.ds-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:32px 28px;transition:var(--ease);display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden;}
+.ds-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--amber));transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+.ds-card:hover{border-color:var(--baccent);transform:translateY(-6px);box-shadow:var(--shcyan),var(--sh);}
+.ds-card:hover::before{transform:scaleX(1);}
+.ds-icon{width:52px;height:52px;border-radius:12px;background:var(--cyandim);border:1px solid var(--baccent);display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:1.2rem;transition:var(--ease);}
+.ds-card:hover .ds-icon{background:var(--cyan);color:#000;}
+.ds-badge{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--t3);}
+.ds-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--t1);}
+.ds-desc{font-size:.875rem;color:var(--t2);line-height:1.82;flex:1;}
+.ds-deliverables{display:flex;flex-direction:column;gap:7px;padding:14px 16px;background:var(--cyandim);border:1px solid rgba(6,182,212,0.12);border-radius:var(--rs);}
+.ds-deliverables li{display:flex;align-items:center;gap:9px;font-size:.8rem;color:var(--t2);}
+.ds-deliverables li i{color:var(--cyan);font-size:.72rem;flex-shrink:0;}
+.ds-cta{width:100%;justify-content:center;margin-top:4px;}
+
+/* ================================================
+   PROFESSIONAL STANDARDS
+================================================ */
+.pro-standards{padding:44px 0;background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.pro-standards-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--t3);text-align:center;margin-bottom:18px;}
+.pro-badges{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;}
+.pro-badge{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--baccent);border-radius:99px;padding:8px 18px;font-size:.78rem;font-weight:600;color:var(--t2);transition:var(--ease);cursor:default;}
+.pro-badge i{color:var(--cyan);font-size:.8rem;}
+.pro-badge:hover{border-color:var(--cyan);color:var(--t1);transform:translateY(-2px);}
+
+/* ================================================
+   ANALYTICAL ENDORSEMENT
+================================================ */
+.endorsement-strip{padding:72px 0;background:var(--bg);}
+.endorsement-inner{max-width:760px;margin:0 auto;background:var(--card);border:1px solid var(--baccent);border-left:3px solid var(--cyan);border-radius:var(--r);padding:36px 40px;position:relative;}
+.endorsement-inner::before{content:'\201C';position:absolute;top:14px;left:24px;font-size:5rem;font-family:'Syne',sans-serif;color:var(--cyan);opacity:.1;line-height:1;pointer-events:none;}
+.endorse-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--cyan);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.endorse-label::before{content:'';width:18px;height:2px;background:var(--cyan);border-radius:99px;}
+.endorse-text{font-size:1.05rem;color:var(--t1);line-height:1.78;margin-bottom:20px;padding-left:4px;}
+.endorse-text strong{color:var(--amber);}
+.endorse-source{font-size:.78rem;color:var(--t3);font-weight:600;display:flex;align-items:center;gap:10px;}
+.endorse-source::before{content:'';width:24px;height:1px;background:var(--baccent);display:inline-block;}
+
+/* Calendly CTA on case study cards */
+.cs-cal{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:9px 16px;background:transparent;border:1.5px solid var(--baccent);border-radius:var(--rs);font-size:.8rem;font-weight:600;color:var(--cyan);transition:var(--ease);align-self:flex-start;}
+.cs-cal:hover{background:var(--cyandim);border-color:var(--cyan);transform:translateY(-2px);}
 </style>
 </head>
 
@@ -715,12 +1149,12 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
     <ul class="nmenu" id="nmenu">
       <li><a href="#home"  class="nl">Home</a></li>
       <li><a href="#about" class="nl">About</a></li>
-      <li><a href="#projects" class="nl">Projects</a></li>
-      <li><a href="#certifications" class="nl">Certifications</a></li>
-      <li><a href="#resume" class="nl">Resume</a></li>
-      <li><a href="#blogs" class="nl">Blogs</a></li>
-      <li><a href="#contact" class="nl">Contact</a></li>
+      <li><a href="#projects" class="nl">Diagnostic Case Studies</a></li>
       <li><a href="#business-solutions" class="nl">Services</a></li>
+      <li><a href="#certifications" class="nl">Credentials</a></li>
+      <li><a href="#diagnostic-services" class="nl">Engage</a></li>
+      <li><a href="#blogs" class="nl">Insights</a></li>
+      <li><a href="#contact" class="nl">Contact</a></li>
     </ul>
     <div class="nact">
       <div class="ttheme" id="ttheme" aria-label="Toggle theme"><i class="fas fa-sun"></i></div>
@@ -733,21 +1167,21 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
 <section id="home" class="hero">
   <div class="hc">
     <div class="hcontent">
-      <div class="htag"><span class="hdot"></span>Available for Opportunities</div>
-      <h1 class="htitle">Hi, I'm <span class="hn">Zeeshan Akram</span></h1>
+      <div class="htag"><span class="hdot"></span>Available for Analytics Engagements</div>
+      <h1 class="htitle">I Identify the <span class="hn">Margin Leaks</span> Destroying Your Profitability.</h1>
       <div class="hsub"><span id="tx"></span><span class="tcur"></span></div>
-      <p class="hdesc">Turning messy datasets into revenue-driving decisions — through SQL precision, Python rigor, and business-first thinking.</p>
+      <p class="hdesc">Helping eCommerce and SaaS founders recover revenue by auditing discount behaviour, churn signals, and operational bottlenecks — then translating that evidence into decisions that protect the bottom line.</p>
       <div class="hkpi">
-        <div class="hchip"><i class="fas fa-chart-bar"></i> 113K+ Orders Analyzed</div>
-        <div class="hchip"><i class="fas fa-exclamation-triangle"></i> <b>97%</b> Churn Diagnosed</div>
-        <div class="hchip"><i class="fas fa-table"></i> 5 Relational Tables Merged</div>
+        <div class="hchip"><i class="fas fa-arrow-trend-down"></i> <b>$139K</b> MRR Leak Quantified</div>
+        <div class="hchip"><i class="fas fa-percent"></i> <b>61%</b> Discount Rate Audited</div>
+        <div class="hchip"><i class="fas fa-sack-dollar"></i> <b>£390K+</b> Revenue Opportunity Surfaced</div>
       </div>
       <div class="hbtns">
-        <a href="#projects" class="btn btn-primary"><i class="fas fa-briefcase"></i> View Case Studies</a>
-        <a href="./docs/resume.pdf" class="btn btn-outline" download><i class="fas fa-download"></i> Download Resume</a>
+        <a href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book a 15-Minute Revenue Diagnostic</a>
+        <a href="#projects" class="btn btn-outline"><i class="fas fa-file-chart-column"></i> View Case Studies</a>
       </div>
       <div class="hsocial">
-        <a href="https://www.linkedin.com/in/zeeshan-akram-572bbb34a" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.linkedin.com/in/zeeshan-akram-ds/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://github.com/zeeshan-akram-ds" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://medium.com/@zeeshanakram_ds" target="_blank"><i class="fab fa-medium"></i></a>
         <a href="https://twitter.com/ZeeshanAkram_DS" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -763,12 +1197,12 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
         </div>
         <div class="himg-stats">
           <div class="hstat">
-            <div class="hstat-ico"><i class="fas fa-database"></i></div>
-            <div><div class="hstat-lbl">SQL Queries</div><div class="hstat-val">40+ Written</div></div>
+            <div class="hstat-ico"><i class="fas fa-magnifying-glass-chart"></i></div>
+            <div><div class="hstat-lbl">Audits Completed</div><div class="hstat-val">6 Case Studies</div></div>
           </div>
           <div class="hstat">
             <div class="hstat-ico"><i class="fas fa-chart-pie"></i></div>
-            <div><div class="hstat-lbl">Dashboards</div><div class="hstat-val">3+ Live</div></div>
+            <div><div class="hstat-lbl">BI Dashboards</div><div class="hstat-val">3+ Delivered</div></div>
           </div>
         </div>
       </div>
@@ -783,36 +1217,36 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
 <!-- ABOUT -->
 <section id="about" class="about">
   <div class="container">
-    <div class="sec-hd rv"><h2>About Me</h2><p>Clarity from complexity — one dataset at a time</p></div>
+    <div class="sec-hd rv"><h2>About</h2><p>Commercial thinking, analytical rigour, business-first conclusions</p></div>
     <div class="about-grid">
       <div class="atext rvl">
-        <div class="alabel">Who I Am</div>
-        <h3 class="aheading">Data Analyst &amp; Business Intelligence Specialist</h3>
-        <p>I am a Data Analyst with a strong foundation in Software Engineering (currently in my 4th semester at Virtual University of Pakistan). My passion lies in solving real-world business problems by transforming complex, unstructured datasets into clear, actionable narratives.</p>
-        <p>Rather than just writing code, I focus on business impact. During my internship at DevelopersHub Corporation, I engineered automated data pipelines and interactive BI dashboards that replaced static Excel reporting. With advanced proficiency in SQL, Python (Pandas), and Data Visualization, I specialize in uncovering trends regarding revenue, customer churn, and operational efficiency — helping stakeholders make data-driven decisions confidently.</p>
+        <div class="alabel">Analytical Philosophy</div>
+        <h3 class="aheading">Independent Revenue &amp; Profitability Analyst</h3>
+        <p>Most business data problems are not data problems. They are framing problems. Vague pain — "revenue is growing but profit isn't" or "we're losing customers and don't know why" — rarely arrives with a clean question attached. My work starts by translating that ambiguity into a precise, measurable analytical problem before a single query is written.</p>
+        <p>I specialise in commercial analytics for Retail, eCommerce, and SaaS operators: margin audits, churn diagnostics, discount profitability analysis, and customer segmentation. The emphasis is always on outcomes that inform decisions — not dashboards built for their own sake. Every engagement ends with a quantified finding that a founder or operator can act on.</p>
         <div class="astats">
-          <div class="astat"><h4 class="cnt" data-t="5">0+</h4><p>Case Studies</p></div>
+          <div class="astat"><h4 class="cnt" data-t="6">0+</h4><p>Case Studies</p></div>
           <div class="astat"><h4 class="cnt" data-t="5">0+</h4><p>Certifications</p></div>
-          <div class="astat"><h4>1</h4><p>Internship</p></div>
+          <div class="astat"><h4>$139K+</h4><p>MRR Leak Traced</p></div>
         </div>
       </div>
       <div class="askills rvr">
-        <h3>Skills &amp; Technologies</h3>
+        <h3>Analytical Toolkit</h3>
         <div class="skcat">
-          <div class="skcat-hd">Databases &amp; Querying</div>
+          <div class="skcat-hd">Commercial Analysis</div>
+          <div class="sktags"><span class="skt">Margin Auditing</span><span class="skt">Churn Diagnostics</span><span class="skt">RFM Segmentation</span><span class="skt">CLV Modelling</span><span class="skt">Cohort Analysis</span></div>
+        </div>
+        <div class="skcat">
+          <div class="skcat-hd">Data Engineering & Querying</div>
           <div class="sktags"><span class="skt">Advanced SQL</span><span class="skt">PostgreSQL</span><span class="skt">MySQL</span><span class="skt">Window Functions</span><span class="skt">CTEs</span></div>
         </div>
         <div class="skcat">
           <div class="skcat-hd">Business Intelligence</div>
-          <div class="sktags"><span class="skt">Power BI</span><span class="skt">Streamlit</span><span class="skt">Tableau (Concepts)</span><span class="skt">Excel (Pivot, XLOOKUP)</span></div>
+          <div class="sktags"><span class="skt">Power BI</span><span class="skt">DAX</span><span class="skt">Power Query</span><span class="skt">Excel (Advanced)</span></div>
         </div>
         <div class="skcat">
-          <div class="skcat-hd">Data Manipulation</div>
-          <div class="sktags"><span class="skt">Python</span><span class="skt">Pandas</span><span class="skt">NumPy</span><span class="skt">ETL Processes</span></div>
-        </div>
-        <div class="skcat">
-          <div class="skcat-hd">Business Acumen</div>
-          <div class="sktags"><span class="skt">KPI Tracking</span><span class="skt">Financial Analysis</span><span class="skt">Customer Segmentation</span><span class="skt">A/B Testing Basics</span></div>
+          <div class="skcat-hd">Data Manipulation & EDA</div>
+          <div class="sktags"><span class="skt">Python</span><span class="skt">Pandas</span><span class="skt">NumPy</span><span class="skt">Seaborn</span><span class="skt">ETL Pipelines</span></div>
         </div>
       </div>
     </div>
@@ -822,40 +1256,162 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
 <!-- CASE STUDIES -->
 <section id="projects" class="projects">
   <div class="container">
-    <div class="sec-hd rv"><h2>Featured Case Studies</h2><p>End-to-end analytical work demonstrating real business impact</p></div>
+    <div class="sec-hd rv"><h2>Commercial Analytics Audits</h2><p>End-to-end investigations into real business performance problems — from raw data to boardroom-ready conclusions</p></div>
     <div class="csgrid">
+
+      <!-- FLAGSHIP: Retail Discount Profitability Audit -->
+      <div class="cscard cs-featured rv">
+
+        <!-- Full-bleed background image -->
+        <div class="cs-bg">
+          <img src="./assets/images/project_6.png" alt="Retail Discount Profitability Audit — Contoso Corporation">
+        </div>
+
+        <!-- Gradient fade: image → dark panel -->
+        <div class="cs-fade"></div>
+
+        <!-- Floating elements on the image side -->
+        <span class="cs-banner-badge">Margin Audit</span>
+        <a href="https://github.com/zeeshan-akram-ds/retail-discount-profitability-audit" target="_blank" class="cs-banner-gh">
+          <i class="fab fa-github"></i> View on GitHub
+        </a>
+
+        <!-- Content panel -->
+        <div class="cs-panel">
+          <div class="csflag"><i class="fas fa-star"></i> Flagship Case Study</div>
+          <div class="csnum">Case Study 06</div>
+          <h3 class="cstitle">Retail Discount Profitability Audit — Contoso Corporation</h3>
+          <p class="csdesc">A multi-layer commercial audit investigating whether Contoso's discount strategy functions as a pricing lever or a structural margin destructor. Spanning SQL data architecture, Python behavioural analysis, and a Power BI audit narrative across 3 pages — the investigation surfaces exactly where discounting accelerates volume while quietly compressing profit.</p>
+          
+          <div class="cs-findings">
+            <div class="cs-finding"><i class="fas fa-circle-dot"></i><span><strong>61% of all transactions</strong> were sold at a discount — yet discounted lines averaged 4 percentage points lower margin than full-price equivalents.</span></div>
+            <div class="cs-finding"><i class="fas fa-circle-dot"></i><span>Each discounted order line delivered <strong>$97 less profit</strong> than its full-price counterpart — a structural drag invisible in top-line revenue reporting.</span></div>
+            <div class="cs-finding"><i class="fas fa-circle-dot"></i><span><strong>24% of customers</strong> exhibited near-total discount dependency — a retention risk disguised as loyal volume.</span></div>
+            <div class="cs-finding"><i class="fas fa-circle-dot"></i><span>Category-level audit isolated <strong>Computers and Cell Phones</strong> as highest-volume categories with the sharpest margin deterioration.</span></div>
+          </div>
+
+          <div class="cstechs"><span class="cst">PostgreSQL</span><span class="cst">SQL</span><span class="cst">Python</span><span class="cst">Pandas</span><span class="cst">Power BI</span><span class="cst">ReportLab Engine</span></div>
+          
+          <div class="csimp" style="margin-top:14px;">
+            <i class="fas fa-triangle-exclamation"></i>
+            <div>
+              <div class="csimplabel">Audit Conclusion</div>
+              <div class="csimptext">Discounting is functioning as a structural margin compressor, not a tactical revenue tool. A full pricing policy review was recommended before any further volume-led growth targets are set.</div>
+            </div>
+          </div>
+
+          <div class="cs-actions">
+            <a href="https://github.com/zeeshan-akram-ds/retail-discount-profitability-audit/blob/main/docs/retail_discount_audit_report.pdf" target="_blank" class="btn-asset">
+              <i class="fas fa-file-pdf"></i> Read Executive Report (PDF)
+            </a>
+            <a href="https://github.com/zeeshan-akram-ds/retail-discount-profitability-audit/blob/main/presentations/retail_discount_audit_executive_deck.pdf" target="_blank" class="btn-asset">
+              <i class="fas fa-desktop"></i> View Slide Deck (PDF)
+            </a>
+          </div>
+
+          <a href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" class="cs-cal" style="margin-top:14px;">
+            <i class="fas fa-calendar-check"></i> Book a Revenue Diagnostic Like This
+          </a>
+        </div>
+
+      </div>
+
       <div class="cscard rv">
         <div class="csimg">
-          <img src="./assets/images/dashboard_main_picture.jpg" alt="Executive Sales Intelligence Dashboard">
+          <img src="./assets/images/page_1_dashboard.png" alt="SaaS Churn Executive Dashboard">
           <div class="csov">
-            <a href="https://github.com/zeeshan-akram-ds/PowerBI-Executive-Sales-Dashboard/blob/main/super_store_dashboard_demo.mp4" class="csovl" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-            <a href="https://github.com/zeeshan-akram-ds/PowerBI-Executive-Sales-Dashboard" class="csovl" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/zeeshan-akram-ds/saas-customer-lifecycle-analytics-/blob/main/dashboards/exports/bi_dashboard.pdf" class="csovl" target="_blank" aria-label="View Dashboard PDF"><i class="fas fa-file-pdf"></i></a>
+            <a href="https://github.com/zeeshan-akram-ds/saas-customer-lifecycle-analytics-" class="csovl" target="_blank" aria-label="View GitHub Repository"><i class="fab fa-github"></i></a>
           </div>
-          <span class="csbadge">BI Dashboard</span>
+          <span class="csbadge">Churn Diagnostic</span>
         </div>
         <div class="csbody">
-          <div class="csnum">Case Study 01</div>
-          <h3 class="cstitle">Executive Sales Intelligence Dashboard</h3>
-          <p class="csdesc">Engineered an enterprise-grade Executive Sales Dashboard in Power BI. Features dynamic YoY time-intelligence (DAX), cross-filtering by region/category, and a modern, high-contrast UI tailored for executive boardroom presentations.</p>
-          <div class="cstechs"><span class="cst">Power BI</span><span class="cst">DAX</span><span class="cst">Power Query</span><span class="cst">Data Modeling</span></div>
-          <div class="csimp"><i class="fas fa-chart-line"></i><div><div class="csimplabel">Business Impact</div><div class="csimptext">Replaced static Excel data dumps with dynamic YoY insights, instantly highlighting margin bottlenecks and regional growth.</div></div></div>
+          <div class="csnum">Case Study 05</div>
+          <h3 class="cstitle">SaaS Revenue Risk &amp; Churn Concentration Analysis</h3>
+          <p class="csdesc">Identified where subscription cancellations were concentrated across contract types, usage tiers, and customer segments. Built an end-to-end Python and Power BI pipeline using dimensional modelling to quantify which operational segments were destroying the most recurring revenue — and why month-to-month contract structures were the primary risk vector.</p>
+          <div class="cstechs">
+            <span class="cst">Python</span><span class="cst">MySQL</span>
+            <span class="cst">Power BI</span><span class="cst">Star Schema</span>
+          </div>
+          <div class="csimp">
+            <i class="fas fa-chart-line"></i>
+            <div>
+              <div class="csimplabel">Business Finding</div>
+              <div class="csimptext">Quantified a $139K active MRR leak and proved month-to-month contracts account for 86.9% of total revenue loss — establishing concrete targets for retention intervention.</div>
+            </div>
+          </div>
+          
+          <div class="cs-actions">
+            <a href="https://github.com/zeeshan-akram-ds/saas-customer-lifecycle-analytics-/blob/main/dashboards/exports/bi_dashboard.pdf" target="_blank" class="btn-asset">
+              <i class="fas fa-file-pdf"></i> View Executive Dashboard (PDF)
+            </a>
+          </div>
+
+          <a href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" class="cs-cal" style="margin-top:14px;"><i class="fas fa-calendar-check"></i> Book a Revenue Diagnostic Like This</a>
         </div>
       </div>
 
       <div class="cscard rv">
         <div class="csimg">
-          <img src="./assets/images/olist_churn_diagnosis.jpg" alt="E-Commerce RFM Analysis">
+          <img src="./assets/images/olist_churn_diagnosis.png" alt="Olist eCommerce RFM Analysis">
           <div class="csov">
-            <a href="https://github.com/zeeshan-akram-ds/Olist-ECommerce-Analysis" class="csovl" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/zeeshan-akram-ds/Olist-ECommerce-Analysis/blob/master/powerbi_dashboard/report/Olist_E-Commerce_Dashboard.pdf" class="csovl" target="_blank" aria-label="View Dashboard PDF"><i class="fas fa-file-pdf"></i></a>
+            <a href="https://github.com/zeeshan-akram-ds/Olist-ECommerce-Analysis" class="csovl" target="_blank" aria-label="View GitHub Repository"><i class="fab fa-github"></i></a>
           </div>
-          <span class="csbadge">EDA &amp; RFM</span>
+          <span class="csbadge">Retention Analysis</span>
         </div>
         <div class="csbody">
           <div class="csnum">Case Study 02</div>
-          <h3 class="cstitle">E-Commerce Operations &amp; RFM Analysis</h3>
-          <p class="csdesc">Conducted deep exploratory data analysis on 113K+ Brazilian e-commerce orders. Merged 5 relational tables to map delivery delays to customer satisfaction and performed RFM customer segmentation.</p>
+          <h3 class="cstitle">Olist eCommerce: Churn Root-Cause &amp; RFM Investigation</h3>
+          <p class="csdesc">Root-cause investigation across 113K+ Brazilian eCommerce orders revealing that logistics failure — not pricing or product — was the dominant churn driver. Delivery delays directly correlated with zero repeat purchases, reframing the problem from a product question to an operations intervention requiring immediate fulfilment process changes.</p>
           <div class="cstechs"><span class="cst">Python</span><span class="cst">Pandas</span><span class="cst">Seaborn</span><span class="cst">RFM Analysis</span></div>
-          <div class="csimp"><i class="fas fa-chart-line"></i><div><div class="csimplabel">Business Impact</div><div class="csimptext">Identified logistics as the core driver of 97% customer churn rate.</div></div></div>
+          <div class="csimp"><i class="fas fa-chart-line"></i><div><div class="csimplabel">Business Finding</div><div class="csimptext">Logistics failure — not price or product — was the dominant driver of churn. Delivery delays directly correlated with one-star reviews and zero repeat purchases.</div></div></div>
+          
+          <div class="cs-actions">
+            <a href="https://github.com/zeeshan-akram-ds/Olist-ECommerce-Analysis/blob/master/reports/Olist-Executive-Report.pdf" target="_blank" class="btn-asset">
+              <i class="fas fa-file-pdf"></i> Read Executive Report (PDF)
+            </a>
+            <a href="https://github.com/zeeshan-akram-ds/Olist-ECommerce-Analysis/blob/master/powerbi_dashboard/report/Olist_E-Commerce_Dashboard.pdf" target="_blank" class="btn-asset">
+              <i class="fas fa-chart-pie"></i> View Dashboard Layout (PDF)
+            </a>
+          </div>
+
+          <a href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" class="cs-cal" style="margin-top:14px;"><i class="fas fa-calendar-check"></i> Book a Revenue Diagnostic Like This</a>
+        </div>
+      </div>
+
+      <div class="cscard rv">
+        <div class="csimg">
+          <img src="./assets/images/dashboard_interface.png" alt="UK Retail CLV &amp; RFM Dashboard">
+          <div class="csov">
+            <a href="https://youtu.be/jlOkndlBRUw" class="csovl" target="_blank" aria-label="Watch Video Walkthrough"><i class="fas fa-play"></i></a>
+            <a href="https://github.com/zeeshan-akram-ds/excel-clv-churn-analysis" class="csovl" target="_blank" aria-label="View GitHub Repository"><i class="fab fa-github"></i></a>
+          </div>
+          <span class="csbadge">CLV Modelling</span>
+        </div>
+        <div class="csbody">
+          <div class="csnum">Case Study 04</div>
+          <h3 class="cstitle">UK Retail: Customer Lifetime Value &amp; Segment Migration</h3>
+          <p class="csdesc">Analysed £17M+ in revenue across 1M+ UK retail transactions to surface the true concentration of customer value. Built a custom Power Pivot relational model with Power Query ETL to separate VIP behaviour from stagnant cohorts and quantify the revenue opportunity hidden in segment migration.</p>
+          <div class="cstechs">
+            <span class="cst">Advanced Excel</span><span class="cst">Power Pivot</span>
+            <span class="cst">DAX</span><span class="cst">Power Query</span>
+          </div>
+          <div class="csimp">
+            <i class="fas fa-sack-dollar"></i>
+            <div>
+              <div class="csimplabel">Business Finding</div>
+              <div class="csimptext">A 40x CLV gap between VIP and mid-tier customers (£8,767 vs £220) revealed a £390K+ incremental revenue opportunity achievable purely through cohort upgrade — no new acquisition required.</div>
+            </div>
+          </div>
+          
+          <div class="cs-actions">
+            <a href="https://youtu.be/jlOkndlBRUw" target="_blank" class="btn-asset">
+              <i class="fas fa-play-circle"></i> Watch 3-Min Model Walkthrough
+            </a>
+          </div>
+
+          <a href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" class="cs-cal" style="margin-top:14px;"><i class="fas fa-calendar-check"></i> Book a Revenue Diagnostic Like This</a>
         </div>
       </div>
 
@@ -865,71 +1421,106 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
           <div class="csov">
             <a href="https://github.com/zeeshan-akram-ds/ClassicModels-SQL-Analysis" class="csovl" target="_blank"><i class="fab fa-github"></i></a>
           </div>
-          <span class="csbadge">SQL Data Analysis</span>
+          <span class="csbadge">SQL Intelligence</span>
         </div>
         <div class="csbody">
           <div class="csnum">Case Study 03</div>
-          <h3 class="cstitle">ClassicModels Sales &amp; Inventory Analysis</h3>
-          <p class="csdesc">Engineered advanced SQL queries (CTEs, Window Functions, Multi-table Joins) to analyze retail databases. Extracted actionable insights on revenue distribution, inventory stockouts, and customer segmentation.</p>
+          <h3 class="cstitle">ClassicModels: Revenue Concentration &amp; Inventory Risk Audit</h3>
+          <p class="csdesc">Analysed a multi-table retail database using advanced SQL — CTEs, window functions, and multi-level joins — to map where revenue was concentrated, which inventory positions represented fulfilment risk, and where the customer base had untapped upsell potential.</p>
           <div class="cstechs"><span class="cst">SQL</span><span class="cst">MySQL</span><span class="cst">CTEs</span><span class="cst">Window Functions</span></div>
-          <div class="csimp"><i class="fas fa-bullseye"></i><div><div class="csimplabel">Business Impact</div><div class="csimptext">Identified a severe 67:1 demand-to-stock ratio bottleneck and pinpointed exact micro-upsell opportunities to drive VIP tier growth.</div></div></div>
+          <div class="csimp"><i class="fas fa-bullseye"></i><div><div class="csimplabel">Business Finding</div><div class="csimptext">Identified a severe 67:1 demand-to-stock ratio bottleneck creating fulfilment risk, and pinpointed micro-upsell segments capable of driving VIP tier growth without additional acquisition spend.</div></div></div>
+          <a href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" class="cs-cal"><i class="fas fa-calendar-check"></i> Book a Revenue Diagnostic Like This</a>
         </div>
       </div>
 
       <div class="cscard rv">
         <div class="csimg">
-          <img src="./assets/images/dashboard_interface.png" alt="UK Retail CLV & RFM Dashboard">
+          <img src="./assets/images/dashboard_main_picture.png" alt="Executive Sales Intelligence Dashboard">
           <div class="csov">
-            <a href="https://youtu.be/jlOkndlBRUw" class="csovl" target="_blank"><i class="fas fa-play"></i></a>
-            <a href="https://github.com/zeeshan-akram-ds/excel-clv-churn-analysis" class="csovl" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/zeeshan-akram-ds/PowerBI-Executive-Sales-Dashboard/blob/main/super_store_dashboard_demo.mp4" class="csovl" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+            <a href="https://github.com/zeeshan-akram-ds/PowerBI-Executive-Sales-Dashboard" class="csovl" target="_blank"><i class="fab fa-github"></i></a>
           </div>
-          <span class="csbadge">CLV Modeling</span>
+          <span class="csbadge">Executive BI</span>
         </div>
         <div class="csbody">
-          <div class="csnum">Case Study 04</div>
-          <h3 class="cstitle">UK Retail CLV &amp; RFM Intelligence System</h3>
-          <p class="csdesc">Analyzed £17M+ across 1M+ UK retail transactions using Power Query ETL and a custom Power Pivot relational model to surface at-risk lifetime value.</p>
-          <div class="cstechs">
-            <span class="cst">Advanced Excel</span><span class="cst">Power Pivot</span>
-            <span class="cst">DAX</span><span class="cst">Power Query</span>
-          </div>
-          <div class="csimp">
-            <i class="fas fa-sack-dollar"></i>
-            <div>
-              <div class="csimplabel">Business Impact</div>
-              <div class="csimptext">Revealed a 40x VIP multiplier (£8,767 vs £220 CLV) and modeled a £390K+ incremental revenue opportunity by upgrading stagnant cohorts.</div>
-            </div>
-          </div>
-        </div>
-      </div> 
-
-      <div class="cscard rv">
-        <div class="csimg">
-          <img src="./assets/images/page_1_dashboard.png" alt="SaaS Churn Executive Dashboard">
-          <div class="csov">
-            <a href="#" class="csovl" target="_blank"><i class="fas fa-play"></i></a>
-            <a href="https://github.com/zeeshan-akram-ds/saas-churn-analysis" class="csovl" target="_blank"><i class="fab fa-github"></i></a>
-          </div>
-          <span class="csbadge">Churn Analytics</span>
-        </div>
-        <div class="csbody">
-          <div class="csnum">Case Study 05</div>
-          <h3 class="cstitle">SaaS Customer Churn &amp; Revenue Risk Analysis</h3>
-          <p class="csdesc">Engineered an end-to-end Python and Power BI pipeline, utilizing dimensional modeling to pinpoint operational segments driving subscription cancellations.</p>
-          <div class="cstechs">
-            <span class="cst">Python</span><span class="cst">MySQL</span>
-            <span class="cst">Power BI</span><span class="cst">Star Schema</span>
-          </div>
-          <div class="csimp">
-            <i class="fas fa-chart-line"></i>
-            <div>
-              <div class="csimplabel">Business Impact</div>
-              <div class="csimptext">Quantified a $139K active MRR leak and proved month-to-month contracts drive 86.9% of total revenue loss, establishing targets for retention campaigns.</div>
-            </div>
-          </div>
+          <div class="csnum">Case Study 01</div>
+          <h3 class="cstitle">Executive Sales Intelligence System — Power BI</h3>
+          <p class="csdesc">Replaced static Excel reporting with an enterprise-grade Power BI dashboard featuring dynamic YoY time-intelligence, cross-filtered regional breakdowns, and a visual hierarchy designed for boardroom-level decision-making — not data exploration.</p>
+          <div class="cstechs"><span class="cst">Power BI</span><span class="cst">DAX</span><span class="cst">Power Query</span><span class="cst">Data Modelling</span></div>
+          <div class="csimp"><i class="fas fa-chart-line"></i><div><div class="csimplabel">Business Finding</div><div class="csimptext">Dynamic YoY intelligence immediately surfaced margin bottlenecks and regional performance gaps that were invisible in prior static reporting — enabling faster executive escalation.</div></div></div>
+          <a href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" class="cs-cal"><i class="fas fa-calendar-check"></i> Book a Revenue Diagnostic Like This</a>
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- PROFESSIONAL STANDARDS -->
+<section class="pro-standards">
+  <div class="container">
+    <div class="pro-standards-label">Professional Standards & Workflow Signals</div>
+    <div class="pro-badges">
+      <div class="pro-badge"><i class="fas fa-shield-halved"></i> GDPR / Data Privacy Conscious</div>
+      <div class="pro-badge"><i class="fas fa-file-code"></i> Documented SQL Audit Trails</div>
+      <div class="pro-badge"><i class="fab fa-git-alt"></i> Git-Versioned Analysis</div>
+      <div class="pro-badge"><i class="fas fa-lock"></i> No Raw Data Retained Post-Engagement</div>
+      <div class="pro-badge"><i class="fas fa-file-invoice-dollar"></i> Business-First Reporting Standard</div>
+      <div class="pro-badge"><i class="fas fa-clock"></i> Async-First — US/UK Timezone Compatible</div>
+    </div>
+  </div>
+</section>
+
+<!-- ANALYTICAL ENDORSEMENT -->
+<section class="endorsement-strip">
+  <div class="container">
+    <div class="endorsement-inner rv">
+      <div class="endorse-label">Analytical Finding — Contoso Discount Audit</div>
+      <p class="endorse-text">
+        "The logic applied in this audit successfully isolated a <strong>$97-per-line profit gap</strong> that was previously hidden in aggregate revenue reporting. By separating discounted from full-price transactions at the order line level, the analysis surfaced a structural margin compression — from 54% to 49% — driven entirely by unmanaged discounting habit, not market pressure. This finding was invisible at the category level and would have remained so under standard dashboard reporting."
+      </p>
+      <div class="endorse-source">Zeeshan Akram — Retail Discount Profitability Audit, Contoso Corporation (2026)</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT FOUNDERS MISS -->
+<section class="founders-miss">
+  <div class="container">
+    <div class="sec-hd rv">
+      <h2>What Most Founders Miss</h2>
+      <p>Common patterns where standard reporting obscures the underlying business problem</p>
+    </div>
+    <div class="miss-grid">
+      <div class="miss-card rv">
+        <div class="miss-icon"><i class="fas fa-arrow-up-right-dots"></i></div>
+        <h4>Revenue grows while profit stagnates</h4>
+        <p>Top-line growth can mask structural margin compression from discounting, customer mix shifts, or rising acquisition costs that don't appear in headline revenue figures.</p>
+      </div>
+      <div class="miss-card rv">
+        <div class="miss-icon"><i class="fas fa-scissors"></i></div>
+        <h4>Discounting drives volume, not value</h4>
+        <p>High discount rates often inflate order counts while simultaneously training customers to never pay full price — creating retention that is entirely price-dependent and operationally fragile.</p>
+      </div>
+      <div class="miss-card rv">
+        <div class="miss-icon"><i class="fas fa-user-slash"></i></div>
+        <h4>Churn is attributed to the wrong cause</h4>
+        <p>Product teams investigate churn assuming a product problem. The actual driver is frequently operational — delivery failures, onboarding friction, or contract structure — and never surfaces in product analytics.</p>
+      </div>
+      <div class="miss-card rv">
+        <div class="miss-icon"><i class="fas fa-layer-group"></i></div>
+        <h4>The top 20% of customers are obscured by averages</h4>
+        <p>Aggregated CLV and ARPU figures hide extreme concentration. Knowing that 18% of your customer base generates 74% of profit changes every acquisition and retention decision you make.</p>
+      </div>
+      <div class="miss-card rv">
+        <div class="miss-icon"><i class="fas fa-calendar-xmark"></i></div>
+        <h4>Cohort behaviour is never isolated</h4>
+        <p>Without separating customer cohorts by acquisition period, seasonal patterns and product changes become invisible. What looks like a platform problem is often a single bad acquisition cohort continuing to churn.</p>
+      </div>
+      <div class="miss-card rv">
+        <div class="miss-icon"><i class="fas fa-boxes-stacked"></i></div>
+        <h4>Margin is measured at category, not line level</h4>
+        <p>Category-level margin reporting allows loss-making SKUs to hide behind strong performers. Profit destruction is almost always concentrated in specific product lines that aggregate data cannot isolate.</p>
       </div>
     </div>
   </div>
@@ -939,27 +1530,46 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
 <section id="business-solutions" class="solutions-section">
   <div class="container">
     <div class="sec-hd rv">
-      <h2>How I Help Founders &amp; Operators</h2>
-      <p>I turn messy operational data into clear financial directives. No vanity metrics — just specific insights that protect recurring revenue and improve margins.</p>
+      <h2>Analytics Consulting Services</h2>
+      <p>Structured engagements for founders and operators who need commercial clarity, not more dashboards</p>
     </div>
+    <p style="text-align:center;color:var(--t2);font-size:.93rem;max-width:600px;margin:-30px auto 48px;line-height:1.8;">Each engagement is scoped around a specific business question. The output is a quantified finding and a set of evidence-backed recommendations — not a generic report.</p>
     <div class="solutions-grid">
 
       <div class="solution-card rv">
+        <div class="solution-icon"><i class="fas fa-magnifying-glass-dollar"></i></div>
+        <h4 class="solution-title">Profitability &amp; Margin Audits</h4>
+        <p class="solution-desc">Investigating where margin compresses between revenue recognition and net profit — across product lines, customer segments, geographies, and discount tiers. Built for operators who see top-line growth but stagnant or declining bottom-line performance.</p>
+      </div>
+
+      <div class="solution-card rv">
         <div class="solution-icon"><i class="fas fa-user-minus"></i></div>
-        <h4 class="solution-title">Retention &amp; Churn Diagnostics</h4>
-        <p class="solution-desc">Identifying exact revenue at risk and mapping the specific lifecycle stages where users drop off, allowing you to trigger targeted retention interventions before the renewal cliff.</p>
+        <h4 class="solution-title">Churn &amp; Retention Diagnostics</h4>
+        <p class="solution-desc">Locating the exact lifecycle stage where customers disengage and separating operational root causes from product or pricing signals. Outputs include a quantified revenue-at-risk figure and a cohort-level breakdown of where retention intervention will have the highest return.</p>
       </div>
 
       <div class="solution-card rv">
-        <div class="solution-icon"><i class="fas fa-users-cog"></i></div>
-        <h4 class="solution-title">Customer Segmentation &amp; CLV</h4>
-        <p class="solution-desc">Segmenting user bases to isolate the top 20% of customers driving your revenue, enabling marketing teams to optimize acquisition spend on high-LTV lookalikes.</p>
+        <div class="solution-icon"><i class="fas fa-users-viewfinder"></i></div>
+        <h4 class="solution-title">Customer Segmentation &amp; LTV Analysis</h4>
+        <p class="solution-desc">Decomposing an aggregated customer base into behavioural segments to surface the true concentration of revenue and lifetime value — isolating which cohorts to protect, upgrade, or deprioritise based on evidence rather than intuition.</p>
       </div>
 
       <div class="solution-card rv">
-        <div class="solution-icon"><i class="fas fa-coins"></i></div>
-        <h4 class="solution-title">Margin &amp; Sales Tracking</h4>
-        <p class="solution-desc">Exposing hidden margin destruction caused by discounting strategies and inventory mismanagement, ensuring top-line sales growth actually translates to bottom-line profit.</p>
+        <div class="solution-icon"><i class="fas fa-tag"></i></div>
+        <h4 class="solution-title">Discount &amp; Pricing Intelligence</h4>
+        <p class="solution-desc">Auditing whether a discount strategy is generating incremental profit or systematically compressing margin. Identifies customer-level discount dependency and models the financial impact of a pricing policy change before it is implemented.</p>
+      </div>
+
+      <div class="solution-card rv">
+        <div class="solution-icon"><i class="fas fa-arrow-trend-down"></i></div>
+        <h4 class="solution-title">Revenue Leakage Investigation</h4>
+        <p class="solution-desc">Tracing operational and commercial gaps where revenue is generated but not fully captured — through returns, fulfilment failures, contract structure, or pricing inconsistency. Outputs a prioritised list of leakage sources with estimated financial impact per issue.</p>
+      </div>
+
+      <div class="solution-card rv">
+        <div class="solution-icon"><i class="fas fa-gauge-high"></i></div>
+        <h4 class="solution-title">Executive KPI Intelligence Systems</h4>
+        <p class="solution-desc">Designing and building Power BI reporting systems around the business questions that actually drive decisions — not vanity metrics. Built for leadership teams who need a single, trusted source of commercial performance intelligence with full drill-down capability.</p>
       </div>
 
     </div>
@@ -1030,7 +1640,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
 <!-- CERTIFICATIONS -->
 <section id="certifications" class="certifications">
   <div class="container">
-    <div class="sec-hd rv"><h2>Certifications</h2><p>Recognized credentials from leading global institutions</p></div>
+    <div class="sec-hd rv"><h2>Credentials</h2><p>Verified certifications from IBM and Google via Coursera</p></div>
     <div class="cert-grid">
       <div class="ci rv"><div class="ci-hd"><img src="./assets/images/ibm_logo.png" alt="IBM" class="ci-logo"><h4>Data Analysis with Python</h4></div><p><i class="fas fa-award"></i> IBM · Coursera</p></div>
       <div class="ci rv"><div class="ci-hd"><img src="./assets/images/ibm_logo.png" alt="IBM" class="ci-logo"><h4>Data Visualization with Python</h4></div><p><i class="fas fa-award"></i> IBM · Coursera</p></div>
@@ -1040,22 +1650,54 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
   </div>
 </section>
 
-<!-- RESUME -->
-<section id="resume" class="resume">
+<!-- DIAGNOSTIC SERVICES -->
+<section id="diagnostic-services" class="diagnostic-services">
   <div class="container">
-    <div class="sec-hd rv"><h2>Resume</h2><p>A snapshot of my skills, education, and experience</p></div>
-    <div class="resume-inner">
-      <div class="rstats rv">
-        <div class="rst"><i class="fas fa-database"></i><h3>Advanced</h3><p>SQL &amp; Querying</p></div>
-        <div class="rst"><i class="fas fa-chart-bar"></i><h3>Expert</h3><p>Data Visualization</p></div>
-        <div class="rst"><i class="fab fa-python"></i><h3>Python</h3><p>Pandas &amp; EDA</p></div>
-        <div class="rst"><i class="fas fa-graduation-cap"></i><h3>B.S</h3><p>Software Engineering</p></div>
+    <div class="sec-hd rv"><h2>Diagnostic Services</h2><p>Three fixed-scope entry points. One clear output: a quantified commercial finding and an evidence-backed recommendation you can act on.</p></div>
+    <div class="ds-grid">
+
+      <div class="ds-card rv">
+        <div class="ds-icon"><i class="fas fa-magnifying-glass-dollar"></i></div>
+        <div class="ds-badge">Entry Point 01</div>
+        <h4 class="ds-title">The Profitability Audit</h4>
+        <p class="ds-desc">A full-stack review of your transaction data to locate exactly where margin compresses between revenue recognition and net profit — across product lines, discount tiers, customer segments, and geographies. Built for operators who see top-line growth but declining bottom-line performance.</p>
+        <ul class="ds-deliverables">
+          <li><i class="fas fa-check"></i> SQL-documented audit trail</li>
+          <li><i class="fas fa-check"></i> Python behavioural analysis</li>
+          <li><i class="fas fa-check"></i> Margin leakage quantified by segment</li>
+          <li><i class="fas fa-check"></i> Power BI executive narrative</li>
+        </ul>
+        <a href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" class="btn btn-primary ds-cta"><i class="fas fa-calendar-check"></i> Book a 15-Minute Revenue Diagnostic</a>
       </div>
-      <div class="rpreview rv"><img src="assets/images/resume_preview.jpg" alt="Resume Preview"></div>
-      <div class="rdl rv">
-        <a href="./docs/resume.pdf" class="btn btn-primary" download="Zeeshan_Akram_Resume.pdf"><i class="fas fa-download"></i> Download Resume</a>
-        <p>Last updated: March 2026</p>
+
+      <div class="ds-card rv">
+        <div class="ds-icon"><i class="fas fa-user-minus"></i></div>
+        <div class="ds-badge">Entry Point 02</div>
+        <h4 class="ds-title">Retention &amp; Churn Deep-Dive</h4>
+        <p class="ds-desc">Identifying exactly when and why customers stop buying — isolating the lifecycle stage, root cause (operational vs. product vs. pricing), and the precise revenue-at-risk figure that justifies intervention. Outputs a cohort-level breakdown, not a generic churn rate.</p>
+        <ul class="ds-deliverables">
+          <li><i class="fas fa-check"></i> Cohort-level churn breakdown</li>
+          <li><i class="fas fa-check"></i> RFM segmentation &amp; LTV modelling</li>
+          <li><i class="fas fa-check"></i> Revenue-at-risk quantification</li>
+          <li><i class="fas fa-check"></i> Retention intervention roadmap</li>
+        </ul>
+        <a href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" class="btn btn-primary ds-cta"><i class="fas fa-calendar-check"></i> Book a 15-Minute Revenue Diagnostic</a>
       </div>
+
+      <div class="ds-card rv">
+        <div class="ds-icon"><i class="fas fa-gauge-high"></i></div>
+        <div class="ds-badge">Entry Point 03</div>
+        <h4 class="ds-title">Executive Dashboard Build</h4>
+        <p class="ds-desc">Turning messy billing or operational data into a clean Power BI or Excel command centre — built around the business questions that actually drive decisions, not vanity metrics. Designed for leadership teams who need one trusted source of commercial intelligence.</p>
+        <ul class="ds-deliverables">
+          <li><i class="fas fa-check"></i> Power BI / Advanced Excel dashboard</li>
+          <li><i class="fas fa-check"></i> Dynamic YoY time-intelligence</li>
+          <li><i class="fas fa-check"></i> Cross-filtered executive views</li>
+          <li><i class="fas fa-check"></i> Full drill-down capability</li>
+        </ul>
+        <a href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" class="btn btn-primary ds-cta"><i class="fas fa-calendar-check"></i> Book a 15-Minute Revenue Diagnostic</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1064,8 +1706,8 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
 <section id="blogs" class="blogs">
   <div class="container">
     <div class="sec-hd rv">
-      <h2>Blogs</h2>
-      <p>Sharing analytical case studies and data-driven insights from real projects.</p>
+      <h2>Analytical Insights</h2>
+      <p>Published breakdowns of real commercial analytics investigations — written for founders and operators, not data scientists.</p>
     </div>
     <div class="blogs-grid">
       
@@ -1074,9 +1716,9 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
           <img src="./assets/images/blog_1.png" alt="E-commerce Churn Analysis Python Code">
         </div>
         <div class="blogbody">
-          <span class="blogtag"><i class="fas fa-tag"></i> Case Study</span>
-          <h3 class="blogtitle">E-commerce Customer Churn Diagnosis: A Data-Driven Analysis of 113K Orders</h3>
-          <p class="blogdesc">A complete Python analytics case study on the Olist dataset — covering data engineering, memory optimization, and <strong>RFM segmentation</strong> to diagnose the true cause of a <strong>97% churn rate</strong> and propose targeted business interventions.</p>
+          <span class="blogtag"><i class="fas fa-tag"></i> Churn Investigation</span>
+          <h3 class="blogtitle">Why 97% of Customers Never Returned: A Root-Cause Analysis of 113K eCommerce Orders</h3>
+          <p class="blogdesc">A complete Python analytics case study on the Olist dataset — covering data engineering, memory optimisation, and RFM segmentation to determine whether a near-total churn rate was a product, pricing, or operational failure — and what that distinction means for intervention strategy.</p>
           <a href="https://medium.com/@zeeshanakram_ds/sememhow-i-analyzed-113k-orders-and-discovered-the-true-cause-of-customer-churn-569e0f6a4136" target="_blank" class="btn btn-outline"><i class="fab fa-medium"></i> Read on Medium</a>
         </div>
       </div>
@@ -1086,9 +1728,9 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
           <img src="./assets/images/blog_2.png" alt="17M Retail Data Analysis Excel Dashboard">
         </div>
         <div class="blogbody">
-          <span class="blogtag"><i class="fas fa-tag"></i> Case Study</span>
-          <h3 class="blogtitle">£17M+ Retail Data Analysis: Finding the 40x VIP Multiplier using Excel and RFM</h3>
-          <p class="blogdesc">A breakdown of how I processed over 1 million retail transactions using Power Query and built a custom RFM segmentation model to uncover a <strong>£390K+ incremental revenue opportunity</strong>.</p>
+          <span class="blogtag"><i class="fas fa-tag"></i> Revenue Concentration Analysis</span>
+          <h3 class="blogtitle">The 40x Customer Multiplier: How RFM Segmentation Surfaced £390K Hidden in Plain Sight</h3>
+          <p class="blogdesc">A breakdown of how processing 1M+ retail transactions via Power Query and a custom RFM segmentation model revealed that a small VIP cohort was generating 40x the lifetime value of mid-tier customers — and what a migration strategy could realistically recover.</p>
           <a href="https://medium.com/@zeeshanakram_ds/17m-retail-data-analysis-finding-the-40x-vip-multiplier-using-excel-and-rfm-0b660846cb84" target="_blank" class="btn btn-outline"><i class="fab fa-medium"></i> Read on Medium</a>
         </div>
       </div>
@@ -1100,25 +1742,28 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
 <!-- CONTACT -->
 <section id="contact" class="contact">
   <div class="container">
-    <div class="sec-hd rv"><h2>Get In Touch</h2><p>Open to data analyst roles, freelance projects, and collaborations</p></div>
+    <div class="sec-hd rv"><h2>Start a Conversation</h2><p>Available for analytics consulting engagements, profitability audits, and commercial analysis partnerships</p></div>
+    <div style="text-align:center;margin:-30px auto 48px;">
+      <a href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" class="btn btn-primary" style="font-size:1rem;padding:14px 32px;"><i class="fas fa-calendar-check"></i> Book a 15-Minute Revenue Diagnostic</a>
+    </div>
     <div class="contact-grid">
       <div class="cinfo rvl">
-        <h3>Let's Work Together</h3>
-        <p>Whether you need to turn raw data into strategic insights, build an automated BI dashboard, or tackle a challenging analytics problem — I'd love to hear from you.</p>
+        <h3>Discuss a Business Problem</h3>
+        <p>If your business is experiencing margin pressure, unexplained churn, or revenue growth that isn't translating to profit — that is exactly the kind of problem worth discussing. Reach out to explore whether an analytics engagement would surface the answer.</p>
         <div class="citems">
-          <div class="citem"><div class="cico"><i class="fas fa-envelope"></i></div><div><h4>Email</h4><a href="mailto:zeeshanakram.ds@gmail.com">Send me an Email</a></div></div>
-          <div class="citem"><div class="cico"><i class="fab fa-linkedin"></i></div><div><h4>LinkedIn</h4><a href="https://www.linkedin.com/in/zeeshan-akram-572bbb34a" target="_blank">Connect on LinkedIn</a></div></div>
-          <div class="citem"><div class="cico"><i class="fab fa-github"></i></div><div><h4>GitHub</h4><a href="https://github.com/zeeshan-akram-ds" target="_blank">View my GitHub</a></div></div>
+          <div class="citem"><div class="cico"><i class="fas fa-envelope"></i></div><div><h4>Email</h4><a href="mailto:zeeshanakram1704@gmail.com">zeeshanakram1704@gmail.com</a></div></div>
+          <div class="citem"><div class="cico"><i class="fab fa-linkedin"></i></div><div><h4>LinkedIn</h4><a href="https://www.linkedin.com/in/zeeshan-akram-ds/" target="_blank">Connect on LinkedIn</a></div></div>
+          <div class="citem"><div class="cico"><i class="fab fa-github"></i></div><div><h4>GitHub</h4><a href="https://github.com/zeeshan-akram-ds" target="_blank">View Case Study Repositories</a></div></div>
           <div class="citem"><div class="cico"><i class="fab fa-twitter"></i></div><div><h4>Twitter / X</h4><a href="https://twitter.com/ZeeshanAkram_DS" target="_blank">@ZeeshanAkram_DS</a></div></div>
         </div>
       </div>
       <div class="cform rvr">
         <form id="cform" action="https://formspree.io/f/xovkjbop" method="POST">
-          <div class="fg"><label>Your Name</label><input type="text" name="name" placeholder="John Smith" required></div>
-          <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="john@company.com" required></div>
-          <div class="fg"><label>Subject</label><input type="text" name="subject" placeholder="Data Analyst Opportunity" required></div>
-          <div class="fg"><label>Message</label><textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="fas fa-paper-plane"></i> Send Message</button>
+          <div class="fg"><label>Your Name</label><input type="text" name="name" placeholder="Jane Smith" required></div>
+          <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="jane@yourcompany.com" required></div>
+          <div class="fg"><label>Nature of Engagement</label><input type="text" name="subject" placeholder="e.g. Margin audit, churn diagnosis, CLV analysis" required></div>
+          <div class="fg"><label>Business Context</label><textarea name="message" rows="5" placeholder="Briefly describe the business problem you're trying to solve — what you're seeing in the data and what decision you need to make..." required></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="fas fa-paper-plane"></i> Send Enquiry</button>
         </form>
       </div>
     </div>
@@ -1131,10 +1776,10 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
     <div class="fc">
       <p>&copy; 2026 <strong>Zeeshan Akram</strong>. All rights reserved.</p>
       <div class="fsoc">
-        <a href="https://www.linkedin.com/in/zeeshan-akram-572bbb34a" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.linkedin.com/in/zeeshan-akram-ds/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://github.com/zeeshan-akram-ds" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://medium.com/@zeeshanakram_ds" target="_blank"><i class="fab fa-medium"></i></a>
-        <a href="mailto:zeeshanakram.ds@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="mailto:zeeshanakram1704@gmail.com"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
   </div>
@@ -1144,7 +1789,7 @@ footer{border-top:1px solid var(--border);padding:26px 0;background:var(--bg2);}
 
 <script>
 /* TYPED TEXT */
-const titles=['Data Analyst','BI Dashboard Developer','SQL & Python Specialist','Business Intelligence Analyst'];
+const titles=['Revenue & Profitability Analyst','Commercial Analytics Consultant','Margin & Churn Investigator','Business Intelligence Specialist'];
 let ti=0,ci=0,del=false;
 function type(){
   const cur=titles[ti];
