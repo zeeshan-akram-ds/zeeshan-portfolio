@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce Profitability Diagnostic | Zeeshan Akram</title>
+<meta name="description" content="Free diagnostic tool: check if an order is profitable, how much CAC headroom it has, and how much discount it can absorb before it breaks even.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root{
+  --bg:#08101f;--bg2:#0d1a2e;--card:#101e35;--border:rgba(255,255,255,.07);
+  --baccent:rgba(6,182,212,.28);--t1:#e8f4ff;--t2:#8ba8c8;--t3:#4e6a87;
+  --cyan:#06b6d4;--cyandim:rgba(6,182,212,.07);--amber:#f59e0b;--green:#10b981;--red:#ef4444;
+  --sh:0 8px 32px rgba(0,0,0,.5);--r:12px;--rs:8px;--ease:all .28s cubic-bezier(.4,0,.2,1);
+}
+[data-theme="light"]{
+  --bg:#f0f4f8;--bg2:#e8eef6;--card:#ffffff;--border:rgba(0,0,0,.09);
+  --baccent:rgba(6,182,212,.3);--t1:#0d1f35;--t2:#3d5a78;--t3:#7a96b0;
+  --cyandim:rgba(6,182,212,.06);--sh:0 4px 20px rgba(0,0,0,.1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t1);line-height:1.65;transition:background .3s,color .3s;}
+h1,h2,h3,h4{font-family:'Inter',sans-serif;letter-spacing:-.01em;line-height:1.25;}
+a{color:var(--cyan);text-decoration:none;}
+.wrap{max-width:960px;margin:0 auto;padding:24px;}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 0;}
+.topbar a.back{font-size:.85rem;color:var(--t2);font-weight:500;}
+.topbar a.back i{margin-right:6px;}
+.ttheme{width:37px;height:37px;border-radius:50%;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--t2);transition:var(--ease);}
+.ttheme:hover{color:var(--cyan);border-color:var(--baccent);}
+header.hd{text-align:center;margin:20px 0 36px;}
+header.hd h1{font-size:clamp(1.6rem,3.6vw,2.15rem);font-weight:800;margin-bottom:10px;}
+header.hd p{color:var(--t2);font-size:.95rem;max-width:560px;margin:0 auto;}
+.grid{display:grid;grid-template-columns:340px 1fr;gap:20px;align-items:start;}
+@media(max-width:800px){.grid{grid-template-columns:1fr;}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px;box-shadow:var(--sh);}
+.card h3{font-size:1.05rem;font-weight:700;margin-bottom:14px;}
+.fg{margin-bottom:14px;}
+.fg label{display:flex;align-items:center;gap:5px;font-size:.78rem;font-weight:600;color:var(--t2);margin-bottom:5px;}
+.fg label i{color:var(--t3);cursor:help;font-size:.75rem;}
+.fg input[type="number"]{width:100%;padding:9px 11px;border-radius:var(--rs);border:1px solid var(--border);background:var(--bg2);color:var(--t1);font-family:'Inter',sans-serif;font-size:.9rem;font-variant-numeric:tabular-nums;transition:var(--ease);}
+.fg input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px var(--cyandim);}
+.fg small{display:block;margin-top:4px;color:var(--t3);font-size:.72rem;line-height:1.4;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.chkrow{display:flex;align-items:center;gap:8px;font-size:.8rem;font-weight:500;color:var(--t2);margin-bottom:10px;cursor:pointer;}
+.chkrow input{width:15px;height:15px;accent-color:var(--cyan);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 18px;border-radius:var(--rs);font-weight:600;font-size:.85rem;font-family:'Inter',sans-serif;cursor:pointer;border:none;transition:var(--ease);width:100%;}
+.btn-primary{background:var(--cyan);color:#000;}
+.btn-primary:hover{background:#0891b2;}
+.btn-outline{background:transparent;color:var(--cyan);border:1.5px solid var(--baccent);margin-top:8px;}
+.btn-outline:hover{background:var(--cyandim);}
+.priv{display:flex;gap:7px;align-items:flex-start;margin-top:16px;font-size:.72rem;color:var(--t3);}
+.priv i{color:var(--green);margin-top:2px;}
+
+.gate{display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:var(--rs);margin-bottom:16px;font-weight:600;font-size:.9rem;border:1px solid var(--border);}
+.gate.ok{color:var(--green);}
+.gate.bad{color:var(--red);}
+
+.verdict{padding:16px;border-radius:var(--rs);margin-bottom:16px;border:1px solid var(--border);}
+.verdict .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.03em;padding:4px 10px;border-radius:99px;margin-bottom:8px;}
+.verdict p{font-size:.85rem;color:var(--t2);}
+.tag.notviable{background:rgba(239,68,68,.15);color:var(--red);}
+.tag.cac{background:rgba(245,158,11,.15);color:var(--amber);}
+.tag.disc{background:rgba(245,158,11,.15);color:var(--amber);}
+.tag.positive{background:rgba(16,185,129,.15);color:var(--green);}
+
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.stat{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;}
+.stat .lbl{font-size:.72rem;color:var(--t3);margin-bottom:4px;}
+.stat .val{font-size:1.2rem;font-weight:700;font-variant-numeric:tabular-nums;}
+.stat .why{font-size:.7rem;color:var(--t3);margin-top:4px;line-height:1.4;}
+.pos{color:var(--green);}.neg{color:var(--red);}
+
+.sub{font-size:.85rem;font-weight:700;color:var(--t1);margin:18px 0 10px;padding-top:14px;border-top:1px solid var(--border);}
+.sub .aux{font-weight:400;color:var(--t3);font-size:.75rem;}
+.disceco{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px;}
+.disceco .box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rs);padding:10px 12px;}
+.disceco .box .lbl{font-size:.7rem;color:var(--t3);}
+.disceco .box .val{font-size:1.05rem;font-weight:700;font-variant-numeric:tabular-nums;}
+.disceco .box .note{font-size:.68rem;color:var(--t3);margin-top:2px;}
+
+table{width:100%;border-collapse:collapse;font-size:.83rem;}
+table td{padding:6px 4px;border-bottom:1px dashed var(--border);}
+table td:last-child{text-align:right;font-weight:600;font-variant-numeric:tabular-nums;}
+table tr.total td{border-top:1.5px solid var(--border);border-bottom:none;padding-top:9px;font-weight:700;}
+
+.chip{font-size:.68rem;padding:2px 7px;border-radius:99px;font-weight:700;}
+.chip.High{background:rgba(239,68,68,.15);color:var(--red);}
+.chip.Moderate{background:rgba(245,158,11,.15);color:var(--amber);}
+.chip.Low{background:rgba(16,185,129,.15);color:var(--green);}
+
+details{margin-top:18px;border-top:1px solid var(--border);padding-top:14px;}
+summary{cursor:pointer;font-weight:600;font-size:.85rem;color:var(--cyan);}
+details .inner{margin-top:12px;font-size:.8rem;color:var(--t2);line-height:1.7;}
+details ul{padding-left:18px;list-style:disc;margin-top:6px;}
+.hidden{display:none;}
+footer.note{text-align:center;margin:30px 0 10px;font-size:.75rem;color:var(--t3);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="back" href="../index.html"><i class="fas fa-arrow-left"></i>Back to site</a>
+    <div class="ttheme" id="ttheme"><i class="fas fa-sun"></i></div>
+  </div>
+
+  <header class="hd">
+    <h1>E-Commerce Profitability Diagnostic</h1>
+    <p>Not just a calculator. Enter one order's economics and get a verdict: can you afford to acquire it, can you discount it, and what's actually eating the margin.</p>
+  </header>
+
+  <div class="grid">
+    <!-- INPUTS -->
+    <div class="card">
+      <h3>Order inputs</h3>
+      <div class="fg"><label>Selling price ($) <i class="fas fa-circle-info" title="List price before any discount."></i></label><input type="number" id="price" value="79" step="0.01"></div>
+      <div class="row2">
+        <div class="fg"><label>Current discount (%)</label><input type="number" id="discount" value="10" step="0.1"></div>
+        <div class="fg"><label>COGS ($)</label><input type="number" id="cogs" value="24" step="0.01"></div>
+      </div>
+      <div class="fg"><label>Shipping ($) <i class="fas fa-circle-info" title="Net cost to you. Enter $0 if the customer pays it in full."></i></label><input type="number" id="shipping" value="7" step="0.01"></div>
+      <div class="row2">
+        <div class="fg"><label>Payment fee (%)</label><input type="number" id="feepct" value="2.9" step="0.01"></div>
+        <div class="fg"><label>Fixed fee ($)</label><input type="number" id="feefixed" value="0.30" step="0.01"></div>
+      </div>
+      <div class="fg"><label>Return rate (%) <i class="fas fa-circle-info" title="Percent of orders expected to be returned."></i></label><input type="number" id="returnrate" value="8" step="0.1"></div>
+
+      <label class="chkrow"><input type="checkbox" id="recoveryToggle"> Returned items have resale/recovery value</label>
+      <div class="fg hidden" id="recoveryField">
+        <label>Recovery value per return ($)</label>
+        <input type="number" id="recoveryValue" value="0" step="0.01">
+        <small>Estimated value recovered per returned order (resale, refurbishment, etc). Leave unchecked above to assume zero recovery.</small>
+      </div>
+
+      <div class="fg"><label>CAC ($) <i class="fas fa-circle-info" title="Cost to acquire this order, first-order basis. Does not account for repeat purchases or LTV."></i></label><input type="number" id="cac" value="18" step="0.01"></div>
+
+      <button class="btn btn-primary" id="calcBtn"><i class="fas fa-calculator"></i> Diagnose this order</button>
+      <button class="btn btn-outline" id="exampleBtn">Try an example</button>
+      <div class="priv"><i class="fas fa-lock"></i><span>Runs in your browser. Nothing you enter is sent or stored anywhere.</span></div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="card" id="results">
+      <div style="text-align:center;color:var(--t3);font-size:.9rem;padding:30px 10px;" id="placeholder">
+        Enter your order economics and click <strong>Diagnose this order</strong>.
+      </div>
+      <div id="output" class="hidden"></div>
+    </div>
+  </div>
+
+  <footer class="note">Model assumptions: first-order CAC basis (no LTV) &middot; return recovery value defaults to zero unless entered above &middot; display currency only, no FX conversion &middot; taxes and fixed overhead excluded.</footer>
+</div>
+
+<script>
+/* THEME (synced with main site) */
+var html=document.documentElement, tBtn=document.getElementById('ttheme');
+var saved=localStorage.getItem('za-theme')||'dark';
+html.setAttribute('data-theme',saved);
+tBtn.innerHTML=saved==='dark'?'<i class="fas fa-sun"></i>':'<i class="fas fa-moon"></i>';
+tBtn.addEventListener('click',function(){
+  var next=html.getAttribute('data-theme')==='dark'?'light':'dark';
+  html.setAttribute('data-theme',next);
+  localStorage.setItem('za-theme',next);
+  tBtn.innerHTML=next==='dark'?'<i class="fas fa-sun"></i>':'<i class="fas fa-moon"></i>';
+});
+
+document.getElementById('recoveryToggle').addEventListener('change', function(){
+  document.getElementById('recoveryField').classList.toggle('hidden', !this.checked);
+});
+
+function fmt(n){ return (n<0?'-$':'$') + Math.abs(n).toFixed(2); }
+function pct(n){ return (n*100).toFixed(1)+'%'; }
+function pp(n){ return (n*100).toFixed(1)+'pp'; }
+
+function compute(inp){
+  var P=inp.price, d=inp.discount/100, cogs=inp.cogs, ship=inp.shipping,
+      feePct=inp.feepct/100, feeFixed=inp.feefixed, r=inp.returnrate/100, cac=inp.cac, recovery=inp.recovery;
+
+  function calcAt(disc, retRate, cacVal){
+    var netRev = P*(1-disc);
+    var fee = netRev*feePct + feeFixed;
+    var cm = netRev*(1-retRate) - cogs - ship - fee + retRate*recovery;
+    return {netRev:netRev, fee:fee, cm:cm, profit:cm-cacVal};
+  }
+
+  var base = calcAt(d, r, cac);
+  var grossMargin = (base.netRev - cogs) / base.netRev;
+  var denom = (1-r) - feePct;
+  var fixedCostTerm = cogs + ship + feeFixed - r*recovery;
+  var dMaxCM = 1 - fixedCostTerm / (P*denom);
+  var dMaxProfit = 1 - (fixedCostTerm+cac) / (P*denom);
+  var discountHeadroom = dMaxProfit - d;
+  var cm0 = calcAt(0, r, 0).cm;
+  var cacShare = cac / cm0;
+
+  var verdict, verdictNote;
+  if (dMaxCM <= 0) {
+    verdict = 'NOT VIABLE';
+    verdictNote = "This order is unprofitable even at 0% discount, before acquisition cost. The problem is the base cost structure, not promotions or ad spend.";
+  } else if (cacShare > 0.5) {
+    verdict = 'CAC-DEPENDENT';
+    verdictNote = base.profit < 0
+      ? "CAC already exceeds what this order can support on a first-order basis."
+      : "CAC consumes " + pct(cacShare) + " of pre-acquisition contribution.";
+  } else if (discountHeadroom < 0.05) {
+    verdict = 'DISCOUNT-SENSITIVE';
+    verdictNote = discountHeadroom < 0
+      ? "Current discount already exceeds the break-even level for your current CAC."
+      : pp(discountHeadroom) + " of discount headroom remain before this order stops covering its acquisition cost.";
+  } else {
+    verdict = 'POSITIVE AFTER CAC';
+    verdictNote = "Order remains profitable after CAC, with comfortable room on both discount and acquisition cost.";
+  }
+
+  var shocks = [
+    {label:'Current', profit: base.profit},
+    {label:'CAC +20%', profit: calcAt(d, r, cac*1.2).profit},
+    {label:'Return rate +5pp', profit: calcAt(d, r+0.05, cac).profit},
+    {label:'Discount +10pp', profit: calcAt(d+0.10, r, cac).profit}
+  ];
+  var deltas = shocks.slice(1).map(function(s){ return {label:s.label, delta: base.profit - s.profit}; });
+  deltas.sort(function(a,b){ return b.delta - a.delta; });
+  var sevMap = {};
+  var labels = ['High','Moderate','Low'];
+  deltas.forEach(function(s,i){ sevMap[s.label] = labels[i]; });
+  var mostSensitive = deltas[0];
+
+  return {P:P, d:d, cogs:cogs, ship:ship, base:base, grossMargin:grossMargin, recovery:recovery, r:r,
+    dMaxCM:dMaxCM, dMaxProfit:dMaxProfit, discountHeadroom:discountHeadroom,
+    verdict:verdict, verdictNote:verdictNote, shocks:shocks, sevMap:sevMap, mostSensitive:mostSensitive, cac:cac};
+}
+
+function render(res){
+  var tagClass = {'NOT VIABLE':'notviable','CAC-DEPENDENT':'cac','DISCOUNT-SENSITIVE':'disc','POSITIVE AFTER CAC':'positive'}[res.verdict];
+  var returnImpact = res.base.netRev * res.r;
+  var recoveryImpact = res.r * res.recovery;
+  var cm = res.base.cm, profit = res.base.profit, marginAfterCAC = res.base.netRev!==0 ? profit/res.base.netRev : 0;
+
+  var html = '';
+  html += '<div class="gate '+(res.dMaxCM>0?'ok':'bad')+'"><i class="fas '+(res.dMaxCM>0?'fa-circle-check':'fa-circle-xmark')+'"></i> '+(res.dMaxCM>0?'Profitable at 0% discount':'Not viable at 0% discount')+'</div>';
+
+  html += '<div class="verdict"><span class="tag '+tagClass+'">'+res.verdict+'</span><p>'+res.verdictNote+'</p></div>';
+
+  html += '<div class="stats">'
+    + stat('Contribution before CAC', fmt(cm))
+    + stat('First-order profit', fmt(profit), profit>=0?'pos':'neg')
+    + stat('Break-even CAC', fmt(cm), null, 'Max you could pay to acquire this order and still break even. Same value as contribution before CAC, shown as its own line because it answers a different question.')
+    + stat('Gross margin', pct(res.grossMargin))
+    + stat('Margin after CAC', pct(marginAfterCAC), marginAfterCAC>=0?'pos':'neg')
+    + '</div>';
+
+  html += '<div class="sub">Discount economics</div>';
+  html += '<div class="disceco">'
+    + discBox('Max discount (excl. CAC)', pct(Math.max(res.dMaxCM,0)), 'Transaction turns unprofitable beyond this point.')
+    + discBox('Max discount (incl. CAC)', pct(Math.max(res.dMaxProfit,0)), 'Your current CAC cannot support more than this.')
+    + '</div>';
+  html += '<div style="font-size:.82rem;color:var(--t2);margin-top:6px;">Current discount: <strong>'+pct(res.d)+'</strong> &middot; Discount headroom: <strong class="'+(res.discountHeadroom>=0?'pos':'neg')+'">'+pp(res.discountHeadroom)+'</strong></div>';
+
+  html += '<div class="sub">Where the margin goes</div>';
+  html += '<table>'
+    + row('Selling price', fmt(res.P))
+    + row('&minus; Discount', fmt(res.P*res.d))
+    + row('= Customer-paid revenue', fmt(res.base.netRev), true)
+    + row('&minus; Revenue lost to expected returns', fmt(returnImpact))
+    + (recoveryImpact>0 ? row('+ Recovery value from returns', fmt(recoveryImpact)) : '')
+    + row('&minus; COGS', fmt(res.cogs))
+    + row('&minus; Shipping', fmt(res.ship))
+    + row('&minus; Payment fees', fmt(res.base.fee))
+    + row('= Contribution before CAC', fmt(cm), true)
+    + row('&minus; CAC', fmt(res.cac))
+    + row('= First-order profit', fmt(profit), true)
+    + '</table>';
+
+  html += '<div class="sub">Stress test <span class="aux">most sensitive lever: '+res.mostSensitive.label+'</span></div>';
+  html += '<table>';
+  res.shocks.forEach(function(s,i){
+    var sev = i===0 ? '' : ' <span class="chip '+res.sevMap[s.label]+'">'+res.sevMap[s.label]+'</span>';
+    html += '<tr><td>'+s.label+sev+'</td><td class="'+(s.profit>=0?'pos':'neg')+'">'+fmt(s.profit)+'</td></tr>';
+  });
+  html += '</table>';
+
+  var returnAssumption = res.recovery>0
+    ? "This calculation assumes $"+res.recovery.toFixed(2)+" is recovered per returned order, as entered."
+    : "The model assumes product cost and outbound shipping are not recovered when an order is returned. Return shipping and restocking costs are not separately modeled.";
+
+  html += '<details><summary>How is this calculated?</summary><div class="inner">'
+    + '<p><strong>Contribution before CAC</strong> = Net revenue &times; (1 minus return rate) minus COGS minus Shipping minus Payment fees, plus expected recovery value</p>'
+    + '<p><strong>First-order profit</strong> = Contribution before CAC minus CAC</p>'
+    + '<p><strong>Break-even CAC</strong> = Contribution before CAC (same value, break-even framing)</p>'
+    + '<p style="margin-top:8px;"><strong>Model assumptions</strong></p><ul>'
+    + '<li>CAC is evaluated on a first-order basis, no LTV or repeat purchases.</li>'
+    + '<li>' + returnAssumption + '</li>'
+    + '<li>Payment processing fees are not refunded on a returned order.</li>'
+    + '<li>Currency selection changes display only, no FX conversion occurs. Taxes and fixed overhead excluded.</li>'
+    + '</ul></div></details>';
+
+  document.getElementById('output').innerHTML = html;
+  document.getElementById('output').classList.remove('hidden');
+  document.getElementById('placeholder').classList.add('hidden');
+}
+function stat(lbl,val,cls,why){
+  return '<div class="stat"><div class="lbl">'+lbl+'</div><div class="val '+(cls||'')+'">'+val+'</div>'+(why?'<div class="why">'+why+'</div>':'')+'</div>';
+}
+function discBox(lbl,val,note){
+  return '<div class="box"><div class="lbl">'+lbl+'</div><div class="val">'+val+'</div><div class="note">'+note+'</div></div>';
+}
+function row(lbl,val,total){
+  return '<tr'+(total?' class="total"':'')+'><td>'+lbl+'</td><td>'+val+'</td></tr>';
+}
+
+function getInputs(){
+  return {
+    price: parseFloat(document.getElementById('price').value)||0,
+    discount: parseFloat(document.getElementById('discount').value)||0,
+    cogs: parseFloat(document.getElementById('cogs').value)||0,
+    shipping: parseFloat(document.getElementById('shipping').value)||0,
+    feepct: parseFloat(document.getElementById('feepct').value)||0,
+    feefixed: parseFloat(document.getElementById('feefixed').value)||0,
+    returnrate: parseFloat(document.getElementById('returnrate').value)||0,
+    cac: parseFloat(document.getElementById('cac').value)||0,
+    recovery: document.getElementById('recoveryToggle').checked ? (parseFloat(document.getElementById('recoveryValue').value)||0) : 0
+  };
+}
+
+document.getElementById('calcBtn').addEventListener('click', function(){
+  render(compute(getInputs()));
+});
+document.getElementById('exampleBtn').addEventListener('click', function(){
+  document.getElementById('price').value=79;
+  document.getElementById('discount').value=10;
+  document.getElementById('cogs').value=24;
+  document.getElementById('shipping').value=7;
+  document.getElementById('feepct').value=2.9;
+  document.getElementById('feefixed').value=0.30;
+  document.getElementById('returnrate').value=8;
+  document.getElementById('cac').value=18;
+  document.getElementById('recoveryToggle').checked=false;
+  document.getElementById('recoveryField').classList.add('hidden');
+  render(compute(getInputs()));
+});
+</script>
+</body>
+</html>
