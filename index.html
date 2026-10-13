@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="KiqOvXdudqZ4qB9IKkTtw_0Kvg82ZIx_hcRjn_CfCK8">
-<title>MarginLens | Profit audits for Shopify and DTC brands</title>
+<title>Zeeshan Akram | MarginLens | Shopify &amp; DTC Profit Audits</title>
 <meta name="description" content="Fixed-scope profit audits for Shopify and DTC brands. I rank the discounts, products and customers costing you margin, and tell you what to fix first.">
 <meta name="author" content="Zeeshan Akram">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -13,7 +13,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MarginLens">
-<meta property="og:title" content="MarginLens | Profit audits for Shopify and DTC brands">
+<meta property="og:title" content="Zeeshan Akram | MarginLens | Shopify &amp; DTC Profit Audits">
 <meta property="og:description" content="I find where Shopify and DTC brands leak profit. A fixed-scope audit of your order data, ranked by what each leak costs you.">
 <meta property="og:url" content="https://zeeshan-portfolio-swart.vercel.app/">
 <meta property="og:image" content="https://zeeshan-portfolio-swart.vercel.app/assets/images/og-image.jpg">
@@ -72,18 +72,36 @@ try{var t=localStorage.getItem('ml-theme');if(t==='dark'||t==='light'){document.
         "Shopify order data"
       ],
       "founder": {
-        "@type": "Person",
-        "name": "Zeeshan Akram",
-        "jobTitle": "E-commerce profit analyst",
-        "sameAs": [
-          "https://www.linkedin.com/in/zeeshan-akram-ds/",
-          "https://github.com/zeeshan-akram-ds"
-        ]
+        "@id": "https://zeeshan-portfolio-swart.vercel.app/about.html#person"
       },
       "sameAs": [
         "https://www.linkedin.com/in/zeeshan-akram-ds/",
         "https://github.com/zeeshan-akram-ds"
       ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://zeeshan-portfolio-swart.vercel.app/about.html#person",
+      "name": "Zeeshan Akram",
+      "jobTitle": "E-commerce profit analyst",
+      "url": "https://zeeshan-portfolio-swart.vercel.app/about.html",
+      "image": "https://zeeshan-portfolio-swart.vercel.app/assets/images/hero-image.png",
+      "worksFor": {
+        "@id": "https://zeeshan-portfolio-swart.vercel.app/#business"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/zeeshan-akram-ds/",
+        "https://github.com/zeeshan-akram-ds"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://zeeshan-portfolio-swart.vercel.app/#website",
+      "url": "https://zeeshan-portfolio-swart.vercel.app/",
+      "name": "MarginLens",
+      "publisher": {
+        "@id": "https://zeeshan-portfolio-swart.vercel.app/#business"
+      }
     },
     {
       "@type": "FAQPage",
@@ -117,7 +135,7 @@ try{var t=localStorage.getItem('ml-theme');if(t==='dark'||t==='light'){document.
           "name": "How long does an audit take?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most audits take 5 to 10 business days from data access to final report, depending on data volume and how clean it is. I confirm a specific timeline on the first call."
+            "text": "Most audits take 2 to 8 business days from data access to final report, depending on data volume and how clean it is. I confirm a specific timeline on the first call."
           }
         },
         {
@@ -392,6 +410,7 @@ form .btn{justify-self:start;min-width:200px}
       <ul>
         <li><a href="#case-studies">Case studies</a></li>
         <li><a href="#audit">The audit</a></li>
+        <li><a href="./about.html">About</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -416,7 +435,7 @@ form .btn{justify-self:start;min-width:200px}
       <h1>I find where Shopify and DTC brands leak profit.</h1>
       <p class="lede">A fixed-scope profit audit of your order data. You get a ranked list of the discounts, products and customers costing you margin, what each one costs, and what to fix first.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" rel="noopener noreferrer" data-cta="hero">Book a free 30-minute profit diagnostic</a>
+        <a class="btn btn-primary" href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" rel="noopener noreferrer" data-cta="hero">Book a free 30-minute profit call</a>
         <a class="btn btn-secondary" href="#case-studies">See a sample audit</a>
       </div>
       <p class="hero-note">For Shopify and DTC brands doing roughly $500K–$20M a year. Start with data exports; read-only access if needed. NDA signed before any data is shared.</p>
@@ -457,7 +476,7 @@ form .btn{justify-self:start;min-width:200px}
         </div>
         <h3>8 products carry 84.5% of profit in a $35.2M catalogue</h3>
         <p class="case-meta">The Profit Leak Diagnostic. Public dataset from Kaggle: 180,519 transactions, $35.2M in sales.</p>
-        <p class="conclusion"><strong>What the audit concluded</strong>Revenue is not the issue. Mistaking revenue for business health is. Profit here depends on 8 products performing perfectly, with no backup plan if any of them stumble.</p>
+        <p class="conclusion"><strong>What the audit concluded</strong>Revenue is not the issue. Mistaking revenue for business health is. Profit here depends on 8 products, and the 28 weak ones should be sorted by cause before any are cut.</p>
         <ul class="ledger">
           <li>
             <span class="what">Share of profit earned by 8 of 118 products<span class="basis">Observed in the data</span></span>
@@ -473,13 +492,14 @@ form .btn{justify-self:start;min-width:200px}
           </li>
         </ul>
         <p class="case-links">
+          <a class="tlink" href="./case-studies/product-profit-concentration.html">Full case study</a>
           <a class="tlink" href="https://drive.google.com/file/d/16j2GDPuZ-GmiIB8uVDfQttr2TUG2-hDv/view" target="_blank" rel="noopener noreferrer">Read the report (PDF)</a>
           <a class="tlink" href="https://drive.google.com/file/d/1KCQWaO9x668hKocEz7iH3yHL77kNJ1hv/view?usp=sharing" target="_blank" rel="noopener noreferrer">Slide deck (PDF)</a>
           <a class="tlink" href="https://youtu.be/BtNOyrPLW7o" target="_blank" rel="noopener noreferrer">Dashboard walkthrough (video)</a>
         </p>
         <div class="cta-inline">
           <p>Want to know if your catalogue depends on a few products too?</p>
-          <a class="btn btn-secondary btn-sm" href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" rel="noopener noreferrer" data-cta="flagship">Book a free 30-minute profit diagnostic</a>
+          <a class="btn btn-secondary btn-sm" href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" rel="noopener noreferrer" data-cta="flagship">Book a free 30-minute profit call</a>
         </div>
       </article>
 
@@ -495,7 +515,10 @@ form .btn{justify-self:start;min-width:200px}
             <li><span class="what">Profit per discounted line, against full-price<span class="basis">Observed in the data</span></span><span class="fig neg">&minus;$97</span></li>
           </ul>
           <p class="conclusion"><strong>What the audit concluded</strong>Review pricing policy before setting any more volume-led growth targets.</p>
-          <p class="case-links"><a class="tlink" href="https://github.com/zeeshan-akram-ds/retail-discount-profitability-audit/blob/main/docs/retail_discount_audit_report.pdf" target="_blank" rel="noopener noreferrer">Read the executive report (PDF)</a></p>
+          <p class="case-links">
+            <a class="tlink" href="./case-studies/discount-profitability.html">Full case study</a>
+            <a class="tlink" href="https://github.com/zeeshan-akram-ds/retail-discount-profitability-audit/blob/main/docs/retail_discount_audit_report.pdf" target="_blank" rel="noopener noreferrer">Read the executive report (PDF)</a>
+          </p>
         </div>
       </article>
 
@@ -504,11 +527,12 @@ form .btn{justify-self:start;min-width:200px}
           <img src="./assets/images/olist_churn_diagnosis.png" alt="Charts from the Olist churn investigation linking late delivery to low reviews and no repeat purchase" loading="lazy" decoding="async">
         </div>
         <div>
-          <h3>Late deliveries lined up with one-star reviews and no repeat orders</h3>
+          <h3>Late deliveries hurt reviews, and over 96% of customers never ordered again</h3>
           <p class="case-meta">Olist churn root-cause investigation. Public dataset from Kaggle: 113K+ Brazilian orders.</p>
-          <p>Delivery delays tracked closely with one-star reviews and with customers who never ordered again. Logistics, not pricing or the product, looked like the main driver of churn.</p>
-          <p class="conclusion"><strong>What the audit concluded</strong>Treat churn as an operations problem first. Fix fulfilment before touching product or pricing.</p>
+          <p>Late orders averaged 2.5 stars, against 4.2 for on-time orders. Separately, over 96% of customers never placed a second order, including customers with on-time deliveries and good reviews. Delivery explains the reviews. On this evidence it does not explain the missing repeat orders.</p>
+          <p class="conclusion"><strong>What the audit concluded</strong>Treat late delivery and repeat purchase as two separate problems. Fix fulfilment to protect reviews, and test a second-purchase offer to win customers back.</p>
           <p class="case-links">
+            <a class="tlink" href="./case-studies/delivery-risk-churn.html">Full case study</a>
             <a class="tlink" href="https://github.com/zeeshan-akram-ds/Olist-ECommerce-Analysis/blob/master/reports/Olist-Executive-Report.pdf" target="_blank" rel="noopener noreferrer">Read the executive report (PDF)</a>
             <a class="tlink" href="https://github.com/zeeshan-akram-ds/Olist-ECommerce-Analysis/blob/master/powerbi_dashboard/report/Olist_E-Commerce_Dashboard.pdf" target="_blank" rel="noopener noreferrer">Dashboard layout (PDF)</a>
           </p>
@@ -527,7 +551,10 @@ form .btn{justify-self:start;min-width:200px}
             <li><span class="what">Extra revenue if customers moved up a segment<span class="basis modeled">Modeled opportunity, not realised revenue</span></span><span class="fig modeled">£390K+</span></li>
           </ul>
           <p class="conclusion"><strong>What the audit concluded</strong>A Champion customer averaged £8,767 against £220 for an At-Risk one. A gap that size makes moving existing customers up a segment the first place to look.</p>
-          <p class="case-links"><a class="tlink" href="https://youtu.be/jlOkndlBRUw" target="_blank" rel="noopener noreferrer">Watch the 3-minute walkthrough (video)</a></p>
+          <p class="case-links">
+            <a class="tlink" href="./case-studies/customer-lifetime-value.html">Full case study</a>
+            <a class="tlink" href="https://youtu.be/jlOkndlBRUw" target="_blank" rel="noopener noreferrer">Watch the 3-minute walkthrough (video)</a>
+          </p>
         </div>
       </article>
 
@@ -549,7 +576,7 @@ form .btn{justify-self:start;min-width:200px}
 
       <ul class="checks">
         <li><h3>Are your discounts buying growth or giving margin away?</h3><p>I compare discounted and full-price orders line by line, so the cost of each discount habit is visible.</p></li>
-        <li><h3>Which few products carry your profit?</h3><p>And which ones earn almost nothing while causing delivery problems and clutter.</p></li>
+        <li><h3>Which few products carry your profit?</h3><p>And which ones combine weak margins with high delivery failure, so you can find out why before deciding what to do with them.</p></li>
         <li><h3>How much depends on a small group of customers?</h3><p>Where your best buyers are concentrated, and what you stand to lose if they leave.</p></li>
         <li><h3>Where would a stockout or slow shipping hurt most?</h3><p>Single products or shipping tiers carrying more of the business than anyone has planned for.</p></li>
       </ul>
@@ -573,7 +600,7 @@ form .btn{justify-self:start;min-width:200px}
       </div>
 
       <div class="audit-cta">
-        <a class="btn btn-primary" href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" rel="noopener noreferrer" data-cta="audit">Book a free 30-minute profit diagnostic</a>
+        <a class="btn btn-primary" href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" rel="noopener noreferrer" data-cta="audit">Book a free 30-minute profit call</a>
         <p>Need retention analysis or a dashboard instead? Mention it on the call.</p>
       </div>
     </div>
@@ -648,7 +675,7 @@ form .btn{justify-self:start;min-width:200px}
     <div class="section-body contact-grid">
       <div>
         <p class="contact-lede">The quickest way to find out whether there is a profit leak worth chasing is a 30-minute call. It is free, and I will tell you if I do not think an audit would pay for itself.</p>
-        <a class="btn btn-primary" href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" rel="noopener noreferrer" data-cta="contact">Book a free 30-minute profit diagnostic</a>
+        <a class="btn btn-primary" href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" rel="noopener noreferrer" data-cta="contact">Book a free 30-minute profit call</a>
         <p class="hero-note">Call slots fall in UK afternoon and US morning hours.</p>
         <ul class="contact-ways">
           <li>Prefer to write? Use the form, or email <a class="tlink" href="mailto:zeeshanakram1704@gmail.com">zeeshanakram1704@gmail.com</a></li>
@@ -656,7 +683,7 @@ form .btn{justify-self:start;min-width:200px}
         </ul>
         <div class="who">
           <img src="./assets/images/hero-image.png" alt="Zeeshan Akram, founder of MarginLens" width="72" height="72" loading="lazy" decoding="async">
-          <p><strong>Zeeshan Akram</strong>, independent e-commerce profit analyst and founder of MarginLens. You work with me directly, from the first call to the final report.</p>
+          <p><strong>Zeeshan Akram</strong>, independent e-commerce profit analyst and founder of MarginLens. You work with me directly, from the first call to the final report. <a class="tlink" href="./about.html">More about me</a></p>
         </div>
       </div>
 
@@ -680,6 +707,7 @@ form .btn{justify-self:start;min-width:200px}
   <div class="wrap foot">
     <p>&copy; 2026 Zeeshan Akram, MarginLens</p>
     <ul>
+      <li><a href="./about.html">About</a></li>
       <li><a href="https://www.linkedin.com/in/zeeshan-akram-ds/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
       <li><a href="https://github.com/zeeshan-akram-ds" target="_blank" rel="noopener noreferrer">GitHub</a></li>
       <li><a href="./tools/profit-calculator.html">Free calculator</a></li>

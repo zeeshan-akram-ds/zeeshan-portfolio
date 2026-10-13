@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product Profit Concentration and SKU Risk | MarginLens</title>
+<meta name="description" content="Case study: 8 of 118 products earn 84.5% of profit in a $35.2M catalogue. How profit concentration and SKU risk were tested, and what to do about weak products.">
+<meta name="author" content="Zeeshan Akram">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#F3F5F0">
+<link rel="canonical" href="https://zeeshan-portfolio-swart.vercel.app/case-studies/product-profit-concentration.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="MarginLens">
+<meta property="og:title" content="Product Profit Concentration and SKU Risk | MarginLens">
+<meta property="og:description" content="Case study: 8 of 118 products earn 84.5% of profit in a $35.2M catalogue. How profit concentration and SKU risk were tested, and what to do about weak products.">
+<meta property="og:url" content="https://zeeshan-portfolio-swart.vercel.app/case-studies/product-profit-concentration.html">
+<meta property="og:image" content="https://zeeshan-portfolio-swart.vercel.app/assets/images/project_7.png">
+
+<link rel="icon" href="../assets/images/favicon.ico">
+
+<script>
+/* Apply a saved theme before first paint. Light is the default. */
+try{var t=localStorage.getItem('ml-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}
+</script>
+
+<!-- Google Analytics (same two measurement IDs as the homepage) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-68RPSGRBEM"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());gtag('config','G-68RPSGRBEM');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8W5T6W15X7"></script>
+<script>
+  gtag('config','G-8W5T6W15X7');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/subpages.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://zeeshan-portfolio-swart.vercel.app/case-studies/product-profit-concentration.html#article",
+      "headline": "8 of 118 products earn 84.5% of profit in a $35.2M catalogue",
+      "description": "Case study: 8 of 118 products earn 84.5% of profit in a $35.2M catalogue. How profit concentration and SKU risk were tested, and what to do about weak products.",
+      "url": "https://zeeshan-portfolio-swart.vercel.app/case-studies/product-profit-concentration.html",
+      "mainEntityOfPage": "https://zeeshan-portfolio-swart.vercel.app/case-studies/product-profit-concentration.html",
+      "image": "https://zeeshan-portfolio-swart.vercel.app/assets/images/project_7.png",
+      "dateModified": "2026-10-12",
+      "author": {
+        "@type": "Person",
+        "@id": "https://zeeshan-portfolio-swart.vercel.app/about.html#person",
+        "name": "Zeeshan Akram",
+        "url": "https://zeeshan-portfolio-swart.vercel.app/about.html"
+      },
+      "publisher": {
+        "@id": "https://zeeshan-portfolio-swart.vercel.app/#business"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "MarginLens",
+          "item": "https://zeeshan-portfolio-swart.vercel.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Case studies",
+          "item": "https://zeeshan-portfolio-swart.vercel.app/#case-studies"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Product profit concentration and SKU risk",
+          "item": "https://zeeshan-portfolio-swart.vercel.app/case-studies/product-profit-concentration.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="../" aria-label="MarginLens, home">MarginLens</a>
+    <nav class="nav" id="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="../#case-studies">Case studies</a></li>
+        <li><a href="../#audit">The audit</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+      <a class="btn btn-primary btn-sm" href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" rel="noopener noreferrer" data-cta="nav">Book a call</a>
+    </nav>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap page">
+<article class="article">
+<p class="crumbs"><a href="../#case-studies">Case studies</a> / Product profit concentration and SKU risk</p>
+<h1>8 of 118 products earn 84.5% of profit in a $35.2M catalogue</h1>
+<p class="case-meta">The Profit Leak Diagnostic. Public Kaggle dataset: 180,519 transactions, $35.2M in sales. PostgreSQL, Python and Power BI. Report version 1.1, October 2026.</p>
+<p class="byline">By <a class="tlink" href="../about.html">Zeeshan Akram</a>, founder of MarginLens.</p>
+<figure class="page-img"><img src="../assets/images/project_7.png" alt="Power BI dashboard from the Profit Leak Diagnostic showing profit by product, shipping reliability and margin risk" decoding="async"></figure>
+<h2 class="first">The question</h2>
+<p>A revenue report shows what sold. It does not show which products make the money, which ones lose it, or how much of the business rests on a handful of SKUs. This audit puts three questions to one catalogue: how concentrated is the profit, which products are weak, and what would a disruption to the strongest products cost.</p>
+<h2>The numbers</h2>
+<ul class="ledger">
+<li><span class="what">Share of profit earned by 8 of 118 products<span class="basis">Observed in the data</span></span><span class="fig">84.5%</span></li>
+<li><span class="what">Products with weak margins and high delivery failure, together only 2.2% of sales<span class="basis">Observed in the data</span></span><span class="fig">28</span></li>
+<li><span class="what">Profit at risk if the top 8 products lost 20% of margin, 16.9% of total profit<span class="basis modeled">Modeled scenario, not an actual loss</span></span><span class="fig modeled">$643,000</span></li>
+</ul>
+<p class="note">Observed figures are measured directly in the dataset. Modeled figures are what-ifs built from it, not savings or forecasts.</p>
+<h2>Findings</h2>
+<ul class="bul">
+<li>The other 110 products earn the remaining 15.5% of profit.</li>
+<li>Every one of the 118 products recorded at least one loss-making order.</li>
+<li>44 products combine strong revenue with weak or negative profit. Two of them lost money across their whole three-year history.</li>
+<li>Between 93% and 97% of orders across nearly the whole catalogue were discounted. There was no statistically significant relationship between discount depth and margin (p = 0.73), so discount depth does not explain which products earn less.</li>
+<li>First Class shipping arrived late on every order, about one day behind schedule. A gap that uniform may point to a mis-set delivery promise rather than a process failure. That is a hypothesis, not a confirmed cause.</li>
+<li>The 28 weak products sit across 23 categories, so this is scattered drag rather than one bad supplier or category. Together they still earn about $67K, 1.8% of profit. They are weak, not loss-making.</li>
+</ul>
+<h2>What the modeled scenarios show</h2>
+<p>Each scenario is a what-if built from the observed data. None of them is a forecast.</p>
+<ul class="bul">
+<li><strong>Cut all 28 weak products:</strong> about $67K of profit removed. Savings in handling, storage and support are not in the dataset, so they are not counted.</li>
+<li><strong>20% margin drop on the top 8 products:</strong> about $643K of profit removed, 16.9% of the total.</li>
+<li><strong>Compounded operational stress</strong> (10% more discount dependence and 15% more delivery risk): about $181K, a directional estimate only.</li>
+</ul>
+<h2>What the audit concluded</h2>
+<p class="conclusion"><strong>Recommendation</strong>Protect the 8 products that carry the profit. Sort the 28 weak products by cause (new or seasonal, cost or discount, delivery, or genuinely dead) before cutting any.</p>
+<h2>Methodology</h2>
+<ul class="bul">
+<li><strong>Data model:</strong> a PostgreSQL star schema with an orders fact table and product, region and date dimensions. SQL is the source for every revenue, profit and delivery-risk figure.</li>
+<li><strong>Cleaning:</strong> fraudulent and canceled orders are excluded by a hard filter, and each inclusion or exclusion decision is logged in the repository's decision log.</li>
+<li><strong>Checks:</strong> SQL outputs were reconciled in Python with no data loss. Revenue and profit are heavily right-skewed, so the analysis uses medians and rank-based tests (Spearman, Kruskal-Wallis, Mann-Whitney) instead of means.</li>
+<li><strong>Classification:</strong> every product is placed in one of four groups (cash generators, operational risks, underperformers, cut candidates) using catalogue medians, with a 0 to 100 composite risk score alongside.</li>
+<li><strong>Scenarios:</strong> stress tests run in a separate notebook and labelled as modeled in the report. Findings in the report are marked observed, modeled or hypothesis.</li>
+</ul>
+<h2>Limitations</h2>
+<ul class="bul">
+<li>This is a public Kaggle dataset, not client data. It shows what the method does, not how any real brand performs.</li>
+<li>The data shows that the 28 products are weak, not why. The cause needs checking before any of them is cut.</li>
+<li>Handling, storage and support costs are not in the dataset, so the savings from cutting weak products are not measured.</li>
+<li>The $643K figure is a stress test. It is not a forecast and not a loss that happened.</li>
+<li>The last month of the data may be incomplete, so the report draws no conclusion about a drop at the end of the series.</li>
+<li>An earlier version of the report overstated several claims. Version 1.1 corrects them, and every change is listed in the public revision log.</li>
+</ul>
+<h2>Report and source files</h2>
+<ul class="doc-links">
+<li><a class="tlink" href="https://drive.google.com/file/d/16j2GDPuZ-GmiIB8uVDfQttr2TUG2-hDv/view" target="_blank" rel="noopener noreferrer">Read the full report (PDF)</a></li>
+<li><a class="tlink" href="https://drive.google.com/file/d/1KCQWaO9x668hKocEz7iH3yHL77kNJ1hv/view?usp=sharing" target="_blank" rel="noopener noreferrer">Slide deck (PDF)</a></li>
+<li><a class="tlink" href="https://youtu.be/BtNOyrPLW7o" target="_blank" rel="noopener noreferrer">Dashboard walkthrough (video)</a></li>
+<li><a class="tlink" href="https://github.com/zeeshan-akram-ds/ecommerce-revenue-illusion-audit" target="_blank" rel="noopener noreferrer">Code, queries and notebooks (GitHub)</a></li>
+<li><a class="tlink" href="https://github.com/zeeshan-akram-ds/ecommerce-revenue-illusion-audit/blob/main/REVISIONS.md" target="_blank" rel="noopener noreferrer">Revision log: what changed in version 1.1</a></li>
+</ul>
+<div class="cta-box">
+<h2>Run this audit on your store</h2>
+<p>Want to know if your catalogue depends on a few products too? I run this kind of audit on your own order data, for a fixed fee agreed before any work starts. The first call is free.</p>
+<a class="btn btn-primary" href="https://calendly.com/zeeshanakram/data-diagnostic" target="_blank" rel="noopener noreferrer" data-cta="case-product-profit-concentration">Book a free 30-minute profit call</a>
+<p class="links"><a class="tlink" href="../#audit">How the Profit Audit works</a> &nbsp;&middot;&nbsp; <a class="tlink" href="../about.html">About Zeeshan Akram</a></p>
+</div>
+<h2>Other case studies</h2>
+<ul class="related">
+<li><a class="tlink" href="discount-profitability.html">Discount profitability and margin erosion</a></li>
+<li><a class="tlink" href="customer-lifetime-value.html">Customer lifetime value and retention</a></li>
+<li><a class="tlink" href="delivery-risk-churn.html">E-commerce delivery risk and churn</a></li>
+</ul>
+</article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <p>&copy; 2026 Zeeshan Akram, MarginLens</p>
+    <ul>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="https://www.linkedin.com/in/zeeshan-akram-ds/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="https://github.com/zeeshan-akram-ds" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="../tools/profit-calculator.html">Free calculator</a></li>
+      <li><a href="mailto:zeeshanakram1704@gmail.com">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="../assets/js/subpages.js"></script>
+</body>
+</html>
