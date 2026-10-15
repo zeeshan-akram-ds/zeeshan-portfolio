@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Discount Profitability and Margin Erosion | MarginLens</title>
-<meta name="description" content="Case study: 61% of order lines were discounted and each earned about $97 less profit than a full-price line. How the discount audit worked and what it concluded.">
+<meta name="description" content="Case study: 61% of order lines were discounted, costing $13.8M, with a 1-in-6 break-even threshold. How the discount audit worked and what it concluded.">
 <meta name="author" content="Zeeshan Akram">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#F3F5F0">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="MarginLens">
 <meta property="og:title" content="Discount Profitability and Margin Erosion | MarginLens">
-<meta property="og:description" content="Case study: 61% of order lines were discounted and each earned about $97 less profit than a full-price line. How the discount audit worked and what it concluded.">
+<meta property="og:description" content="Case study: 61% of order lines were discounted, costing $13.8M, with a 1-in-6 break-even threshold. How the discount audit worked and what it concluded.">
 <meta property="og:url" content="https://zeeshan-portfolio-swart.vercel.app/case-studies/discount-profitability.html">
 <meta property="og:image" content="https://zeeshan-portfolio-swart.vercel.app/assets/images/project_6.png">
 
@@ -48,12 +48,12 @@ try{var t=localStorage.getItem('ml-theme');if(t==='dark'||t==='light'){document.
     {
       "@type": "Article",
       "@id": "https://zeeshan-portfolio-swart.vercel.app/case-studies/discount-profitability.html#article",
-      "headline": "Discounted sales earned $97 less profit per order line",
-      "description": "Case study: 61% of order lines were discounted and each earned about $97 less profit than a full-price line. How the discount audit worked and what it concluded.",
+      "headline": "Discounting costs $13.8M: a standing practice, not a targeted tool",
+      "description": "Case study: 61% of order lines were discounted, costing $13.8M, with a 1-in-6 break-even threshold. How the discount audit worked and what it concluded.",
       "url": "https://zeeshan-portfolio-swart.vercel.app/case-studies/discount-profitability.html",
       "mainEntityOfPage": "https://zeeshan-portfolio-swart.vercel.app/case-studies/discount-profitability.html",
       "image": "https://zeeshan-portfolio-swart.vercel.app/assets/images/project_6.png",
-      "dateModified": "2026-10-12",
+      "dateModified": "2026-10-15",
       "author": {
         "@type": "Person",
         "@id": "https://zeeshan-portfolio-swart.vercel.app/about.html#person",
@@ -122,49 +122,49 @@ try{var t=localStorage.getItem('ml-theme');if(t==='dark'||t==='light'){document.
 <div class="wrap page">
 <article class="article">
 <p class="crumbs"><a href="../#case-studies">Case studies</a> / Discount profitability and margin erosion</p>
-<h1>Discounted sales earned $97 less profit per order line</h1>
-<p class="case-meta">Retail Discount Profitability Audit. Synthetic dataset (Microsoft Contoso): about 223,000 order lines across about 93,000 orders. PostgreSQL, Python and Power BI.</p>
+<h1>Discounting costs $13.8M: a standing practice, not a targeted tool</h1>
+<p class="case-meta">Retail Discount Profitability Audit. Synthetic dataset (Microsoft Contoso): 223,974 order lines across 93,470 orders (2016 to 2025). PostgreSQL, Python, and Power BI.</p>
 <p class="byline">By <a class="tlink" href="../about.html">Zeeshan Akram</a>, founder of MarginLens.</p>
 <figure class="page-img"><img src="../assets/images/project_6.png" alt="Dashboard from the Retail Discount Profitability Audit comparing discounted and full-price profit" decoding="async"></figure>
 <h2 class="first">The question</h2>
-<p>Discounting is one of the most common pricing levers, and one of the least measured. This audit asks whether discounting is a tactical lever or has become the business's pricing floor, and whether deeper discounts compress margin.</p>
+<p>Discounting is one of the most common pricing levers and one of the least measured. This audit asks whether discounting is a controlled pricing mechanism or a standing practice, what it costs in dollars, and where its cost sits across categories, customers, locations, and time.</p>
 <h2>The numbers</h2>
 <ul class="ledger">
 <li><span class="what">Order lines sold below list price<span class="basis">Observed in the data</span></span><span class="fig">61%</span></li>
-<li><span class="what">Profit per discounted line, against full-price<span class="basis">Observed in the data</span></span><span class="fig neg">&minus;$97</span></li>
-<li><span class="what">Margin gap between discounted and full-price lines<span class="basis">Observed in the data</span></span><span class="fig">4 pts</span></li>
+<li><span class="what">Total discount cost<span class="basis">6.3% of revenue, 11.3% of profit</span></span><span class="fig">$13.8M</span></li>
+<li><span class="what">Break-even share for discounted sales<span class="basis">Required volume to retain</span></span><span class="fig">1 in 6</span></li>
 </ul>
 <p class="note">Observed figures are measured directly in the dataset. Modeled figures are what-ifs built from it, not savings or forecasts.</p>
 <h2>Findings</h2>
 <ul class="bul">
-<li>Margin fell from about 54% at low discount levels to about 49% in the 10% to 20% tier. The correlation between discount depth and margin was &minus;0.37: moderate, and consistently negative. No tier showed margin recovering.</li>
-<li>Computers and Cell Phones made up about 46% of high-discount volume and the largest total margin loss. That is a scale effect, not unusually deep discounts: margin compression was similar in every category, between about 4.9 and 5.3 points.</li>
-<li>Discount rates and margins were nearly identical across stores, which points to central pricing policy rather than store-level discretion. The pattern was stable year over year, with no material deterioration.</li>
-<li>24.2% of customers bought at 90% or more discount dependency, and only 11% bought near full price.</li>
-<li>Average margin fell with customer discount dependency: 53.5% for low, 51.7% for medium and 50.4% for high. Medium-dependency customers placed the most order lines per customer (6.23, against 3.20 for high), so more discounting did not buy more activity beyond a point.</li>
+<li>61.1% of order lines (136,913 of 223,974) are sold below list price, remaining steady between 60.9% and 61.9% in every year from 2016 to 2025.</li>
+<li>Discounts total $13,787,101 (about $101 per discounted line), representing 6.3% of revenue and 11.3% of profit.</li>
+<li>Blended margin falls from 58.4% at full price to 53.1% in the 10% to 20% discount tier, matching precisely what a price cut alone predicts with unchanged costs.</li>
+<li>Every product category and sales location is discounted the same way; category share of discount dollars follows category revenue size.</li>
+<li>Among customers with 10 or more order lines, discount rates cluster tightly around the 61% average, showing that heavy buyers are not a separate discount-dependent group.</li>
+<li>The break-even test shows that discounts pay for themselves only if removing them would lose more than 16.5% (about 1 in 6) of discounted sales.</li>
 </ul>
 <h2>What the audit concluded</h2>
-<p class="conclusion"><strong>Recommendation</strong>Review pricing policy before setting any more volume-led growth targets. In this data, discounting behaves like the default price, not a promotion.</p>
+<p class="conclusion"><strong>Recommendation</strong>Do not change pricing policy yet. Put a budget, an owner, and reason codes on discounts, then test a lower discount cap on the 10% to 20% tier.</p>
 <h2>Methodology</h2>
 <ul class="bul">
-<li><strong>Grain:</strong> one row per product line within an order, from seven related tables (order rows, orders, customers, products, stores, dates and currency rates).</li>
-<li><strong>Margin:</strong> calculated per line as net price minus unit cost, divided by net price.</li>
-<li><strong>Sequence:</strong> eight SQL files, each answering one business question: baseline, discounted against full-price, margin by discount tier, category drivers, customer dependency, trend over time and store behavior.</li>
-<li><strong>Validation:</strong> Python checks and customer segmentation, then a three-page Power BI dashboard built around one question: is discounting tactical, or the pricing floor?</li>
-<li><strong>Tiers:</strong> discount bands at 5%, 10% and 20% were set to detect patterns. They do not come from a real pricing policy.</li>
+<li><strong>Grain:</strong> one row per product line within an order, across seven related tables (order rows, orders, customers, products, stores, dates, and currency rates).</li>
+<li><strong>Margin basis:</strong> blended margin calculated as `SUM(profit) / SUM(revenue)` at order-line level.</li>
+<li><strong>Sequence:</strong> staged SQL files answering baseline performance, discount impact, tier depth, category drivers, customer behavior, trends over time, and store behavior.</li>
+<li><strong>Validation:</strong> Python checks and a Power BI executive dashboard built around audit conclusions rather than exploratory slicing.</li>
+<li><strong>Tiers:</strong> discount depth bands set at under 5%, 5% to 10%, and 10% to 20% for pattern detection.</li>
 </ul>
 <h2>Limitations</h2>
 <ul class="bul">
-<li>The dataset is synthetic. It behaves like a business but is not one, so findings describe the data as structured and should not be read as real-world conclusions.</li>
-<li>There is no elasticity data. The analysis cannot tell whether discounting created extra volume or only cut the price of sales that would have happened anyway.</li>
-<li>Margin is line-level only. Fixed costs, returns and overheads are excluded.</li>
-<li>Currency conversion was not applied. The focus is on relative measures such as margin and discount rate, which limits the effect but does not remove it for absolute comparisons across regions.</li>
-<li>The correlation shows a relationship, not a cause. Every figure on this page is observed in the data. No modeled figures are used.</li>
+<li>The dataset is synthetic (Microsoft Contoso), reflecting generated patterns rather than real-world commercial behavior.</li>
+<li>There is no demand data or sales history from before discounts were introduced, so the exact revenue contribution of discounting cannot be measured directly.</li>
+<li>Margin is line-level only; overheads, returns, shipping, and marketing costs are excluded.</li>
+<li>Currency conversion was not required as list prices share a common currency base across orders.</li>
 </ul>
 <h2>Report and source files</h2>
 <ul class="doc-links">
-<li><a class="tlink" href="https://github.com/zeeshan-akram-ds/retail-discount-profitability-audit/blob/main/docs/retail_discount_audit_report.pdf" target="_blank" rel="noopener noreferrer">Read the executive report (PDF)</a></li>
-<li><a class="tlink" href="https://github.com/zeeshan-akram-ds/retail-discount-profitability-audit" target="_blank" rel="noopener noreferrer">Code, queries and dashboard (GitHub)</a></li>
+<li><a class="tlink" href="https://drive.google.com/file/d/1GW9LDasva1gpNqN_cuVRF_R0dygmD-s9/view?usp=sharing" target="_blank" rel="noopener noreferrer">Read the executive report (PDF)</a></li>
+<li><a class="tlink" href="https://github.com/zeeshan-akram-ds/retail-discount-profitability-audit" target="_blank" rel="noopener noreferrer">Code, queries, and dashboard (GitHub)</a></li>
 </ul>
 <div class="cta-box">
 <h2>Run this audit on your store</h2>
