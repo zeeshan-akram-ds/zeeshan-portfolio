@@ -397,6 +397,26 @@ form .btn{justify-self:start;min-width:200px}
 .foot p{margin:0}
 .foot ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 24px}
 .foot a{color:var(--ink)}
+
+/* ==========================================================
+   INTRO VIDEO (poster first; YouTube loads only on click)
+========================================================== */
+.intro{margin:28px 0 0}
+.intro-frame{position:relative;aspect-ratio:16/9;border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;background:var(--paper-2)}
+.intro-poster{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);color:var(--ink);text-decoration:none}
+.intro-poster img{width:100%;height:100%;object-fit:cover;object-position:center top;border-right:1px solid var(--rule)}
+.intro-copy{display:flex;flex-direction:column;justify-content:center;gap:10px;padding:clamp(12px,3vw,28px) clamp(12px,3vw,28px) clamp(12px,3vw,28px) clamp(14px,3.2vw,32px)}
+.intro-kicker{font:500 .8125rem/1.2 var(--sans);color:var(--ink-2)}
+.intro-line{font:600 clamp(1rem,2.5vw,1.6rem)/1.2 var(--serif);letter-spacing:-.01em}
+.intro-line .loss{color:var(--red)}
+.intro-go{display:inline-flex;align-items:center;gap:10px;margin-top:4px;font:600 .9375rem/1 var(--sans)}
+.intro-icon{width:42px;height:42px;border-radius:50%;background:var(--green);color:var(--on-green);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.intro-icon svg{width:15px;height:15px;fill:currentColor;margin-left:2px}
+.intro-poster:hover .intro-icon{background:var(--green-hover)}
+.intro-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.intro-note{margin:12px 0 0;font-size:.9375rem;color:var(--ink-2)}
+.intro-note strong{color:var(--ink)}
+@media (max-width:480px){.intro-poster{grid-template-columns:minmax(0,1fr) minmax(0,1.7fr)}.intro-go span:last-child{display:none}.intro-copy{gap:6px}}
 </style>
 </head>
 
@@ -684,10 +704,19 @@ form .btn{justify-self:start;min-width:200px}
           <li>Prefer to write? Use the form, or email <a class="tlink" href="mailto:zeeshanakram1704@gmail.com">zeeshanakram1704@gmail.com</a></li>
           <li>Or message me on <a class="tlink" href="https://www.linkedin.com/in/zeeshan-akram-ds/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         </ul>
-        <div class="who">
-          <img src="./assets/images/hero-image.png" alt="Zeeshan Akram, founder of MarginLens" width="72" height="72" loading="lazy" decoding="async">
-          <p><strong>Zeeshan Akram</strong>, independent e-commerce profit analyst and founder of MarginLens. You work with me directly, from the first call to the final report. <a class="tlink" href="./about.html">More about me</a></p>
-        </div>
+        <figure class="intro">
+          <div class="intro-frame">
+            <a class="intro-poster" href="https://youtu.be/v1LUBQ1fsxI" data-yt="v1LUBQ1fsxI" data-loc="contact" target="_blank" rel="noopener noreferrer" aria-label="Play introduction video from Zeeshan Akram, under 1 minute">
+              <img src="./assets/images/hero-image.png" alt="" loading="lazy" decoding="async">
+              <span class="intro-copy">
+                <span class="intro-kicker">Meet me &middot; under 1 minute</span>
+                <span class="intro-line">One product. 36th in revenue, <span class="loss">last in profit.</span></span>
+                <span class="intro-go"><span class="intro-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 1.5v13l11-6.5z"/></svg></span><span>Watch the intro</span></span>
+              </span>
+            </a>
+          </div>
+          <figcaption class="intro-note"><strong>Zeeshan Akram</strong>, independent e-commerce profit analyst and founder of MarginLens. You work with me directly, from the first call to the final report. <a class="tlink" href="./about.html">More about me</a></figcaption>
+        </figure>
       </div>
 
       <form id="contact-form" action="https://formspree.io/f/xovkjbop" method="POST">
@@ -746,6 +775,23 @@ form .btn{justify-self:start;min-width:200px}
 document.querySelectorAll('a[data-cta]').forEach(function(a){
   a.addEventListener('click',function(){
     if(typeof gtag==='function'){gtag('event','book_call_click',{cta_location:a.getAttribute('data-cta')});}
+  });
+});
+
+/* Intro video: swap the poster for the YouTube player only when clicked (no-JS visitors open YouTube). */
+document.querySelectorAll('a[data-yt]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var id=a.getAttribute('data-yt'),frame=a.parentNode;
+    if(!id||id==='YOUTUBE_ID'){return;}
+    e.preventDefault();
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0&playsinline=1';
+    f.title='Introduction from Zeeshan Akram, MarginLens';
+    f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen=true;
+    f.referrerPolicy='strict-origin-when-cross-origin';
+    frame.innerHTML='';frame.appendChild(f);f.focus();
+    if(typeof gtag==='function'){gtag('event','intro_video_play',{cta_location:a.getAttribute('data-loc')||'page'});}
   });
 });
 

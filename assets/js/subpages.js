@@ -25,3 +25,20 @@ document.querySelectorAll('a[data-cta]').forEach(function(a){
     if(typeof gtag==='function'){gtag('event','book_call_click',{cta_location:a.getAttribute('data-cta')});}
   });
 });
+
+/* Intro video: swap the poster for the YouTube player only when clicked (no-JS visitors open YouTube). */
+document.querySelectorAll('a[data-yt]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var id=a.getAttribute('data-yt'),frame=a.parentNode;
+    if(!id||id==='YOUTUBE_ID'){return;}
+    e.preventDefault();
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0&playsinline=1';
+    f.title='Introduction from Zeeshan Akram, MarginLens';
+    f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen=true;
+    f.referrerPolicy='strict-origin-when-cross-origin';
+    frame.innerHTML='';frame.appendChild(f);f.focus();
+    if(typeof gtag==='function'){gtag('event','intro_video_play',{cta_location:a.getAttribute('data-loc')||'page'});}
+  });
+});

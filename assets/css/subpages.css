@@ -140,3 +140,27 @@ a{color:inherit}
 .about-top img{width:200px;height:200px;max-width:100%;object-fit:cover;object-position:center top;border:1px solid var(--rule);border-radius:var(--radius)}
 .about-top p{margin:0 0 .6em}
 .role{font:500 clamp(1.1rem,2vw,1.3rem)/1.4 var(--serif);max-width:30em}
+
+/* ==========================================================
+   INTRO VIDEO (poster first; YouTube loads only on click)
+========================================================== */
+.intro{margin:28px 0 0}
+.intro-frame{position:relative;aspect-ratio:16/9;border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;background:var(--paper-2)}
+.intro-poster{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);color:var(--ink);text-decoration:none}
+.intro-poster img{width:100%;height:100%;object-fit:cover;object-position:center top;border-right:1px solid var(--rule)}
+.intro-copy{display:flex;flex-direction:column;justify-content:center;gap:10px;padding:clamp(12px,3vw,28px) clamp(12px,3vw,28px) clamp(12px,3vw,28px) clamp(14px,3.2vw,32px)}
+.intro-kicker{font:500 .8125rem/1.2 var(--sans);color:var(--ink-2)}
+.intro-line{font:600 clamp(1rem,2.5vw,1.6rem)/1.2 var(--serif);letter-spacing:-.01em}
+.intro-line .loss{color:var(--red)}
+.intro-go{display:inline-flex;align-items:center;gap:10px;margin-top:4px;font:600 .9375rem/1 var(--sans)}
+.intro-icon{width:42px;height:42px;border-radius:50%;background:var(--green);color:var(--on-green);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.intro-icon svg{width:15px;height:15px;fill:currentColor;margin-left:2px}
+.intro-poster:hover .intro-icon{background:var(--green-hover)}
+.intro-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.intro-note{margin:12px 0 0;font-size:.9375rem;color:var(--ink-2)}
+.intro-note strong{color:var(--ink)}
+@media (max-width:480px){.intro-poster{grid-template-columns:minmax(0,1fr) minmax(0,1.7fr)}.intro-go span:last-child{display:none}.intro-copy{gap:6px}}
+.intro-plain .intro-poster{grid-template-columns:minmax(0,1fr)}
+.intro-plain .intro-copy{padding:clamp(18px,5vw,48px);border-left:4px solid var(--green)}
+.intro-plain .intro-line{font-size:clamp(1.2rem,3.4vw,2rem);max-width:18em}
+@media (max-width:480px){.intro-plain .intro-go span:last-child{display:inline}}
